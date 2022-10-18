@@ -1,5 +1,5 @@
 //
-//  SearchViewController.swift
+//  FavouritesViewController.swift
 //  Jobs
 //
 //  Created by Renat Murtazin on 18.10.2022.
@@ -7,16 +7,15 @@
 
 import UIKit
 
-class SearchViewController: UIViewController {
+class FavouritesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        view.backgroundColor = .systemPurple
+        view.backgroundColor = .brown
     }
     
-
     /*
     // MARK: - Navigation
 

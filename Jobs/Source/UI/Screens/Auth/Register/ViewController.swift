@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  AuthRegisterViewController.swift
 //  Jobs
 //
 //  Created by Renat Murtazin on 17.10.2022.
@@ -7,9 +7,9 @@
 
 import UIKit
 
-final class ViewController: UIViewController {
+final class AuthRegisterViewController: UIViewController {
     
-    var didSendEventClosure: ((ViewController.Event) -> Void)?
+    var didSendEventClosure: ((AuthRegisterViewController.Event) -> Void)?
     
     private let button: UIButton = {
         let button = UIButton()
@@ -40,7 +40,7 @@ final class ViewController: UIViewController {
     }
 }
 
-extension ViewController {
+extension AuthRegisterViewController {
     enum Event {
         case login
     }

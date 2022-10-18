@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		993114BDE4795BCE46B9BDA6 /* Pods_Jobs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 783B0B705607F35E4BA28AE4 /* Pods_Jobs.framework */; };
 		A249B56828FEF42B00B0F0DF /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A249B56728FEF42B00B0F0DF /* SearchCoordinator.swift */; };
 		A249B56A28FEF43900B0F0DF /* FavouritesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A249B56928FEF43900B0F0DF /* FavouritesCoordinator.swift */; };
 		A249B56C28FF2F4C00B0F0DF /* ICoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A249B56B28FF2F4C00B0F0DF /* ICoordinator.swift */; };
@@ -24,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		67489DC3B888F0229EE9FC10 /* Pods-Jobs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jobs.release.xcconfig"; path = "Target Support Files/Pods-Jobs/Pods-Jobs.release.xcconfig"; sourceTree = "<group>"; };
+		783B0B705607F35E4BA28AE4 /* Pods_Jobs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jobs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A249B56728FEF42B00B0F0DF /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
 		A249B56928FEF43900B0F0DF /* FavouritesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesCoordinator.swift; sourceTree = "<group>"; };
 		A249B56B28FF2F4C00B0F0DF /* ICoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICoordinator.swift; sourceTree = "<group>"; };
@@ -40,6 +43,7 @@
 		A2F94B5A28FD710D0010FF47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A2F94B5D28FD710D0010FF47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A2F94B5F28FD710D0010FF47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3F3A284384B3A880C332A42 /* Pods-Jobs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jobs.debug.xcconfig"; path = "Target Support Files/Pods-Jobs/Pods-Jobs.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,12 +51,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				993114BDE4795BCE46B9BDA6 /* Pods_Jobs.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		213868F405A3FA4D7295F769 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D3F3A284384B3A880C332A42 /* Pods-Jobs.debug.xcconfig */,
+				67489DC3B888F0229EE9FC10 /* Pods-Jobs.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		25059DF4A7730C856EDD813E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				783B0B705607F35E4BA28AE4 /* Pods_Jobs.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A249B56D28FF311000B0F0DF /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -90,9 +112,7 @@
 		A249B57328FF355F00B0F0DF /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				A2F94B5528FD710B0010FF47 /* ViewController.swift */,
-				A24DEC3028FEED09007B1BA1 /* SearchViewController.swift */,
-				A24DEC3228FEED14007B1BA1 /* FavouritesViewController.swift */,
+				A249B57528FF373200B0F0DF /* Screens */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -104,13 +124,39 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		A249B57528FF373200B0F0DF /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				A24DEC3028FEED09007B1BA1 /* SearchViewController.swift */,
+				A24DEC3228FEED14007B1BA1 /* FavouritesViewController.swift */,
+				A249B57628FF374200B0F0DF /* Auth */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		A249B57628FF374200B0F0DF /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				A249B57828FF377A00B0F0DF /* Register */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		A249B57828FF377A00B0F0DF /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				A2F94B5528FD710B0010FF47 /* ViewController.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
 		A24DEC2528FDDA11007B1BA1 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				A249B57428FF358F00B0F0DF /* Extensions */,
-				A249B57328FF355F00B0F0DF /* UI */,
 				A249B56D28FF311000B0F0DF /* Common */,
 				A24DEC2828FEAB8F007B1BA1 /* Coordinator */,
+				A249B57428FF358F00B0F0DF /* Extensions */,
+				A249B57328FF355F00B0F0DF /* UI */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -157,6 +203,8 @@
 			children = (
 				A2F94B5028FD710B0010FF47 /* Jobs */,
 				A2F94B4F28FD710B0010FF47 /* Products */,
+				213868F405A3FA4D7295F769 /* Pods */,
+				25059DF4A7730C856EDD813E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -186,9 +234,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A2F94B6228FD710D0010FF47 /* Build configuration list for PBXNativeTarget "Jobs" */;
 			buildPhases = (
+				EBFC4FFF89FC283AC8BAAAFA /* [CP] Check Pods Manifest.lock */,
 				A2F94B4A28FD710B0010FF47 /* Sources */,
 				A2F94B4B28FD710B0010FF47 /* Frameworks */,
 				A2F94B4C28FD710B0010FF47 /* Resources */,
+				A249B57C28FF3F7800B0F0DF /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -243,6 +293,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A249B57C28FF3F7800B0F0DF /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+		EBFC4FFF89FC283AC8BAAAFA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Jobs-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A2F94B4A28FD710B0010FF47 /* Sources */ = {
@@ -394,6 +486,7 @@
 		};
 		A2F94B6328FD710D0010FF47 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D3F3A284384B3A880C332A42 /* Pods-Jobs.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -425,6 +518,7 @@
 		};
 		A2F94B6428FD710D0010FF47 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67489DC3B888F0229EE9FC10 /* Pods-Jobs.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

@@ -36,7 +36,7 @@ final class AuthCoordinator: IAuthCoordinator {
     }
     
     func runRegisterVC() {
-        let registerVC = ViewController()
+        let registerVC = AuthRegisterViewController()
         registerVC.didSendEventClosure = { [weak self] _ in
             self?.finish()
         }

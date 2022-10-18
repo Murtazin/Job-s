@@ -15,7 +15,6 @@ protocol IAppCoordinator: ICoordinator {
 final class AppCoordinator: IAppCoordinator {
     
     // MARK: - Properties
-    
     weak var finishDelegate: ICoordinatorFinishDelegate?
     
     var navigationController: UINavigationController
@@ -56,7 +55,6 @@ final class AppCoordinator: IAppCoordinator {
 extension AppCoordinator: ICoordinatorFinishDelegate {
     func childCoordinatorFinishedFlow(childCoordinator: ICoordinator) {
         childCoordinators = childCoordinators.filter({ $0.type != childCoordinator.type })
-        
         switch childCoordinator.type {
         case .auth:
             navigationController.viewControllers.removeAll()
