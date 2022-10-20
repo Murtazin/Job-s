@@ -7,5 +7,6 @@ target 'Jobs' do
 
   # Pods for Jobs
 	pod 'SwiftLint'
+	pod 'SnapKit'
 
 end

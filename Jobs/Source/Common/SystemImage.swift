@@ -10,4 +10,6 @@ import UIKit
 final class SystemImage {
     static let searchTabBarItemImage = UIImage(systemName: "magnifyingglass")
     static let favouritesTabBarItemImage = UIImage(systemName: "heart")
+    static let hidePasswordImage = UIImage(systemName: "eye.slash")
+    static let showPasswordImage = UIImage(systemName: "eye")
 }
