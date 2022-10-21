@@ -30,7 +30,7 @@ final class AuthLoginViewController: UIViewController {
         return welcomeLabel
     }()
     
-    private lazy var emailTextField: UITextField = {
+    private lazy var emailTextField: AuthTextField = {
         let leftViewImage = SystemImage.emailTFLeftViewImage
         let emailTextField = AuthTextField(leftViewImage: leftViewImage, tfPlaceholder: "Почта")
         emailTextField.delegate = self
@@ -54,16 +54,7 @@ final class AuthLoginViewController: UIViewController {
         return forgotPasswordButton
     }()
     
-    private lazy var loginButton: UIButton = {
-        let loginButton = UIButton()
-        loginButton.setTitle("Войти", for: .normal)
-        loginButton.backgroundColor = .systemBlue
-        loginButton.layer.cornerRadius = 23
-        loginButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .medium)
-        loginButton.setTitleColor(.systemBackground, for: .normal)
-        loginButton.sizeToFit()
-        return loginButton
-    }()
+    private lazy var loginButton = BlueRoundedButton(title: "Войти")
     
     // MARK: - Initializers
     

@@ -30,7 +30,7 @@ final class AuthRegisterViewController: UIViewController {
         return createAccountLabel
     }()
     
-    private lazy var emailTextField: UITextField = {
+    private lazy var emailTextField: AuthTextField = {
         let leftViewImage = SystemImage.emailTFLeftViewImage
         let emailTextField = AuthTextField(leftViewImage: leftViewImage, tfPlaceholder: "Почта")
         emailTextField.delegate = self
@@ -45,16 +45,7 @@ final class AuthRegisterViewController: UIViewController {
         return passwordTextField
     }()
     
-    private lazy var registerButton: UIButton = {
-        let registerButton = UIButton()
-        registerButton.setTitle("Регистрация", for: .normal)
-        registerButton.backgroundColor = .systemBlue
-        registerButton.layer.cornerRadius = 23
-        registerButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .medium)
-        registerButton.setTitleColor(.systemBackground, for: .normal)
-        registerButton.sizeToFit()
-        return registerButton
-    }()
+    private lazy var registerButton = BlueRoundedButton(title: "Регистрация")
     
     private lazy var loginButton: UIButton = {
         let loginButton = UIButton()

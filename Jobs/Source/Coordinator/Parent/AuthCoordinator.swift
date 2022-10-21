@@ -32,7 +32,7 @@ final class AuthCoordinator: IAuthCoordinator {
     // MARK: - Internal
     
     func start(completionHandler: ((UIViewController) -> Void)?) {
-        runForgotPasswordVC()
+        runLoginVC()
     }
     
     func runRegisterVC() {
