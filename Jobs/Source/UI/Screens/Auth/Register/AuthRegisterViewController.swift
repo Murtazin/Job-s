@@ -92,14 +92,11 @@ private extension AuthRegisterViewController {
         view.addSubview(passwordTextField)
         view.addSubview(registerButton)
         view.addSubview(loginButton)
-    
-        let logoImageViewWidthHeightConstant: CGFloat = 130
-        let textFieldHeightConstant: CGFloat = 40
         
         logoImageView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide).inset(45)
             $0.centerX.equalToSuperview()
-            $0.height.width.equalTo(logoImageViewWidthHeightConstant)
+            $0.height.width.equalTo(Constant.logoImageViewWidthHeight)
         }
         
         createAccountLabel.snp.makeConstraints {
@@ -110,20 +107,20 @@ private extension AuthRegisterViewController {
         emailTextField.snp.makeConstraints {
             $0.top.equalTo(createAccountLabel).inset(70)
             $0.leading.trailing.equalToSuperview().inset(24)
-            $0.height.equalTo(textFieldHeightConstant)
+            $0.height.equalTo(Constant.authTextFieldHeightConstant)
         }
 
         passwordTextField.snp.makeConstraints {
             $0.top.equalTo(emailTextField).inset(55)
             $0.leading.trailing.equalToSuperview().inset(24)
-            $0.height.equalTo(textFieldHeightConstant)
+            $0.height.equalTo(Constant.authTextFieldHeightConstant)
         }
 
         registerButton.snp.makeConstraints {
             $0.top.equalTo(passwordTextField).inset(65)
             $0.centerX.equalToSuperview()
-            $0.height.equalTo(45)
-            $0.width.equalTo(320)
+            $0.height.equalTo(Constant.blueRoundedButtonHeight)
+            $0.width.equalTo(Constant.blueRoundedButtonWidth)
         }
         
         registerButton.addTarget(self, action: #selector(registerButtonHandler), for: .touchUpInside)

@@ -32,16 +32,19 @@ final class AuthCoordinator: IAuthCoordinator {
     // MARK: - Internal
     
     func start(completionHandler: ((UIViewController) -> Void)?) {
-        runLoginVC()
+        runRegisterVC()
     }
     
     func runRegisterVC() {
         let registerVC = AuthRegisterViewController { [weak self] event in
+            guard let self = self else {
+                return
+            }
             switch event {
             case .register:
-                self?.finish()
+                self.finish()
             case .login:
-                self?.runLoginVC()
+                self.runLoginVC()
             }
         }
         navigationController.pushViewController(registerVC, animated: true)

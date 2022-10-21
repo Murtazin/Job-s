@@ -36,6 +36,15 @@ final class AuthForgotPasswordViewController: UIViewController {
         return enterEmailAddressLabel
     }()
     
+    private lazy var emailTextField: AuthTextField = {
+        let leftViewImage = SystemImage.emailTFLeftViewImage
+        let emailTF = AuthTextField(leftViewImage: leftViewImage, tfPlaceholder: "Почта")
+        emailTF.delegate = self
+        return emailTF
+    }()
+    
+    private lazy var continueButton = BlueRoundedButton(title: "Продолжить")
+    
     // MARK: - Life cycle
     
     override func viewDidLoad() {
@@ -55,13 +64,13 @@ private extension AuthForgotPasswordViewController {
         view.addSubview(logoImageView)
         view.addSubview(accessRecoveryLabel)
         view.addSubview(enterEmailAddressLabel)
-        
-        let logoImageViewWidthHeightConstant: CGFloat = 130
+        view.addSubview(emailTextField)
+        view.addSubview(continueButton)
         
         logoImageView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide).inset(45)
             $0.centerX.equalToSuperview()
-            $0.height.width.equalTo(logoImageViewWidthHeightConstant)
+            $0.height.width.equalTo(Constant.logoImageViewWidthHeight)
         }
         
         accessRecoveryLabel.snp.makeConstraints {
@@ -70,8 +79,35 @@ private extension AuthForgotPasswordViewController {
         }
         
         enterEmailAddressLabel.snp.makeConstraints {
-            $0.top.equalTo(accessRecoveryLabel).inset(65)
+            $0.top.equalTo(accessRecoveryLabel).inset(75)
             $0.leading.trailing.equalToSuperview().inset(16)
         }
+        
+        emailTextField.snp.makeConstraints {
+            $0.top.equalTo(enterEmailAddressLabel).inset(75)
+            $0.leading.trailing.equalToSuperview().inset(24)
+            $0.height.equalTo(Constant.authTextFieldHeightConstant)
+        }
+        
+        continueButton.snp.makeConstraints {
+            $0.top.equalTo(emailTextField).inset(75)
+            $0.centerX.equalToSuperview()
+            $0.height.equalTo(Constant.blueRoundedButtonHeight)
+            $0.width.equalTo(Constant.blueRoundedButtonWidth)
+        }
+    }
+}
+
+// MARK: - UITextFieldDelegate
+
+extension AuthForgotPasswordViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.layer.borderColor = UIColor.systemBlue.cgColor
+        textField.tintColor = .systemBlue
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.layer.borderColor = UIColor.systemGray5.cgColor
+        textField.tintColor = .systemGray3
     }
 }

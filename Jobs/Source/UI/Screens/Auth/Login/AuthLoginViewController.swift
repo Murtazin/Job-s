@@ -90,14 +90,11 @@ private extension AuthLoginViewController {
         view.addSubview(passwordTextField)
         view.addSubview(forgotPasswordButton)
         view.addSubview(loginButton)
-    
-        let logoImageViewWidthHeightConstant: CGFloat = 130
-        let textFieldHeightConstant: CGFloat = 40
         
         logoImageView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide).inset(45)
             $0.centerX.equalToSuperview()
-            $0.height.width.equalTo(logoImageViewWidthHeightConstant)
+            $0.height.width.equalTo(Constant.logoImageViewWidthHeight)
         }
         
         welcomeLabel.snp.makeConstraints {
@@ -108,13 +105,13 @@ private extension AuthLoginViewController {
         emailTextField.snp.makeConstraints {
             $0.top.equalTo(welcomeLabel).inset(70)
             $0.leading.trailing.equalToSuperview().inset(24)
-            $0.height.equalTo(textFieldHeightConstant)
+            $0.height.equalTo(Constant.authTextFieldHeightConstant)
         }
 
         passwordTextField.snp.makeConstraints {
             $0.top.equalTo(emailTextField).inset(55)
             $0.leading.trailing.equalToSuperview().inset(24)
-            $0.height.equalTo(textFieldHeightConstant)
+            $0.height.equalTo(Constant.authTextFieldHeightConstant)
         }
         
         forgotPasswordButton.addTarget(self, action: #selector(forgotPasswordButtonHandler), for: .touchUpInside)
@@ -131,8 +128,8 @@ private extension AuthLoginViewController {
         loginButton.snp.makeConstraints {
             $0.top.equalTo(forgotPasswordButton).inset(35)
             $0.centerX.equalToSuperview()
-            $0.height.equalTo(45)
-            $0.width.equalTo(320)
+            $0.height.equalTo(Constant.blueRoundedButtonHeight)
+            $0.width.equalTo(Constant.blueRoundedButtonWidth)
         }
     }
     
