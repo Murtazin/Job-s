@@ -18,6 +18,8 @@
 		A24DEC2F28FEC6B5007B1BA1 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24DEC2E28FEC6B4007B1BA1 /* MainCoordinator.swift */; };
 		A24DEC3128FEED09007B1BA1 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24DEC3028FEED09007B1BA1 /* SearchViewController.swift */; };
 		A24DEC3328FEED14007B1BA1 /* FavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24DEC3228FEED14007B1BA1 /* FavouritesViewController.swift */; };
+		A27367D02902D05D00F62F29 /* AuthForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27367CF2902D05D00F62F29 /* AuthForgotPasswordViewController.swift */; };
+		A2E6DE582902720300269339 /* AuthLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E6DE572902720300269339 /* AuthLoginViewController.swift */; };
 		A2F94B5228FD710B0010FF47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F94B5128FD710B0010FF47 /* AppDelegate.swift */; };
 		A2F94B5428FD710B0010FF47 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F94B5328FD710B0010FF47 /* SceneDelegate.swift */; };
 		A2F94B5B28FD710D0010FF47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2F94B5A28FD710D0010FF47 /* Assets.xcassets */; };
@@ -37,6 +39,8 @@
 		A24DEC2E28FEC6B4007B1BA1 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		A24DEC3028FEED09007B1BA1 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		A24DEC3228FEED14007B1BA1 /* FavouritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewController.swift; sourceTree = "<group>"; };
+		A27367CF2902D05D00F62F29 /* AuthForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		A2E6DE572902720300269339 /* AuthLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthLoginViewController.swift; sourceTree = "<group>"; };
 		A2F94B4E28FD710B0010FF47 /* Jobs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jobs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2F94B5128FD710B0010FF47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A2F94B5328FD710B0010FF47 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +141,8 @@
 		A249B57628FF374200B0F0DF /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				A27367CE2902D02800F62F29 /* ForgotPassword */,
+				A27367CD2902D01700F62F29 /* Login */,
 				A249B57828FF377A00B0F0DF /* Register */,
 			);
 			path = Auth;
@@ -196,6 +202,22 @@
 				A2F94B5F28FD710D0010FF47 /* Info.plist */,
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		A27367CD2902D01700F62F29 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				A2E6DE572902720300269339 /* AuthLoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		A27367CE2902D02800F62F29 /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+				A27367CF2902D05D00F62F29 /* AuthForgotPasswordViewController.swift */,
+			);
+			path = ForgotPassword;
 			sourceTree = "<group>";
 		};
 		A2F94B4528FD710B0010FF47 = {
@@ -367,10 +389,12 @@
 				A249B56828FEF42B00B0F0DF /* SearchCoordinator.swift in Sources */,
 				A249B57E28FFE5B100B0F0DF /* AuthRegisterViewController.swift in Sources */,
 				A24DEC2B28FEB27E007B1BA1 /* AppCoordinator.swift in Sources */,
+				A27367D02902D05D00F62F29 /* AuthForgotPasswordViewController.swift in Sources */,
 				A249B56F28FF314800B0F0DF /* SystemImage.swift in Sources */,
 				A2F94B5228FD710B0010FF47 /* AppDelegate.swift in Sources */,
 				A2F94B5428FD710B0010FF47 /* SceneDelegate.swift in Sources */,
 				A249B56C28FF2F4C00B0F0DF /* ICoordinator.swift in Sources */,
+				A2E6DE582902720300269339 /* AuthLoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

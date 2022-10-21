@@ -7,13 +7,13 @@
 
 import SnapKit
 
-final class AuthRegisterViewController: UIViewController {
+final class AuthLoginViewController: UIViewController {
     
     // MARK: - Private properties
     
     private let passwordTFRightViewImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 23, height: 17))
     
-    private var didSendEventClosure: ((AuthRegisterViewController.Event) -> Void)?
+    private var didSendEventClosure: ((AuthLoginViewController.Event) -> Void)?
     
     // MARK: - UI
     
@@ -24,12 +24,12 @@ final class AuthRegisterViewController: UIViewController {
         return logoImageView
     }()
     
-    private lazy var createAccountLabel: UILabel = {
-        let createAccountLabel = UILabel()
-        createAccountLabel.text = "Создать аккаунт"
-        createAccountLabel.textColor = .label
-        createAccountLabel.font = UIFont.systemFont(ofSize: 32, weight: .semibold)
-        return createAccountLabel
+    private lazy var welcomeLabel: UILabel = {
+        let welcomeLabel = UILabel()
+        welcomeLabel.text = "Добро пожаловать"
+        welcomeLabel.textColor = .label
+        welcomeLabel.font = UIFont.systemFont(ofSize: 32, weight: .semibold)
+        return welcomeLabel
     }()
     
     private lazy var emailTextField: UITextField = {
@@ -105,20 +105,18 @@ final class AuthRegisterViewController: UIViewController {
         return passwordTF
     }()
     
-    private lazy var registerButton: UIButton = {
-        let registerButton = UIButton()
-        registerButton.setTitle("Регистрация", for: .normal)
-        registerButton.backgroundColor = .systemBlue
-        registerButton.layer.cornerRadius = 23
-        registerButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .medium)
-        registerButton.setTitleColor(.systemBackground, for: .normal)
-        registerButton.sizeToFit()
-        return registerButton
+    private lazy var forgotPasswordButton: UIButton = {
+        let forgotPasswordButton = UIButton()
+        forgotPasswordButton.setTitle("Забыли пароль?", for: .normal)
+        forgotPasswordButton.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        forgotPasswordButton.setTitleColor(.systemBlue, for: .normal)
+        forgotPasswordButton.sizeToFit()
+        return forgotPasswordButton
     }()
     
     private lazy var loginButton: UIButton = {
         let loginButton = UIButton()
-        loginButton.setTitle("Вход", for: .normal)
+        loginButton.setTitle("Войти", for: .normal)
         loginButton.backgroundColor = .systemBlue
         loginButton.layer.cornerRadius = 23
         loginButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .medium)
@@ -129,7 +127,7 @@ final class AuthRegisterViewController: UIViewController {
     
     // MARK: - Initializers
     
-    init(didSendEventClosure: ((AuthRegisterViewController.Event) -> Void)? = nil) {
+    init(didSendEventClosure: ((AuthLoginViewController.Event) -> Void)? = nil) {
         self.didSendEventClosure = didSendEventClosure
         
         super.init(nibName: nil, bundle: nil)
@@ -150,16 +148,16 @@ final class AuthRegisterViewController: UIViewController {
 
 // MARK: - Private
 
-private extension AuthRegisterViewController {
+private extension AuthLoginViewController {
     
     func setupUI() {
         view.backgroundColor = .systemBackground
         
         view.addSubview(logoImageView)
-        view.addSubview(createAccountLabel)
+        view.addSubview(welcomeLabel)
         view.addSubview(emailTextField)
         view.addSubview(passwordTextField)
-        view.addSubview(registerButton)
+        view.addSubview(forgotPasswordButton)
         view.addSubview(loginButton)
         
         passwordTFRightViewImageView.image = SystemImage.hidePasswordImage
@@ -173,13 +171,13 @@ private extension AuthRegisterViewController {
             $0.height.width.equalTo(logoImageViewWidthHeightConstant)
         }
         
-        createAccountLabel.snp.makeConstraints {
+        welcomeLabel.snp.makeConstraints {
             $0.top.equalTo(logoImageView).inset(150)
             $0.centerX.equalToSuperview()
         }
         
         emailTextField.snp.makeConstraints {
-            $0.top.equalTo(createAccountLabel).inset(70)
+            $0.top.equalTo(welcomeLabel).inset(70)
             $0.leading.trailing.equalToSuperview().inset(24)
             $0.height.equalTo(textFieldHeightConstant)
         }
@@ -189,30 +187,30 @@ private extension AuthRegisterViewController {
             $0.leading.trailing.equalToSuperview().inset(24)
             $0.height.equalTo(textFieldHeightConstant)
         }
-
-        registerButton.snp.makeConstraints {
-            $0.top.equalTo(passwordTextField).inset(65)
-            $0.centerX.equalToSuperview()
-            $0.height.equalTo(45)
-            $0.width.equalTo(320)
-        }
         
-        registerButton.addTarget(self, action: #selector(registerButtonHandler), for: .touchUpInside)
+        forgotPasswordButton.addTarget(self, action: #selector(forgotPasswordButtonHandler), for: .touchUpInside)
+        
+        forgotPasswordButton.snp.makeConstraints {
+            $0.top.equalTo(passwordTextField).inset(60)
+            $0.centerX.equalToSuperview()
+            $0.height.equalTo(15)
+            $0.width.equalTo(170)
+        }
+
+        loginButton.addTarget(self, action: #selector(loginButtonHandler), for: .touchUpInside)
         
         loginButton.snp.makeConstraints {
-            $0.top.equalTo(registerButton).inset(65)
+            $0.top.equalTo(forgotPasswordButton).inset(35)
             $0.centerX.equalToSuperview()
             $0.height.equalTo(45)
             $0.width.equalTo(320)
         }
-        
-        loginButton.addTarget(self, action: #selector(loginButtonHandler), for: .touchUpInside)
     }
     
     // MARK: - Objc
     
-    @objc func registerButtonHandler(sender: UIButton) {
-        didSendEventClosure?(.register)
+    @objc func loginButtonHandler(sender: UIButton) {
+        didSendEventClosure?(.login)
     }
     
     @objc func showHidePasswordHandler(sender: UIButton) {
@@ -220,14 +218,14 @@ private extension AuthRegisterViewController {
         passwordTFRightViewImageView.image = passwordTextField.isSecureTextEntry ? SystemImage.showPasswordImage : SystemImage.hidePasswordImage
     }
     
-    @objc func loginButtonHandler(sender: UIButton) {
-        didSendEventClosure?(.login)
+    @objc func forgotPasswordButtonHandler(sender: UIButton) {
+        print("forgot password pressed")
     }
 }
 
 // MARK: - UITextFieldDelegate
 
-extension AuthRegisterViewController: UITextFieldDelegate {
+extension AuthLoginViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.layer.borderColor = UIColor.systemBlue.cgColor
         textField.tintColor = .systemBlue
@@ -241,9 +239,8 @@ extension AuthRegisterViewController: UITextFieldDelegate {
 
 #warning("TODO: Add more events")
 
-extension AuthRegisterViewController {
+extension AuthLoginViewController {
     enum Event {
-        case register
         case login
     }
 }
