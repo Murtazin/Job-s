@@ -108,9 +108,8 @@ final class AuthRegisterViewController: UIViewController {
     private lazy var registerButton: UIButton = {
         let registerButton = UIButton()
         registerButton.setTitle("Регистрация", for: .normal)
-//        registerButton.tintColor = .systemBlue
         registerButton.backgroundColor = .systemBlue
-        registerButton.layer.cornerRadius = 30
+        registerButton.layer.cornerRadius = 23
         registerButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .medium)
         registerButton.setTitleColor(.systemBackground, for: .normal)
         registerButton.sizeToFit()
@@ -149,7 +148,7 @@ private extension AuthRegisterViewController {
         view.addSubview(createAccountLabel)
         view.addSubview(emailTextField)
         view.addSubview(passwordTextField)
-//        view.addSubview(registerButton)
+        view.addSubview(registerButton)
         
         passwordTFRightViewImageView.image = SystemImage.hidePasswordImage
     
@@ -157,7 +156,7 @@ private extension AuthRegisterViewController {
         let textFieldHeightConstant: CGFloat = 40
         
         logoImageView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide).inset(50)
+            $0.top.equalTo(view.safeAreaLayoutGuide).inset(45)
             $0.centerX.equalToSuperview()
             $0.height.width.equalTo(logoImageViewWidthHeightConstant)
         }
@@ -179,12 +178,12 @@ private extension AuthRegisterViewController {
             $0.height.equalTo(textFieldHeightConstant)
         }
 
-//        registerButton.snp.makeConstraints {
-//            $0.top.equalTo(passwordTextField).inset(50)
-//            $0.centerX.equalToSuperview()
-//            $0.height.equalTo(45)
-//            $0.width.equalTo(320)
-//        }
+        registerButton.snp.makeConstraints {
+            $0.top.equalTo(passwordTextField).inset(65)
+            $0.centerX.equalToSuperview()
+            $0.height.equalTo(45)
+            $0.width.equalTo(320)
+        }
         
         registerButton.addTarget(self, action: #selector(registerButtonHandler), for: .touchUpInside)
     }
