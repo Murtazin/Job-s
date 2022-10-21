@@ -26,6 +26,16 @@ final class AuthForgotPasswordViewController: UIViewController {
         return accessRecoveryLabel
     }()
     
+    private lazy var enterEmailAddressLabel: UILabel = {
+        let enterEmailAddressLabel = UILabel()
+        enterEmailAddressLabel.text = "Введите адрес электронной почты, привязанный к аккаунту"
+        enterEmailAddressLabel.numberOfLines = 2
+        enterEmailAddressLabel.textColor = .label
+        enterEmailAddressLabel.font = UIFont.systemFont(ofSize: 14)
+        enterEmailAddressLabel.textAlignment = .center
+        return enterEmailAddressLabel
+    }()
+    
     // MARK: - Life cycle
     
     override func viewDidLoad() {
@@ -44,6 +54,7 @@ private extension AuthForgotPasswordViewController {
         
         view.addSubview(logoImageView)
         view.addSubview(accessRecoveryLabel)
+        view.addSubview(enterEmailAddressLabel)
         
         let logoImageViewWidthHeightConstant: CGFloat = 130
         
@@ -56,6 +67,11 @@ private extension AuthForgotPasswordViewController {
         accessRecoveryLabel.snp.makeConstraints {
             $0.top.equalTo(logoImageView).inset(150)
             $0.centerX.equalToSuperview()
+        }
+        
+        enterEmailAddressLabel.snp.makeConstraints {
+            $0.top.equalTo(accessRecoveryLabel).inset(65)
+            $0.leading.trailing.equalToSuperview().inset(16)
         }
     }
 }

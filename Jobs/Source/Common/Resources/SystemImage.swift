@@ -12,4 +12,6 @@ final class SystemImage {
     static let favouritesTabBarItemImage = UIImage(systemName: "heart")
     static let hidePasswordImage = UIImage(systemName: "eye.slash")
     static let showPasswordImage = UIImage(systemName: "eye")
+    static let passwordTFLeftViewImage = UIImage(systemName: "lock")
+    static let emailTFLeftViewImage = UIImage(systemName: "envelope")
 }

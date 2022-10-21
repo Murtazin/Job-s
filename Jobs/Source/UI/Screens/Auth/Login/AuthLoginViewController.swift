@@ -11,8 +11,6 @@ final class AuthLoginViewController: UIViewController {
     
     // MARK: - Private properties
     
-    private let passwordTFRightViewImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 23, height: 17))
-    
     private var didSendEventClosure: ((AuthLoginViewController.Event) -> Void)?
     
     // MARK: - UI
@@ -33,76 +31,18 @@ final class AuthLoginViewController: UIViewController {
     }()
     
     private lazy var emailTextField: UITextField = {
-        let emailTF = UITextField()
-        
-        emailTF.placeholder = "Почта"
-        
-        emailTF.layer.cornerRadius = 10
-        emailTF.layer.borderWidth = 1.0
-        
-        emailTF.borderStyle = .roundedRect
-        
-        emailTF.textColor = .label
-        emailTF.tintColor = .systemGray3
-        emailTF.backgroundColor = .systemBackground
-        emailTF.layer.borderColor = UIColor.systemGray5.cgColor
-        
-        let leftViewImageView = UIImageView(frame: CGRect(x: 15, y: 0, width: 15, height: 15))
-        let leftViewImage =  UIImage(systemName: "envelope")
-        leftViewImageView.image = leftViewImage
-        leftViewImageView.contentMode = .scaleAspectFill
-        
-        let leftView = UIView(frame: CGRect(x: 0, y: 0, width: 33, height: 15))
-        leftView.addSubview(leftViewImageView)
-        
-        emailTF.leftView = leftView
-        emailTF.leftViewMode = .always
-        
-        emailTF.clipsToBounds = true
-        emailTF.delegate = self
-        return emailTF
+        let leftViewImage = SystemImage.emailTFLeftViewImage
+        let emailTextField = AuthTextField(leftViewImage: leftViewImage, tfPlaceholder: "Почта")
+        emailTextField.delegate = self
+        return emailTextField
     }()
     
-    private lazy var passwordTextField: UITextField = {
-        let passwordTF = UITextField()
-        
-        passwordTF.placeholder = "Пароль"
-        
-        passwordTF.layer.cornerRadius = 10
-        passwordTF.layer.borderWidth = 1.0
-        
-        passwordTF.borderStyle = .roundedRect
-        
-        passwordTF.textColor = .label
-        passwordTF.tintColor = .systemGray3
-        passwordTF.backgroundColor = .systemBackground
-        passwordTF.layer.borderColor = UIColor.systemGray5.cgColor
-    
-        let leftViewImageView = UIImageView(frame: CGRect(x: 13, y: 0, width: 20, height: 15))
-        let leftViewImage = UIImage(systemName: "lock")
-        leftViewImageView.image = leftViewImage
-        leftViewImageView.contentMode = .scaleAspectFill
-        
-        let leftView = UIView(frame: CGRect(x: 0, y: 0, width: 33, height: 15))
-        leftView.addSubview(leftViewImageView)
-        
-        passwordTF.leftView = leftView
-        passwordTF.leftViewMode = .always
-        
-        let rightViewButton = UIButton(type: .custom)
-        rightViewButton.frame = CGRect(x: 0, y: 0, width: 23, height: 17)
-        rightViewButton.addTarget(self, action: #selector(showHidePasswordHandler), for: .touchUpInside)
-        
-        let rightView = UIView(frame: CGRect(x: 0, y: 0, width: 33, height: 17))
-        rightView.addSubview(passwordTFRightViewImageView)
-        rightView.addSubview(rightViewButton)
-        
-        passwordTF.rightView = rightView
-        passwordTF.rightViewMode = .always
-        
-        passwordTF.clipsToBounds = true
-        passwordTF.delegate = self
-        return passwordTF
+    private lazy var passwordTextField: AuthTextField = {
+        let leftViewImage = SystemImage.passwordTFLeftViewImage
+        let rightViewImage = SystemImage.hidePasswordImage
+        let passwordTextField = AuthTextField(leftViewImage: leftViewImage, rightViewImage: rightViewImage, tfPlaceholder: "Пароль")
+        passwordTextField.delegate = self
+        return passwordTextField
     }()
     
     private lazy var forgotPasswordButton: UIButton = {
@@ -159,8 +99,6 @@ private extension AuthLoginViewController {
         view.addSubview(passwordTextField)
         view.addSubview(forgotPasswordButton)
         view.addSubview(loginButton)
-        
-        passwordTFRightViewImageView.image = SystemImage.hidePasswordImage
     
         let logoImageViewWidthHeightConstant: CGFloat = 130
         let textFieldHeightConstant: CGFloat = 40
@@ -211,11 +149,6 @@ private extension AuthLoginViewController {
     
     @objc func loginButtonHandler(sender: UIButton) {
         didSendEventClosure?(.login)
-    }
-    
-    @objc func showHidePasswordHandler(sender: UIButton) {
-        passwordTextField.isSecureTextEntry.toggle()
-        passwordTFRightViewImageView.image = passwordTextField.isSecureTextEntry ? SystemImage.showPasswordImage : SystemImage.hidePasswordImage
     }
     
     @objc func forgotPasswordButtonHandler(sender: UIButton) {
