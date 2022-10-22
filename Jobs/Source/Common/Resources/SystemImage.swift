@@ -14,4 +14,6 @@ final class SystemImage {
     static let showPasswordImage = UIImage(systemName: "eye")
     static let passwordTFLeftViewImage = UIImage(systemName: "lock")
     static let emailTFLeftViewImage = UIImage(systemName: "envelope")
+    static let searchBarFiltersImage = UIImage(systemName: "line.3.horizontal.circle")
+    static let addToFavouritesImage = UIImage(systemName: "heart")
 }

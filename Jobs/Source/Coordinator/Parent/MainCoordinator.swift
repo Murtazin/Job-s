@@ -94,10 +94,8 @@ final class MainCoordinator: IMainCoordinator {
     private func setupTabBarController(withTabBarControllers tabBarControllers: [UIViewController]) {
         tabBarController.setViewControllers(tabBarControllers, animated: true)
         tabBarController.selectedIndex = TabBarPage.search.pageOrderNumber()
-        tabBarController.tabBar.isTranslucent = false
+        tabBarController.tabBar.tintColor = .systemBlue
         tabBarController.tabBar.backgroundColor = .systemBackground
-        tabBarController.tabBar.unselectedItemTintColor = .systemPurple
-        tabBarController.tabBar.tintColor = .orange
         
         navigationController.viewControllers = [tabBarController]
     }
@@ -116,6 +114,7 @@ final class MainCoordinator: IMainCoordinator {
             searchCoordinator.finishDelegate = self
             searchCoordinator.start { viewController in
                 navigationController.pushViewController(viewController, animated: true)
+                navigationController.navigationBar.prefersLargeTitles = true
             }
             childCoordinators.append(searchCoordinator)
         case .favourites:

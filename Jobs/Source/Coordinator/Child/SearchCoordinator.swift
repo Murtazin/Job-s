@@ -40,7 +40,7 @@ final class SearchCoordinator: ISearchCoordinator {
     }
     
     func runSearchVC() -> UIViewController {
-        let searchVC = SearchViewController()
+        let searchVC = SearchMainViewController()
         return searchVC
     }
 }
