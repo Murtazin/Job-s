@@ -101,7 +101,7 @@ final class VacancyTableViewCell: UITableViewCell {
         respondButton.setTitleColor(.systemBackground, for: .normal)
         respondButton.backgroundColor = .systemBlue
         respondButton.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: .medium)
-        respondButton.layer.cornerRadius = 13
+        respondButton.layer.cornerRadius = 15
         respondButton.sizeToFit()
         return respondButton
     }()

@@ -29,8 +29,8 @@ final class SearchMainViewController: UIViewController {
         let tableView = UITableView()
         tableView.showsVerticalScrollIndicator = false
         tableView.separatorStyle = .none
-        tableView.rowHeight = 240
-        tableView.estimatedRowHeight = 240
+        tableView.rowHeight = 250
+        tableView.estimatedRowHeight = 250
         tableView.delegate = self
         tableView.dataSource = self
         return tableView
@@ -80,6 +80,7 @@ extension SearchMainViewController: UITableViewDelegate, UITableViewDataSource {
                                                        for: indexPath) as? VacancyTableViewCell else {
             return UITableViewCell()
         }
+        cell.selectionStyle = .none
         return cell
     }
 }

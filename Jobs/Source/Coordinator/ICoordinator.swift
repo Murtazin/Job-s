@@ -13,6 +13,9 @@ enum CoordinatorType {
     case main
     case search
     case favourites
+    case responses
+    case messages
+    case profile
 }
 
 protocol ICoordinatorFinishDelegate: AnyObject {

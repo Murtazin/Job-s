@@ -10,6 +10,9 @@ import UIKit
 enum TabBarPage {
     case search
     case favourites
+    case responses
+    case messages
+    case profile
     
     init?(index: Int) {
         switch index {
@@ -17,6 +20,12 @@ enum TabBarPage {
             self = .search
         case 1:
             self = .favourites
+        case 2:
+            self = .responses
+        case 3:
+            self = .messages
+        case 4:
+            self = .profile
         default:
             return nil
         }
@@ -25,9 +34,15 @@ enum TabBarPage {
     func pageTitleValue() -> String {
         switch self {
         case .search:
-            return "Search"
+            return "Поиск"
         case .favourites:
-            return "Favourites"
+            return "Избранное"
+        case .responses:
+            return "Отклики"
+        case .messages:
+            return "Сообщения"
+        case .profile:
+            return "Профиль"
         }
     }
     
@@ -37,6 +52,12 @@ enum TabBarPage {
             return 0
         case .favourites:
             return 1
+        case .responses:
+            return 2
+        case .messages:
+            return 3
+        case .profile:
+            return 4
         }
     }
     
@@ -46,6 +67,12 @@ enum TabBarPage {
             return SystemImage.searchTabBarItemImage
         case .favourites:
             return SystemImage.favouritesTabBarItemImage
+        case .responses:
+            return SystemImage.responsesTabBarItemImage
+        case .messages:
+            return SystemImage.messagesTabBarItemImage
+        case .profile:
+            return SystemImage.profileTabBarItemImage
         }
     }
 }
@@ -81,7 +108,7 @@ final class MainCoordinator: IMainCoordinator {
     // MARK: - Internal
     
     func start(completionHandler: ((UIViewController) -> Void)?) {
-        let pages: [TabBarPage] = [.search, .favourites]
+        let pages: [TabBarPage] = [.search, .favourites, .responses, .messages, .profile]
             .sorted(by: { $0.pageOrderNumber() < $1.pageOrderNumber() })
         
         let controllers: [UINavigationController] = pages.map({ obtainTabBarController($0) })
@@ -124,6 +151,27 @@ final class MainCoordinator: IMainCoordinator {
                 navigationController.pushViewController(viewController, animated: true)
             }
             childCoordinators.append(favouritesCoordinator)
+        case .responses:
+            let responsesCoordinator: IResponsesCoordinator = ResponsesCoordinator(navigationController: navigationController)
+            responsesCoordinator.finishDelegate = self
+            responsesCoordinator.start { viewController in
+                navigationController.pushViewController(viewController, animated: true)
+            }
+            childCoordinators.append(responsesCoordinator)
+        case .messages:
+            let messagesCoordinator: IMessagesCoordinator = MessagesCoordinator(navigationController: navigationController)
+            messagesCoordinator.finishDelegate = self
+            messagesCoordinator.start { viewController in
+                navigationController.pushViewController(viewController, animated: true)
+            }
+            childCoordinators.append(messagesCoordinator)
+        case .profile:
+            let profileCoordinator: IProfileCoordinator = ProfileCoordinator(navigationController: navigationController)
+            profileCoordinator.finishDelegate = self
+            profileCoordinator.start { viewController in
+                navigationController.pushViewController(viewController, animated: true)
+            }
+            childCoordinators.append(profileCoordinator)
         }
         return navigationController
     }
