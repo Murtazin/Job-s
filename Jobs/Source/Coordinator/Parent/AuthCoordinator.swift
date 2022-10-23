@@ -15,6 +15,8 @@ final class AuthCoordinator: IAuthCoordinator {
     
     // MARK: - Properties
     
+    private var rootViewController: UIViewController?
+    
     weak var finishDelegate: ICoordinatorFinishDelegate?
     
     var navigationController: UINavigationController
@@ -47,6 +49,7 @@ final class AuthCoordinator: IAuthCoordinator {
                 self.runLoginVC()
             }
         }
+        rootViewController = registerVC
         navigationController.pushViewController(registerVC, animated: true)
     }
     
@@ -55,13 +58,39 @@ final class AuthCoordinator: IAuthCoordinator {
             switch event {
             case .login:
                 self?.finish()
+            case .forgotPassword:
+                self?.runForgotPasswordVC()
+            case .createAccount:
+                self?.popToRootVC()
             }
         }
         navigationController.pushViewController(loginVC, animated: true)
     }
     
     func runForgotPasswordVC() {
-        let forgotPasswordVC = AuthForgotPasswordViewController()
+        let forgotPasswordVC = AuthForgotPasswordViewController { [weak self] event in
+            switch event {
+            case .forgotPassword:
+                self?.presentEmailSentAC()
+            }
+        }
         navigationController.pushViewController(forgotPasswordVC, animated: true)
+    }
+    
+    func popToRootVC() {
+        guard let rootViewController = rootViewController else {
+            return
+        }
+        navigationController.popToViewController(rootViewController, animated: true)
+    }
+    
+    func presentEmailSentAC() {
+        let message = "Мы отправили письмо на указанный адрес электронной почты. Пожалуйста, перейдите по ссылке из письма для восстановления пароля."
+        let emailSentAC = UIAlertController(title: "Письмо отправлено", message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { [weak self] _ in
+            self?.popToRootVC()
+        }
+        emailSentAC.addAction(okAction)
+        navigationController.present(emailSentAC, animated: true)
     }
 }

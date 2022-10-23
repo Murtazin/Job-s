@@ -9,6 +9,10 @@ import UIKit
 
 final class AuthForgotPasswordViewController: UIViewController {
     
+    // MARK: - Private properties
+    
+    private var didSendEventClosure: ((AuthForgotPasswordViewController.Event) -> Void)?
+    
     // MARK: - UI
     
     private lazy var logoImageView: UIImageView = {
@@ -44,6 +48,18 @@ final class AuthForgotPasswordViewController: UIViewController {
     }()
     
     private lazy var continueButton = BlueRoundedButton(title: "Продолжить")
+    
+    // MARK: - Initializers
+    
+    init(didSendEventClosure: ((AuthForgotPasswordViewController.Event) -> Void)? = nil) {
+        self.didSendEventClosure = didSendEventClosure
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - Life cycle
     
@@ -89,12 +105,20 @@ private extension AuthForgotPasswordViewController {
             $0.height.equalTo(Constant.authTextFieldHeight)
         }
         
+        continueButton.addTarget(self, action: #selector(continueButtonHandler), for: .touchUpInside)
+        
         continueButton.snp.makeConstraints {
             $0.top.equalTo(emailTextField).inset(75)
             $0.centerX.equalToSuperview()
             $0.height.equalTo(Constant.blueRoundedButtonHeight)
             $0.width.equalTo(Constant.blueRoundedButtonWidth)
         }
+    }
+    
+    // MARK: - Objc
+    
+    @objc func continueButtonHandler(sender: UIButton) {
+        didSendEventClosure?(.forgotPassword)
     }
 }
 
@@ -109,5 +133,13 @@ extension AuthForgotPasswordViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         textField.layer.borderColor = UIColor.systemGray5.cgColor
         textField.tintColor = .systemGray3
+    }
+}
+
+// MARK: - Event
+
+extension AuthForgotPasswordViewController {
+    enum Event {
+        case forgotPassword
     }
 }

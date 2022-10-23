@@ -154,6 +154,8 @@ private extension AuthRegisterViewController {
             $0.leading.trailing.equalToSuperview().inset(50)
         }
         
+        accountExistView.loginDelegate = self
+        
         accountExistView.snp.makeConstraints {
             $0.top.equalTo(externalAuthButtonsStackView.snp.bottom).offset(30)
             $0.centerX.equalToSuperview()
@@ -200,7 +202,15 @@ extension AuthRegisterViewController: UITextFieldDelegate {
     }
 }
 
-#warning("TODO: Add more events")
+// MARK: - IAuthBottomCreateAccountButtonDelegate
+
+extension AuthRegisterViewController: IAuthBottomLoginButtonDelegate {
+    func loginButtonHandler() {
+        didSendEventClosure?(.login)
+    }
+}
+
+// MARK: - Event
 
 extension AuthRegisterViewController {
     enum Event {

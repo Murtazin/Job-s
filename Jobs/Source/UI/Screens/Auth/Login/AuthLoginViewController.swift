@@ -11,6 +11,12 @@ final class AuthLoginViewController: UIViewController {
     
     // MARK: - Private properties
     
+    private let externalAuthButtons: [ExternalAuthButton] = [
+        ExternalAuthButton(image: #imageLiteral(resourceName: "logo-icon"), selectedIndex: 0),
+        ExternalAuthButton(image: #imageLiteral(resourceName: "logo-icon"), selectedIndex: 1),
+        ExternalAuthButton(image: #imageLiteral(resourceName: "logo-icon"), selectedIndex: 2)
+    ]
+    
     private var didSendEventClosure: ((AuthLoginViewController.Event) -> Void)?
     
     // MARK: - UI
@@ -56,6 +62,19 @@ final class AuthLoginViewController: UIViewController {
     
     private lazy var loginButton = BlueRoundedButton(title: "Войти")
     
+    private lazy var continueWithView = ContinueWithView()
+    
+    private lazy var externalAuthButtonsStackView: UIStackView = {
+        let extAuthButtonsStackView = UIStackView(arrangedSubviews: externalAuthButtons)
+        extAuthButtonsStackView.alignment = .center
+        extAuthButtonsStackView.axis = .horizontal
+        extAuthButtonsStackView.spacing = 15
+        extAuthButtonsStackView.distribution = .equalSpacing
+        return extAuthButtonsStackView
+    }()
+    
+    private lazy var dontHaveAnAccountView = AuthBottomReferenceView(labelText: "Еще нет аккаунта?", buttonTitle: "Создать")
+    
     // MARK: - Initializers
     
     init(didSendEventClosure: ((AuthLoginViewController.Event) -> Void)? = nil) {
@@ -90,9 +109,12 @@ private extension AuthLoginViewController {
         view.addSubview(passwordTextField)
         view.addSubview(forgotPasswordButton)
         view.addSubview(loginButton)
+        view.addSubview(continueWithView)
+        view.addSubview(externalAuthButtonsStackView)
+        view.addSubview(dontHaveAnAccountView)
         
         logoImageView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide).inset(45)
+            $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.centerX.equalToSuperview()
             $0.height.width.equalTo(Constant.logoImageViewWidthHeight)
         }
@@ -131,6 +153,34 @@ private extension AuthLoginViewController {
             $0.height.equalTo(Constant.blueRoundedButtonHeight)
             $0.width.equalTo(Constant.blueRoundedButtonWidth)
         }
+        
+        continueWithView.snp.makeConstraints {
+            $0.top.equalTo(loginButton.snp.bottom).offset(30)
+            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.height.equalTo(Constant.continueWithViewHeight)
+        }
+        
+        externalAuthButtons.forEach { button in
+            button.snp.makeConstraints {
+                $0.height.equalTo(Constant.externalAuthButtonHeight)
+                $0.width.equalTo(Constant.externalAuthButtonWidth)
+            }
+            button.addTarget(self, action: #selector(externalAuthButtonHandler), for: .touchUpInside)
+        }
+        
+        externalAuthButtonsStackView.snp.makeConstraints {
+            $0.top.equalTo(continueWithView.snp.bottom).offset(30)
+            $0.leading.trailing.equalToSuperview().inset(50)
+        }
+        
+        dontHaveAnAccountView.caDelegate = self
+        
+        dontHaveAnAccountView.snp.makeConstraints {
+            $0.top.equalTo(externalAuthButtonsStackView.snp.bottom).offset(30)
+            $0.centerX.equalToSuperview()
+            $0.height.equalTo(Constant.authSmallBlueButtonHeight)
+            $0.width.equalTo(Constant.authSmallBlueButtonWidth)
+        }
     }
     
     // MARK: - Objc
@@ -140,7 +190,20 @@ private extension AuthLoginViewController {
     }
     
     @objc func forgotPasswordButtonHandler(sender: UIButton) {
-        print("forgot password pressed")
+        didSendEventClosure?(.forgotPassword)
+    }
+    
+    @objc func externalAuthButtonHandler(sender: UIButton) {
+        switch sender.tag {
+        case 0:
+            print("Vk")
+        case 1:
+            print("Google")
+        case 2:
+            print("Apple")
+        default:
+            break
+        }
     }
 }
 
@@ -158,10 +221,20 @@ extension AuthLoginViewController: UITextFieldDelegate {
     }
 }
 
-#warning("TODO: Add more events")
+// MARK: - IAuthBottomLoginButtonDelegate
+
+extension AuthLoginViewController: IAuthBottomCreateAccountButtonDelegate {
+    func createAccountButtonHandler() {
+        didSendEventClosure?(.createAccount)
+    }
+}
+
+// MARK: - Event
 
 extension AuthLoginViewController {
     enum Event {
+        case createAccount
         case login
+        case forgotPassword
     }
 }

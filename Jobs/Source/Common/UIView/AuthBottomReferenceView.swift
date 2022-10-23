@@ -7,7 +7,18 @@
 
 import UIKit
 
+protocol IAuthBottomCreateAccountButtonDelegate: AnyObject {
+    func createAccountButtonHandler()
+}
+
+protocol IAuthBottomLoginButtonDelegate: AnyObject {
+    func loginButtonHandler()
+}
+
 final class AuthBottomReferenceView: UIView {
+    
+    weak var caDelegate: IAuthBottomCreateAccountButtonDelegate?
+    weak var loginDelegate: IAuthBottomLoginButtonDelegate?
     
     // MARK: - Private properties
     
@@ -76,6 +87,13 @@ private extension AuthBottomReferenceView {
     // MARK: - Objc
     
     @objc func buttonHandler(sender: UIButton) {
-        print("Logged in")
+        switch buttonTitle {
+        case "Войти":
+            loginDelegate?.loginButtonHandler()
+        case "Создать":
+            caDelegate?.createAccountButtonHandler()
+        default:
+            break
+        }
     }
 }
