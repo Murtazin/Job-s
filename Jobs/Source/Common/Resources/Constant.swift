@@ -8,19 +8,21 @@
 import Foundation
 
 final class Constant {
-    static let blueRoundedButtonHeight: CGFloat = 45
-    static let blueRoundedButtonWidth: CGFloat = 320
-    static let logoImageViewWidthHeight: CGFloat = 130
-    static let authTextFieldHeight: CGFloat = 40
-    static let vacancyCompanyLogoImageHeightWidth: CGFloat = 50
-    static let addToFavButtonHeight: CGFloat = 30
-    static let addToFavButtonWidth: CGFloat = 35
-    static let vacancyRespondButtonHeight: CGFloat = 32
-    static let vacancyNavigationWordViewHeight: CGFloat = 20
-    static let vacancyNavigationWordViewWidth: CGFloat = 100
-    static let externalAuthButtonHeight: CGFloat = 40
-    static let externalAuthButtonWidth: CGFloat = 70
-    static let authSmallBlueButtonHeight: CGFloat = 17
-    static let authSmallBlueButtonWidth: CGFloat = 170
-    static let continueWithViewHeight: CGFloat = 20
+    static let blueRoundedButtonHeight: Int = 45
+    static let blueRoundedButtonWidth: Int = 320
+    static let logoImageViewWidthHeight: Int = 130
+    static let authTextFieldHeight: Int = 40
+    static let vacancyCompanyLogoImageHeightWidth: Int = 50
+    static let addToFavButtonHeight: Int = 30
+    static let addToFavButtonWidth: Int = 35
+    static let vacancyRespondButtonHeight: Int = 32
+    static let vacancyNavigationWordViewHeight: Int = 20
+    static let vacancyNavigationWordViewWidth: Int = 100
+    static let externalAuthButtonHeight: Int = 40
+    static let externalAuthButtonWidth: Int = 70
+    static let authSmallBlueButtonHeight: Int = 17
+    static let authSmallBlueButtonWidth: Int = 170
+    static let continueWithViewHeight: Int = 20
+    static let forgotPasswordButtonHeight: Int = 15
+    static let forgotPasswordButtonWidth: Int = 170
 }

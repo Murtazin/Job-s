@@ -114,72 +114,68 @@ private extension AuthLoginViewController {
         view.addSubview(dontHaveAnAccountView)
         
         logoImageView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide)
+            $0.top.equalTo(view.safeAreaLayoutGuide).inset(10.VAdapted)
             $0.centerX.equalToSuperview()
-            $0.height.width.equalTo(Constant.logoImageViewWidthHeight)
+            $0.size.equalTo([Constant.logoImageViewWidthHeight, Constant.logoImageViewWidthHeight].HResized)
         }
         
         welcomeLabel.snp.makeConstraints {
-            $0.top.equalTo(logoImageView).inset(150)
+            $0.top.equalTo(logoImageView).inset(150.VAdapted)
             $0.centerX.equalToSuperview()
         }
         
         emailTextField.snp.makeConstraints {
-            $0.top.equalTo(welcomeLabel).inset(70)
-            $0.leading.trailing.equalToSuperview().inset(24)
-            $0.height.equalTo(Constant.authTextFieldHeight)
+            $0.top.equalTo(welcomeLabel).inset(70.VAdapted)
+            $0.leading.trailing.equalToSuperview().inset(24.HAdapted)
+            $0.height.equalTo(Constant.authTextFieldHeight.VAdapted)
         }
 
         passwordTextField.snp.makeConstraints {
-            $0.top.equalTo(emailTextField).inset(55)
-            $0.leading.trailing.equalToSuperview().inset(24)
-            $0.height.equalTo(Constant.authTextFieldHeight)
+            $0.top.equalTo(emailTextField).inset(55.VAdapted)
+            $0.leading.trailing.equalToSuperview().inset(24.HAdapted)
+            $0.height.equalTo(Constant.authTextFieldHeight.VAdapted)
         }
         
         forgotPasswordButton.addTarget(self, action: #selector(forgotPasswordButtonHandler), for: .touchUpInside)
         
         forgotPasswordButton.snp.makeConstraints {
-            $0.top.equalTo(passwordTextField).inset(60)
+            $0.top.equalTo(passwordTextField).inset(60.VAdapted)
             $0.centerX.equalToSuperview()
-            $0.height.equalTo(15)
-            $0.width.equalTo(170)
+            $0.size.equalTo([Constant.forgotPasswordButtonWidth, Constant.forgotPasswordButtonHeight].HResized)
         }
 
         loginButton.addTarget(self, action: #selector(loginButtonHandler), for: .touchUpInside)
         
         loginButton.snp.makeConstraints {
-            $0.top.equalTo(forgotPasswordButton).inset(35)
+            $0.top.equalTo(forgotPasswordButton).inset(30.VAdapted)
             $0.centerX.equalToSuperview()
-            $0.height.equalTo(Constant.blueRoundedButtonHeight)
-            $0.width.equalTo(Constant.blueRoundedButtonWidth)
+            $0.size.equalTo([Constant.blueRoundedButtonWidth, Constant.blueRoundedButtonHeight].HResized)
         }
         
         continueWithView.snp.makeConstraints {
-            $0.top.equalTo(loginButton.snp.bottom).offset(30)
-            $0.leading.trailing.equalToSuperview().inset(16)
-            $0.height.equalTo(Constant.continueWithViewHeight)
+            $0.top.equalTo(loginButton.snp.bottom).offset(30.VAdapted)
+            $0.leading.trailing.equalToSuperview().inset(16.HAdapted)
+            $0.height.equalTo(Constant.continueWithViewHeight.VAdapted)
         }
         
         externalAuthButtons.forEach { button in
             button.snp.makeConstraints {
-                $0.height.equalTo(Constant.externalAuthButtonHeight)
-                $0.width.equalTo(Constant.externalAuthButtonWidth)
+                $0.size.equalTo([Constant.externalAuthButtonWidth, Constant.externalAuthButtonHeight].HResized)
             }
             button.addTarget(self, action: #selector(externalAuthButtonHandler), for: .touchUpInside)
         }
         
         externalAuthButtonsStackView.snp.makeConstraints {
-            $0.top.equalTo(continueWithView.snp.bottom).offset(30)
-            $0.leading.trailing.equalToSuperview().inset(50)
+            $0.top.equalTo(continueWithView.snp.bottom).offset(20.VAdapted)
+            $0.leading.trailing.equalToSuperview().inset(50.HAdapted)
         }
         
         dontHaveAnAccountView.caDelegate = self
         
         dontHaveAnAccountView.snp.makeConstraints {
-            $0.top.equalTo(externalAuthButtonsStackView.snp.bottom).offset(30)
+            $0.top.equalTo(externalAuthButtonsStackView.snp.bottom).offset(20.VAdapted)
             $0.centerX.equalToSuperview()
-            $0.height.equalTo(Constant.authSmallBlueButtonHeight)
-            $0.width.equalTo(Constant.authSmallBlueButtonWidth)
+            $0.size.equalTo([Constant.authSmallBlueButtonWidth, Constant.authSmallBlueButtonHeight].HResized)
         }
     }
     

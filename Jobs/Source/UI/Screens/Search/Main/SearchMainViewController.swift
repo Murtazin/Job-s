@@ -29,8 +29,8 @@ final class SearchMainViewController: UIViewController {
         let tableView = UITableView()
         tableView.showsVerticalScrollIndicator = false
         tableView.separatorStyle = .none
-        tableView.rowHeight = 250
-        tableView.estimatedRowHeight = 250
+        tableView.rowHeight = 240.VAdapted
+        tableView.estimatedRowHeight = 240.VAdapted
         tableView.delegate = self
         tableView.dataSource = self
         return tableView

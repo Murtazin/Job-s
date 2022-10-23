@@ -44,7 +44,7 @@ final class VacancyTableViewCell: UITableViewCell {
         let positionTitleLabel = UILabel()
         positionTitleLabel.text = "iOS разработчик"
         positionTitleLabel.textColor = .label
-        positionTitleLabel.font = .systemFont(ofSize: 14, weight: .semibold)
+        positionTitleLabel.font = .systemFont(ofSize: 14.HAdapted, weight: .semibold)
         return positionTitleLabel
     }()
     
@@ -52,7 +52,7 @@ final class VacancyTableViewCell: UITableViewCell {
         let companyTitleLabel = UILabel()
         companyTitleLabel.text = "Job's"
         companyTitleLabel.textColor = .label
-        companyTitleLabel.font = .systemFont(ofSize: 12)
+        companyTitleLabel.font = .systemFont(ofSize: 12.HAdapted)
         return companyTitleLabel
     }()
     
@@ -75,7 +75,7 @@ final class VacancyTableViewCell: UITableViewCell {
         navWordsSV.axis = .vertical
         navWordsSV.alignment = .center
         navWordsSV.distribution = .equalSpacing
-        navWordsSV.spacing = 10
+        navWordsSV.spacing = 15.VAdapted
         return navWordsSV
     }()
     
@@ -83,7 +83,7 @@ final class VacancyTableViewCell: UITableViewCell {
         let cityTitleLabel = UILabel()
         cityTitleLabel.text = "Казань, республика Татарстан"
         cityTitleLabel.textColor = .label
-        cityTitleLabel.font = .systemFont(ofSize: 13, weight: .medium)
+        cityTitleLabel.font = .systemFont(ofSize: 13.HAdapted, weight: .medium)
         return cityTitleLabel
     }()
     
@@ -91,8 +91,17 @@ final class VacancyTableViewCell: UITableViewCell {
         let salaryLabel = UILabel()
         salaryLabel.text = "120.000 - 200.000 ₽/месяц"
         salaryLabel.textColor = .systemBlue
-        salaryLabel.font = .systemFont(ofSize: 13)
+        salaryLabel.font = .systemFont(ofSize: 13.HAdapted)
         return salaryLabel
+    }()
+    
+    private lazy var salaryCityLabelsStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [cityTitleLabel, salaryLabel])
+        stackView.axis = .vertical
+        stackView.alignment = .center
+        stackView.distribution = .equalSpacing
+        stackView.spacing = 20.VAdapted
+        return stackView
     }()
     
     private lazy var respondButton: UIButton = {
@@ -100,8 +109,8 @@ final class VacancyTableViewCell: UITableViewCell {
         respondButton.setTitle("Откликнуться", for: .normal)
         respondButton.setTitleColor(.systemBackground, for: .normal)
         respondButton.backgroundColor = .systemBlue
-        respondButton.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: .medium)
-        respondButton.layer.cornerRadius = 15
+        respondButton.titleLabel?.font = UIFont.systemFont(ofSize: 12.HAdapted, weight: .medium)
+        respondButton.layer.cornerRadius = 15.VAdapted
         respondButton.sizeToFit()
         return respondButton
     }()
@@ -123,7 +132,7 @@ final class VacancyTableViewCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        contentView.frame = contentView.frame.inset(by: .init(top: 16, left: 16, bottom: 16, right: 16))
+        contentView.frame = contentView.frame.inset(by: .init(top: 16.VAdapted, left: 16.HAdapted, bottom: 16.VAdapted, right: 16.HAdapted))
     }
     
     // MARK: - Internal
@@ -152,70 +161,62 @@ private extension VacancyTableViewCell {
         containerView.addSubview(addToFavouritesButton)
         containerView.addSubview(lineView)
         containerView.addSubview(navigationWordsStackView)
-        containerView.addSubview(cityTitleLabel)
-        containerView.addSubview(salaryLabel)
+        containerView.addSubview(salaryCityLabelsStackView)
         containerView.addSubview(respondButton)
         
         companyLogoImageView.snp.makeConstraints {
-            $0.top.leading.equalTo(containerView).inset(16)
-            $0.height.width.equalTo(Constant.vacancyCompanyLogoImageHeightWidth)
+            $0.top.leading.equalTo(containerView).inset(16.VAdapted)
+            $0.size.equalTo([Constant.vacancyCompanyLogoImageHeightWidth, Constant.vacancyCompanyLogoImageHeightWidth].HResized)
         }
         
         positionTitleLabel.snp.makeConstraints {
-            $0.top.equalTo(containerView).inset(20)
-            $0.leading.equalTo(companyLogoImageView.snp.trailing).offset(16)
+            $0.top.equalTo(containerView).inset(20.VAdapted)
+            $0.leading.equalTo(companyLogoImageView.snp.trailing).offset(16.HAdapted)
         }
         
         companyTitleLabel.snp.makeConstraints {
-            $0.top.equalTo(positionTitleLabel.snp.bottom).offset(8)
-            $0.leading.equalTo(companyLogoImageView.snp.trailing).offset(16)
+            $0.top.equalTo(positionTitleLabel.snp.bottom).offset(8.VAdapted)
+            $0.leading.equalTo(companyLogoImageView.snp.trailing).offset(16.HAdapted)
         }
         
         addToFavouritesButton.addTarget(self, action: #selector(addToFavouritesButtonHandler), for: .touchUpInside)
         
         addToFavouritesButton.snp.makeConstraints {
             $0.centerY.equalTo(companyLogoImageView)
-            $0.trailing.equalTo(containerView).inset(16)
-            $0.height.equalTo(Constant.addToFavButtonHeight)
-            $0.width.equalTo(Constant.addToFavButtonWidth)
+            $0.trailing.equalTo(containerView).inset(16.HAdapted)
+            $0.size.equalTo([Constant.addToFavButtonWidth, Constant.addToFavButtonHeight].HResized)
         }
         
         lineView.snp.makeConstraints {
-            $0.top.equalTo(companyLogoImageView.snp.bottom).offset(16)
+            $0.top.equalTo(companyLogoImageView.snp.bottom).offset(16.VAdapted)
             $0.leading.trailing.equalTo(containerView)
-            $0.height.equalTo(1)
+            $0.height.equalTo(1.VAdapted)
         }
         
         if !navigationWordsViews.isEmpty {
             navigationWordsViews.forEach { view in
                 view.snp.makeConstraints {
-                    $0.height.equalTo(Constant.vacancyNavigationWordViewHeight)
-                    $0.width.equalTo(Constant.vacancyNavigationWordViewWidth)
+                    $0.size.equalTo([Constant.vacancyNavigationWordViewWidth, Constant.vacancyNavigationWordViewHeight].HResized)
                 }
             }
             
             navigationWordsStackView.snp.makeConstraints {
-                $0.top.equalTo(lineView).inset(16)
-                $0.leading.equalTo(containerView).inset(16)
+                $0.top.equalTo(lineView).inset(16.VAdapted)
+                $0.leading.equalTo(containerView).inset(16.HAdapted)
             }
         }
         
-        cityTitleLabel.snp.makeConstraints {
-            $0.top.equalTo(lineView).inset(16)
-            $0.trailing.equalTo(containerView).inset(16)
-        }
-        
-        salaryLabel.snp.makeConstraints {
-            $0.top.equalTo(cityTitleLabel.snp.bottom).offset(16)
-            $0.trailing.equalTo(containerView).inset(16)
+        salaryCityLabelsStackView.snp.makeConstraints {
+            $0.top.equalTo(lineView).inset(16.VAdapted)
+            $0.trailing.equalTo(containerView).inset(16.HAdapted)
         }
         
         respondButton.addTarget(self, action: #selector(respondButtonHandler), for: .touchUpInside)
 
         respondButton.snp.makeConstraints {
-            $0.leading.trailing.equalTo(containerView).inset(16)
-            $0.bottom.equalTo(containerView).inset(16)
-            $0.height.equalTo(Constant.vacancyRespondButtonHeight)
+            $0.leading.trailing.equalTo(containerView).inset(16.HAdapted)
+            $0.bottom.equalTo(containerView).inset(12.VAdapted)
+            $0.height.equalTo(Constant.vacancyRespondButtonHeight.VAdapted)
         }
     }
     

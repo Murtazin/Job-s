@@ -84,34 +84,33 @@ private extension AuthForgotPasswordViewController {
         view.addSubview(continueButton)
         
         logoImageView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide).inset(45)
+            $0.top.equalTo(view.safeAreaLayoutGuide).inset(45.VAdapted)
             $0.centerX.equalToSuperview()
-            $0.height.width.equalTo(Constant.logoImageViewWidthHeight)
+            $0.size.equalTo([Constant.logoImageViewWidthHeight, Constant.logoImageViewWidthHeight].HResized)
         }
         
         accessRecoveryLabel.snp.makeConstraints {
-            $0.top.equalTo(logoImageView).inset(150)
+            $0.top.equalTo(logoImageView).inset(150.VAdapted)
             $0.centerX.equalToSuperview()
         }
         
         enterEmailAddressLabel.snp.makeConstraints {
-            $0.top.equalTo(accessRecoveryLabel).inset(75)
-            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.top.equalTo(accessRecoveryLabel).inset(75.VAdapted)
+            $0.leading.trailing.equalToSuperview().inset(16.HAdapted)
         }
         
         emailTextField.snp.makeConstraints {
-            $0.top.equalTo(enterEmailAddressLabel).inset(75)
-            $0.leading.trailing.equalToSuperview().inset(24)
-            $0.height.equalTo(Constant.authTextFieldHeight)
+            $0.top.equalTo(enterEmailAddressLabel).inset(75.VAdapted)
+            $0.leading.trailing.equalToSuperview().inset(24.HAdapted)
+            $0.height.equalTo(Constant.authTextFieldHeight.VAdapted)
         }
         
         continueButton.addTarget(self, action: #selector(continueButtonHandler), for: .touchUpInside)
         
         continueButton.snp.makeConstraints {
-            $0.top.equalTo(emailTextField).inset(75)
+            $0.top.equalTo(emailTextField).inset(75.VAdapted)
             $0.centerX.equalToSuperview()
-            $0.height.equalTo(Constant.blueRoundedButtonHeight)
-            $0.width.equalTo(Constant.blueRoundedButtonWidth)
+            $0.size.equalTo([Constant.blueRoundedButtonWidth, Constant.blueRoundedButtonHeight].HResized)
         }
     }
     

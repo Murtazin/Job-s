@@ -104,63 +104,60 @@ private extension AuthRegisterViewController {
         view.addSubview(accountExistView)
         
         logoImageView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(10)
+            $0.top.equalTo(view.safeAreaLayoutGuide).inset(10.VAdapted)
             $0.centerX.equalToSuperview()
-            $0.height.width.equalTo(Constant.logoImageViewWidthHeight)
+            $0.size.equalTo([Constant.logoImageViewWidthHeight, Constant.logoImageViewWidthHeight].HResized)
         }
         
         createAccountLabel.snp.makeConstraints {
-            $0.top.equalTo(logoImageView).inset(150)
+            $0.top.equalTo(logoImageView).inset(150.VAdapted)
             $0.centerX.equalToSuperview()
         }
         
         emailTextField.snp.makeConstraints {
-            $0.top.equalTo(createAccountLabel).inset(70)
-            $0.leading.trailing.equalToSuperview().inset(24)
-            $0.height.equalTo(Constant.authTextFieldHeight)
+            $0.top.equalTo(createAccountLabel).inset(70.VAdapted)
+            $0.leading.trailing.equalToSuperview().inset(24.HAdapted)
+            $0.height.equalTo(Constant.authTextFieldHeight.VAdapted)
         }
 
         passwordTextField.snp.makeConstraints {
-            $0.top.equalTo(emailTextField).inset(55)
-            $0.leading.trailing.equalToSuperview().inset(24)
-            $0.height.equalTo(Constant.authTextFieldHeight)
+            $0.top.equalTo(emailTextField).inset(55.VAdapted)
+            $0.leading.trailing.equalToSuperview().inset(24.HAdapted)
+            $0.height.equalTo(Constant.authTextFieldHeight.VAdapted)
         }
 
         registerButton.snp.makeConstraints {
-            $0.top.equalTo(passwordTextField.snp.bottom).offset(30)
+            $0.top.equalTo(passwordTextField.snp.bottom).offset(30.VAdapted)
             $0.centerX.equalToSuperview()
-            $0.height.equalTo(Constant.blueRoundedButtonHeight)
-            $0.width.equalTo(Constant.blueRoundedButtonWidth)
+            $0.size.equalTo([Constant.blueRoundedButtonWidth, Constant.blueRoundedButtonHeight].HResized)
         }
         
         registerButton.addTarget(self, action: #selector(registerButtonHandler), for: .touchUpInside)
         
         continueWithView.snp.makeConstraints {
-            $0.top.equalTo(registerButton.snp.bottom).offset(30)
-            $0.leading.trailing.equalToSuperview().inset(16)
-            $0.height.equalTo(Constant.continueWithViewHeight)
+            $0.top.equalTo(registerButton.snp.bottom).offset(30.VAdapted)
+            $0.leading.trailing.equalToSuperview().inset(16.HAdapted)
+            $0.height.equalTo(Constant.continueWithViewHeight.VAdapted)
         }
         
         externalAuthButtons.forEach { button in
             button.snp.makeConstraints {
-                $0.height.equalTo(Constant.externalAuthButtonHeight)
-                $0.width.equalTo(Constant.externalAuthButtonWidth)
+                $0.size.equalTo([Constant.externalAuthButtonWidth, Constant.externalAuthButtonHeight].HResized)
             }
             button.addTarget(self, action: #selector(externalAuthButtonHandler), for: .touchUpInside)
         }
         
         externalAuthButtonsStackView.snp.makeConstraints {
-            $0.top.equalTo(continueWithView.snp.bottom).offset(30)
-            $0.leading.trailing.equalToSuperview().inset(50)
+            $0.top.equalTo(continueWithView.snp.bottom).offset(30.VAdapted)
+            $0.leading.trailing.equalToSuperview().inset(50.HAdapted)
         }
         
         accountExistView.loginDelegate = self
         
         accountExistView.snp.makeConstraints {
-            $0.top.equalTo(externalAuthButtonsStackView.snp.bottom).offset(30)
+            $0.top.equalTo(externalAuthButtonsStackView.snp.bottom).offset(30.VAdapted)
             $0.centerX.equalToSuperview()
-            $0.height.equalTo(Constant.authSmallBlueButtonHeight)
-            $0.width.equalTo(Constant.authSmallBlueButtonWidth)
+            $0.size.equalTo([Constant.authSmallBlueButtonWidth, Constant.authSmallBlueButtonHeight].HResized)
         }
     }
     
