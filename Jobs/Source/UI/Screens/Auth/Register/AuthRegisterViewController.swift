@@ -11,6 +11,12 @@ final class AuthRegisterViewController: UIViewController {
     
     // MARK: - Private properties
     
+    private let externalAuthButtons: [ExternalAuthButton] = [
+        ExternalAuthButton(image: #imageLiteral(resourceName: "logo-icon"), selectedIndex: 0),
+        ExternalAuthButton(image: #imageLiteral(resourceName: "logo-icon"), selectedIndex: 1),
+        ExternalAuthButton(image: #imageLiteral(resourceName: "logo-icon"), selectedIndex: 2)
+    ]
+    
     private var didSendEventClosure: ((AuthRegisterViewController.Event) -> Void)?
     
     // MARK: - UI
@@ -47,16 +53,18 @@ final class AuthRegisterViewController: UIViewController {
     
     private lazy var registerButton = BlueRoundedButton(title: "Регистрация")
     
-    private lazy var loginButton: UIButton = {
-        let loginButton = UIButton()
-        loginButton.setTitle("Вход", for: .normal)
-        loginButton.backgroundColor = .systemBlue
-        loginButton.layer.cornerRadius = 23
-        loginButton.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .medium)
-        loginButton.setTitleColor(.systemBackground, for: .normal)
-        loginButton.sizeToFit()
-        return loginButton
+    private lazy var continueWithView = ContinueWithView()
+    
+    private lazy var externalAuthButtonsStackView: UIStackView = {
+        let extAuthButtonsStackView = UIStackView(arrangedSubviews: externalAuthButtons)
+        extAuthButtonsStackView.alignment = .center
+        extAuthButtonsStackView.axis = .horizontal
+        extAuthButtonsStackView.spacing = 15
+        extAuthButtonsStackView.distribution = .equalSpacing
+        return extAuthButtonsStackView
     }()
+    
+    private lazy var accountExistView = AuthBottomReferenceView(labelText: "Уже есть аккаунт?", buttonTitle: "Войти")
     
     // MARK: - Initializers
     
@@ -91,10 +99,12 @@ private extension AuthRegisterViewController {
         view.addSubview(emailTextField)
         view.addSubview(passwordTextField)
         view.addSubview(registerButton)
-        view.addSubview(loginButton)
+        view.addSubview(continueWithView)
+        view.addSubview(externalAuthButtonsStackView)
+        view.addSubview(accountExistView)
         
         logoImageView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide).inset(45)
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(10)
             $0.centerX.equalToSuperview()
             $0.height.width.equalTo(Constant.logoImageViewWidthHeight)
         }
@@ -107,17 +117,17 @@ private extension AuthRegisterViewController {
         emailTextField.snp.makeConstraints {
             $0.top.equalTo(createAccountLabel).inset(70)
             $0.leading.trailing.equalToSuperview().inset(24)
-            $0.height.equalTo(Constant.authTextFieldHeightConstant)
+            $0.height.equalTo(Constant.authTextFieldHeight)
         }
 
         passwordTextField.snp.makeConstraints {
             $0.top.equalTo(emailTextField).inset(55)
             $0.leading.trailing.equalToSuperview().inset(24)
-            $0.height.equalTo(Constant.authTextFieldHeightConstant)
+            $0.height.equalTo(Constant.authTextFieldHeight)
         }
 
         registerButton.snp.makeConstraints {
-            $0.top.equalTo(passwordTextField).inset(65)
+            $0.top.equalTo(passwordTextField.snp.bottom).offset(30)
             $0.centerX.equalToSuperview()
             $0.height.equalTo(Constant.blueRoundedButtonHeight)
             $0.width.equalTo(Constant.blueRoundedButtonWidth)
@@ -125,14 +135,31 @@ private extension AuthRegisterViewController {
         
         registerButton.addTarget(self, action: #selector(registerButtonHandler), for: .touchUpInside)
         
-        loginButton.snp.makeConstraints {
-            $0.top.equalTo(registerButton).inset(65)
-            $0.centerX.equalToSuperview()
-            $0.height.equalTo(45)
-            $0.width.equalTo(320)
+        continueWithView.snp.makeConstraints {
+            $0.top.equalTo(registerButton.snp.bottom).offset(30)
+            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.height.equalTo(Constant.continueWithViewHeight)
         }
         
-        loginButton.addTarget(self, action: #selector(loginButtonHandler), for: .touchUpInside)
+        externalAuthButtons.forEach { button in
+            button.snp.makeConstraints {
+                $0.height.equalTo(Constant.externalAuthButtonHeight)
+                $0.width.equalTo(Constant.externalAuthButtonWidth)
+            }
+            button.addTarget(self, action: #selector(externalAuthButtonHandler), for: .touchUpInside)
+        }
+        
+        externalAuthButtonsStackView.snp.makeConstraints {
+            $0.top.equalTo(continueWithView.snp.bottom).offset(30)
+            $0.leading.trailing.equalToSuperview().inset(50)
+        }
+        
+        accountExistView.snp.makeConstraints {
+            $0.top.equalTo(externalAuthButtonsStackView.snp.bottom).offset(30)
+            $0.centerX.equalToSuperview()
+            $0.height.equalTo(Constant.authSmallBlueButtonHeight)
+            $0.width.equalTo(Constant.authSmallBlueButtonWidth)
+        }
     }
     
     // MARK: - Objc
@@ -141,8 +168,21 @@ private extension AuthRegisterViewController {
         didSendEventClosure?(.register)
     }
     
+    @objc func externalAuthButtonHandler(sender: UIButton) {
+        switch sender.tag {
+        case 0:
+            print("Vk")
+        case 1:
+            print("Google")
+        case 2:
+            print("Apple")
+        default:
+            break
+        }
+    }
+    
     @objc func loginButtonHandler(sender: UIButton) {
-        didSendEventClosure?(.login)
+        print("login")
     }
 }
 

@@ -28,6 +28,7 @@
 		A28E642B290552D1007E429F /* ResponsesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28E642A290552D1007E429F /* ResponsesCoordinator.swift */; };
 		A28E642D290552DD007E429F /* MessagesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28E642C290552DD007E429F /* MessagesCoordinator.swift */; };
 		A28E642F290552EE007E429F /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28E642E290552EE007E429F /* ProfileCoordinator.swift */; };
+		A28E643129055A00007E429F /* ContinueWithView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28E643029055A00007E429F /* ContinueWithView.swift */; };
 		A2E6BBE82903DC6F002D0586 /* VacancyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E6BBE72903DC6F002D0586 /* VacancyTableViewCell.swift */; };
 		A2E6BBEA29040AE2002D0586 /* NavigationWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E6BBE929040AE2002D0586 /* NavigationWordView.swift */; };
 		A2E6DE582902720300269339 /* AuthLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E6DE572902720300269339 /* AuthLoginViewController.swift */; };
@@ -35,6 +36,8 @@
 		A2F94B5428FD710B0010FF47 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F94B5328FD710B0010FF47 /* SceneDelegate.swift */; };
 		A2F94B5B28FD710D0010FF47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2F94B5A28FD710D0010FF47 /* Assets.xcassets */; };
 		A2F94B5E28FD710D0010FF47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2F94B5C28FD710D0010FF47 /* LaunchScreen.storyboard */; };
+		A2FDCF60290560DA00D9E911 /* ExternalAuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FDCF5F290560DA00D9E911 /* ExternalAuthButton.swift */; };
+		A2FDCF6229056AD000D9E911 /* AuthBottomReferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FDCF6129056AD000D9E911 /* AuthBottomReferenceView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +63,7 @@
 		A28E642A290552D1007E429F /* ResponsesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponsesCoordinator.swift; sourceTree = "<group>"; };
 		A28E642C290552DD007E429F /* MessagesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesCoordinator.swift; sourceTree = "<group>"; };
 		A28E642E290552EE007E429F /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
+		A28E643029055A00007E429F /* ContinueWithView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueWithView.swift; sourceTree = "<group>"; };
 		A2E6BBE72903DC6F002D0586 /* VacancyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyTableViewCell.swift; sourceTree = "<group>"; };
 		A2E6BBE929040AE2002D0586 /* NavigationWordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationWordView.swift; sourceTree = "<group>"; };
 		A2E6DE572902720300269339 /* AuthLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthLoginViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +73,8 @@
 		A2F94B5A28FD710D0010FF47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A2F94B5D28FD710D0010FF47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A2F94B5F28FD710D0010FF47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A2FDCF5F290560DA00D9E911 /* ExternalAuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalAuthButton.swift; sourceTree = "<group>"; };
+		A2FDCF6129056AD000D9E911 /* AuthBottomReferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthBottomReferenceView.swift; sourceTree = "<group>"; };
 		D3F3A284384B3A880C332A42 /* Pods-Jobs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jobs.debug.xcconfig"; path = "Target Support Files/Pods-Jobs/Pods-Jobs.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -255,6 +261,9 @@
 				A27367D32902D3E200F62F29 /* AuthTextField.swift */,
 				A27367D52902FAA800F62F29 /* BlueRoundedButton.swift */,
 				A2E6BBE929040AE2002D0586 /* NavigationWordView.swift */,
+				A28E643029055A00007E429F /* ContinueWithView.swift */,
+				A2FDCF5F290560DA00D9E911 /* ExternalAuthButton.swift */,
+				A2FDCF6129056AD000D9E911 /* AuthBottomReferenceView.swift */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -480,6 +489,7 @@
 			files = (
 				A24DEC3328FEED14007B1BA1 /* FavouritesViewController.swift in Sources */,
 				A27367D82903005800F62F29 /* Constant.swift in Sources */,
+				A2FDCF60290560DA00D9E911 /* ExternalAuthButton.swift in Sources */,
 				A24DEC2D28FEC698007B1BA1 /* AuthCoordinator.swift in Sources */,
 				A28E642F290552EE007E429F /* ProfileCoordinator.swift in Sources */,
 				A27367D42902D3E200F62F29 /* AuthTextField.swift in Sources */,
@@ -495,12 +505,14 @@
 				A249B57E28FFE5B100B0F0DF /* AuthRegisterViewController.swift in Sources */,
 				A24DEC2B28FEB27E007B1BA1 /* AppCoordinator.swift in Sources */,
 				A27367D02902D05D00F62F29 /* AuthForgotPasswordViewController.swift in Sources */,
+				A28E643129055A00007E429F /* ContinueWithView.swift in Sources */,
 				A28E6425290438DE007E429F /* ResponsesViewController.swift in Sources */,
 				A249B56F28FF314800B0F0DF /* SystemImage.swift in Sources */,
 				A28E6427290438E6007E429F /* MessagesViewController.swift in Sources */,
 				A2E6BBE82903DC6F002D0586 /* VacancyTableViewCell.swift in Sources */,
 				A2F94B5228FD710B0010FF47 /* AppDelegate.swift in Sources */,
 				A2F94B5428FD710B0010FF47 /* SceneDelegate.swift in Sources */,
+				A2FDCF6229056AD000D9E911 /* AuthBottomReferenceView.swift in Sources */,
 				A249B56C28FF2F4C00B0F0DF /* ICoordinator.swift in Sources */,
 				A2E6DE582902720300269339 /* AuthLoginViewController.swift in Sources */,
 			);

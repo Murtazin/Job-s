@@ -105,13 +105,13 @@ private extension AuthLoginViewController {
         emailTextField.snp.makeConstraints {
             $0.top.equalTo(welcomeLabel).inset(70)
             $0.leading.trailing.equalToSuperview().inset(24)
-            $0.height.equalTo(Constant.authTextFieldHeightConstant)
+            $0.height.equalTo(Constant.authTextFieldHeight)
         }
 
         passwordTextField.snp.makeConstraints {
             $0.top.equalTo(emailTextField).inset(55)
             $0.leading.trailing.equalToSuperview().inset(24)
-            $0.height.equalTo(Constant.authTextFieldHeightConstant)
+            $0.height.equalTo(Constant.authTextFieldHeight)
         }
         
         forgotPasswordButton.addTarget(self, action: #selector(forgotPasswordButtonHandler), for: .touchUpInside)

@@ -86,7 +86,7 @@ private extension AuthForgotPasswordViewController {
         emailTextField.snp.makeConstraints {
             $0.top.equalTo(enterEmailAddressLabel).inset(75)
             $0.leading.trailing.equalToSuperview().inset(24)
-            $0.height.equalTo(Constant.authTextFieldHeightConstant)
+            $0.height.equalTo(Constant.authTextFieldHeight)
         }
         
         continueButton.snp.makeConstraints {
