@@ -19,7 +19,9 @@ final class SearchMainViewController: UIViewController {
         let searchController = UISearchController()
         searchController.searchBar.placeholder = "Должность, ключевые слова"
         searchController.searchBar.showsBookmarkButton = true
-        searchController.searchBar.setImage(SystemImage.searchBarFiltersImage, for: .bookmark, state: .normal)
+        let configuration = UIImage.SymbolConfiguration(pointSize: 22)
+        let image = UIImage(systemName: "line.3.horizontal.decrease.circle", withConfiguration: configuration)
+        searchController.searchBar.setImage(image, for: .bookmark, state: .normal)
         searchController.searchBar.delegate = self
         searchController.searchResultsUpdater = self
         return searchController
