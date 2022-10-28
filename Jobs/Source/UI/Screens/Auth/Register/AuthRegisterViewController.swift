@@ -7,6 +7,11 @@
 
 import SnapKit
 
+extension NSNotification.Name {
+    static let UIKeyboardWillShow = NSNotification.Name("UIKeyboardWillShow")
+    static let UIKeyboardWillHide = NSNotification.Name("UIKeyboardWillHide")
+}
+
 final class AuthRegisterViewController: UIViewController {
     
     // MARK: - Private properties
@@ -39,6 +44,7 @@ final class AuthRegisterViewController: UIViewController {
     private lazy var emailTextField: AuthTextField = {
         let leftViewImage = SystemImage.emailTFLeftViewImage
         let emailTextField = AuthTextField(leftViewImage: leftViewImage, tfPlaceholder: "Почта")
+        emailTextField.tag = 0
         emailTextField.delegate = self
         return emailTextField
     }()
@@ -47,6 +53,7 @@ final class AuthRegisterViewController: UIViewController {
         let leftViewImage = SystemImage.passwordTFLeftViewImage
         let rightViewImage = SystemImage.hidePasswordImage
         let passwordTextField = AuthTextField(leftViewImage: leftViewImage, rightViewImage: rightViewImage, tfPlaceholder: "Пароль")
+        passwordTextField.tag = 1
         passwordTextField.delegate = self
         return passwordTextField
     }()
@@ -84,6 +91,12 @@ final class AuthRegisterViewController: UIViewController {
         super.viewDidLoad()
         
         setupUI()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        emailTextField.becomeFirstResponder()
     }
 }
 
@@ -179,15 +192,21 @@ private extension AuthRegisterViewController {
             break
         }
     }
-    
-    @objc func loginButtonHandler(sender: UIButton) {
-        print("login")
-    }
 }
 
 // MARK: - UITextFieldDelegate
 
 extension AuthRegisterViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        
+        if let nextTextField = view.viewWithTag(textField.tag + 1) {
+            nextTextField.becomeFirstResponder()
+        }
+        return true
+    }
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.layer.borderColor = UIColor.systemBlue.cgColor
         textField.tintColor = .systemBlue
