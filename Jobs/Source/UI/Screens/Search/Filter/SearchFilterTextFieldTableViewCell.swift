@@ -7,17 +7,50 @@
 
 import UIKit
 
-class SearchFilterTextFieldTableViewCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+final class SearchFilterTextFieldTableViewCell: UITableViewCell {
+    
+    static let reuseIdentifier = "SearchFilterTextFieldTableViewCell"
+    
+    // MARK: - UI
+    
+    private var textField: AuthTextField?
+    
+    // MARK: - Initializers
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Internal
+    
+    func configure(placeholder: String) {
+        textField = AuthTextField(tfPlaceholder: placeholder)
+        
+        setupUI()
+    }
+}
 
+// MARK: - Private
+
+private extension SearchFilterTextFieldTableViewCell {
+    
+    func setupUI() {
+        backgroundColor = .systemBackground
+        
+        guard let textField = textField else {
+            return
+        }
+        
+        contentView.addSubview(textField)
+        
+        textField.snp.makeConstraints {
+            $0.top.equalTo(contentView).inset(8.VAdapted)
+            $0.leading.trailing.equalTo(contentView).inset(16.HAdapted)
+            $0.bottom.equalTo(contentView).inset(8.VAdapted)
+        }
+    }
 }

@@ -141,7 +141,7 @@ final class MainCoordinator: IMainCoordinator {
             searchCoordinator.finishDelegate = self
             searchCoordinator.start { viewController in
                 navigationController.pushViewController(viewController, animated: true)
-                navigationController.navigationBar.prefersLargeTitles = true
+//                navigationController.navigationBar.prefersLargeTitles = true
             }
             childCoordinators.append(searchCoordinator)
         case .favourites:
@@ -163,6 +163,7 @@ final class MainCoordinator: IMainCoordinator {
             messagesCoordinator.finishDelegate = self
             messagesCoordinator.start { viewController in
                 navigationController.pushViewController(viewController, animated: true)
+                navigationController.navigationBar.prefersLargeTitles = true
             }
             childCoordinators.append(messagesCoordinator)
         case .profile:

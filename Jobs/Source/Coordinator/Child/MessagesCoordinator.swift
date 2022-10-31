@@ -40,7 +40,7 @@ final class MessagesCoordinator: IMessagesCoordinator {
     }
     
     func runMessagesVC() -> UIViewController {
-        let messagesVC = MessagesViewController()
+        let messagesVC = MessagesMainViewController()
         return messagesVC
     }
 }

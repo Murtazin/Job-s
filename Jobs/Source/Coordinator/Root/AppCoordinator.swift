@@ -32,7 +32,7 @@ final class AppCoordinator: IAppCoordinator {
     // MARK: - Internal
     
     func start(completionHandler: ((UIViewController) -> Void)?) {
-        runAuthFlow()
+        runMainFlow()
     }
     
     func runMainFlow() {

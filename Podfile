@@ -8,6 +8,7 @@ target 'Jobs' do
   # Pods for Jobs
 	pod 'SwiftLint'
 	pod 'SnapKit'
-	pod 'IQKeyboardManagerSwift', '~> 6.5'
+	pod 'IQKeyboardManagerSwift'
+	pod 'TagListView'
 
 end

@@ -19,4 +19,5 @@ final class SystemImage {
     static let responsesTabBarItemImage = UIImage(systemName: "envelope")
     static let messagesTabBarItemImage = UIImage(systemName: "message")
     static let profileTabBarItemImage = UIImage(systemName: "person.crop.circle")
+    static let closeBarButtonImage = UIImage(systemName: "xmark")
 }

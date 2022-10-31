@@ -32,7 +32,8 @@ final class SearchCoordinator: ISearchCoordinator {
     // MARK: - Internal
     
     func start(completionHandler: ((UIViewController) -> Void)?) {
-        let searchVC = runSearchVC()
+        navigationController.navigationBar.prefersLargeTitles = false
+        let searchVC = presentFilterVC()
         guard let completionHandler = completionHandler else {
             return
         }
@@ -42,5 +43,10 @@ final class SearchCoordinator: ISearchCoordinator {
     func runSearchVC() -> UIViewController {
         let searchVC = SearchMainViewController()
         return searchVC
+    }
+    
+    func presentFilterVC() -> UIViewController {
+        let filterVC = SearchFilterViewController()
+        return filterVC
     }
 }
