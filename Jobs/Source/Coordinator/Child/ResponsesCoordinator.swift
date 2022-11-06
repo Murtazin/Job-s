@@ -40,7 +40,7 @@ final class ResponsesCoordinator: IResponsesCoordinator {
     }
     
     func runResponsesVC() -> UIViewController {
-        let responsesVC = ResponsesViewController()
+        let responsesVC = ResponsesMainViewController()
         return responsesVC
     }
 }

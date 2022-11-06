@@ -11,7 +11,7 @@ final class AuthForgotPasswordViewController: UIViewController {
     
     // MARK: - Private properties
     
-    private var didSendEventClosure: ((AuthForgotPasswordViewController.Event) -> Void)?
+    private var eventClosure: ((AuthForgotPasswordViewController.Event) -> Void)?
     
     // MARK: - UI
     
@@ -51,8 +51,8 @@ final class AuthForgotPasswordViewController: UIViewController {
     
     // MARK: - Initializers
     
-    init(didSendEventClosure: ((AuthForgotPasswordViewController.Event) -> Void)? = nil) {
-        self.didSendEventClosure = didSendEventClosure
+    init(eventClosure: ((AuthForgotPasswordViewController.Event) -> Void)? = nil) {
+        self.eventClosure = eventClosure
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -117,7 +117,7 @@ private extension AuthForgotPasswordViewController {
     // MARK: - Objc
     
     @objc func continueButtonHandler(sender: UIButton) {
-        didSendEventClosure?(.forgotPassword)
+        eventClosure?(.forgotPassword)
     }
 }
 

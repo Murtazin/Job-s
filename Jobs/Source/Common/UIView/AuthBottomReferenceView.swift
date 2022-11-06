@@ -79,8 +79,8 @@ private extension AuthBottomReferenceView {
         
         button.snp.makeConstraints {
             $0.centerY.equalToSuperview()
-            $0.leading.equalTo(label.snp.trailing).offset(5)
-            $0.height.equalTo(15)
+            $0.leading.equalTo(label.snp.trailing).offset(5.HAdapted)
+            $0.height.equalTo(15.VAdapted)
         }
     }
     

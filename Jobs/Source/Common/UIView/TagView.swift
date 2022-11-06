@@ -43,7 +43,7 @@ private extension TagView {
         layer.borderWidth = 1.0
         layer.borderColor = UIColor.systemGray5.cgColor
         
-        contentEdgeInsets = .init(top: 4, left: 16, bottom: 4, right: 16)
+        contentEdgeInsets = .init(top: 4.VAdapted, left: 16.HAdapted, bottom: 4.VAdapted, right: 16.HAdapted)
         
         sizeToFit()
     }

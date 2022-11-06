@@ -20,4 +20,5 @@ final class SystemImage {
     static let messagesTabBarItemImage = UIImage(systemName: "message")
     static let profileTabBarItemImage = UIImage(systemName: "person.crop.circle")
     static let closeBarButtonImage = UIImage(systemName: "xmark")
+    static let editProfileImage = UIImage(systemName: "pencil")
 }

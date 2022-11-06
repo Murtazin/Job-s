@@ -7,11 +7,6 @@
 
 import SnapKit
 
-extension NSNotification.Name {
-    static let UIKeyboardWillShow = NSNotification.Name("UIKeyboardWillShow")
-    static let UIKeyboardWillHide = NSNotification.Name("UIKeyboardWillHide")
-}
-
 final class AuthRegisterViewController: UIViewController {
     
     // MARK: - Private properties
@@ -22,7 +17,7 @@ final class AuthRegisterViewController: UIViewController {
         ExternalAuthButton(image: #imageLiteral(resourceName: "logo-icon"), selectedIndex: 2)
     ]
     
-    private var didSendEventClosure: ((AuthRegisterViewController.Event) -> Void)?
+    private var eventClosure: ((AuthRegisterViewController.Event) -> Void)?
     
     // MARK: - UI
     
@@ -66,7 +61,7 @@ final class AuthRegisterViewController: UIViewController {
         let extAuthButtonsStackView = UIStackView(arrangedSubviews: externalAuthButtons)
         extAuthButtonsStackView.alignment = .center
         extAuthButtonsStackView.axis = .horizontal
-        extAuthButtonsStackView.spacing = 15
+        extAuthButtonsStackView.spacing = 15.HAdapted
         extAuthButtonsStackView.distribution = .equalSpacing
         return extAuthButtonsStackView
     }()
@@ -75,8 +70,8 @@ final class AuthRegisterViewController: UIViewController {
     
     // MARK: - Initializers
     
-    init(didSendEventClosure: ((AuthRegisterViewController.Event) -> Void)? = nil) {
-        self.didSendEventClosure = didSendEventClosure
+    init(eventClosure: ((AuthRegisterViewController.Event) -> Void)? = nil) {
+        self.eventClosure = eventClosure
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -91,12 +86,6 @@ final class AuthRegisterViewController: UIViewController {
         super.viewDidLoad()
         
         setupUI()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        emailTextField.becomeFirstResponder()
     }
 }
 
@@ -134,13 +123,13 @@ private extension AuthRegisterViewController {
         }
 
         passwordTextField.snp.makeConstraints {
-            $0.top.equalTo(emailTextField).inset(55.VAdapted)
+            $0.top.equalTo(emailTextField.snp.bottom).offset(16.VAdapted)
             $0.leading.trailing.equalToSuperview().inset(24.HAdapted)
             $0.height.equalTo(Constant.authTextFieldHeight.VAdapted)
         }
 
         registerButton.snp.makeConstraints {
-            $0.top.equalTo(passwordTextField.snp.bottom).offset(30.VAdapted)
+            $0.top.equalTo(passwordTextField.snp.bottom).offset(24.VAdapted)
             $0.centerX.equalToSuperview()
             $0.size.equalTo([Constant.blueRoundedButtonWidth, Constant.blueRoundedButtonHeight].HResized)
         }
@@ -177,7 +166,7 @@ private extension AuthRegisterViewController {
     // MARK: - Objc
     
     @objc func registerButtonHandler(sender: UIButton) {
-        didSendEventClosure?(.register)
+        eventClosure?(.register)
     }
     
     @objc func externalAuthButtonHandler(sender: UIButton) {
@@ -197,10 +186,10 @@ private extension AuthRegisterViewController {
 // MARK: - UITextFieldDelegate
 
 extension AuthRegisterViewController: UITextFieldDelegate {
-    
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        
+
         if let nextTextField = view.viewWithTag(textField.tag + 1) {
             nextTextField.becomeFirstResponder()
         }
@@ -222,7 +211,7 @@ extension AuthRegisterViewController: UITextFieldDelegate {
 
 extension AuthRegisterViewController: IAuthBottomLoginButtonDelegate {
     func loginButtonHandler() {
-        didSendEventClosure?(.login)
+        eventClosure?(.login)
     }
 }
 

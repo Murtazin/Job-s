@@ -11,6 +11,8 @@ final class SearchMainViewController: UIViewController {
     
     // MARK: - Private properties
     
+    private var eventClosure: ((SearchMainViewController.Event) -> Void)?
+    
     private let vacancies = [String]()
     
     // MARK: - UI
@@ -20,7 +22,7 @@ final class SearchMainViewController: UIViewController {
         searchController.searchBar.placeholder = "Должность, ключевые слова"
         searchController.searchBar.showsBookmarkButton = true
         let configuration = UIImage.SymbolConfiguration(pointSize: 22)
-        let image = UIImage(systemName: "line.3.horizontal.decrease.circle", withConfiguration: configuration)
+        let image = UIImage(systemName: "slider.horizontal.3", withConfiguration: configuration)
         searchController.searchBar.setImage(image, for: .bookmark, state: .normal)
         searchController.searchBar.delegate = self
         searchController.searchResultsUpdater = self
@@ -37,6 +39,18 @@ final class SearchMainViewController: UIViewController {
         tableView.dataSource = self
         return tableView
     }()
+    
+    // MARK: - Initializers
+    
+    init(eventClosure: ((SearchMainViewController.Event) -> Void)? = nil) {
+        self.eventClosure = eventClosure
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - Life cycle
 
@@ -91,10 +105,19 @@ extension SearchMainViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension SearchMainViewController: UISearchBarDelegate, UISearchResultsUpdating {
     func searchBarBookmarkButtonClicked(_ searchBar: UISearchBar) {
-        print("Filter")
+        guard let eventClosure = eventClosure else { return }
+        eventClosure(.filter)
     }
     
     func updateSearchResults(for searchController: UISearchController) {
         searchController.searchBar.showsBookmarkButton = searchController.isActive ? false : true
+    }
+}
+
+// MARK: - Event
+
+extension SearchMainViewController {
+    enum Event {
+        case filter
     }
 }

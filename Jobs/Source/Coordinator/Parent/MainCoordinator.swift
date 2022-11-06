@@ -130,10 +130,10 @@ final class MainCoordinator: IMainCoordinator {
     private func obtainTabBarController(_ page: TabBarPage) -> UINavigationController {
         
         let navigationController = UINavigationController()
-        navigationController.setNavigationBarHidden(false, animated: false)
         navigationController.tabBarItem = UITabBarItem.init(title: page.pageTitleValue(),
                                                             image: page.pageIcon(),
                                                             tag: page.pageOrderNumber())
+        self.navigationController.isNavigationBarHidden = true
         
         switch page {
         case .search:
@@ -141,7 +141,7 @@ final class MainCoordinator: IMainCoordinator {
             searchCoordinator.finishDelegate = self
             searchCoordinator.start { viewController in
                 navigationController.pushViewController(viewController, animated: true)
-//                navigationController.navigationBar.prefersLargeTitles = true
+                navigationController.navigationBar.prefersLargeTitles = true
             }
             childCoordinators.append(searchCoordinator)
         case .favourites:
@@ -171,6 +171,7 @@ final class MainCoordinator: IMainCoordinator {
             profileCoordinator.finishDelegate = self
             profileCoordinator.start { viewController in
                 navigationController.pushViewController(viewController, animated: true)
+//                navigationController.isNavigationBarHidden = true
             }
             childCoordinators.append(profileCoordinator)
         }

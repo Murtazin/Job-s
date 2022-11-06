@@ -19,10 +19,11 @@ final class SearchFilterTagListTableViewCell: UITableViewCell {
     
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 150, height: 30)
-        layout.estimatedItemSize = CGSize(width: 150, height: 30)
-        layout.sectionInset = .init(top: 0, left: 16, bottom: 0, right: 16)
-        layout.minimumInteritemSpacing = 10
+        let itemSize: CGSize = [150, 30].HResized
+        layout.itemSize = itemSize
+        layout.estimatedItemSize = itemSize
+        layout.sectionInset = .init(top: 0.VAdapted, left: 16.HAdapted, bottom: 0.VAdapted, right: 16.HAdapted)
+        layout.minimumInteritemSpacing = 10.HAdapted
         layout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.dataSource = self

@@ -30,8 +30,8 @@ final class MessagesMainViewController: UIViewController {
     private lazy var chatsTableView: UITableView = {
         let messagesTableView = UITableView()
         messagesTableView.separatorStyle = .none
-        messagesTableView.rowHeight = 100
-        messagesTableView.estimatedRowHeight = 100
+        messagesTableView.rowHeight = 100.VAdapted
+        messagesTableView.estimatedRowHeight = 100.VAdapted
         messagesTableView.delegate = self
         messagesTableView.dataSource = self
         return messagesTableView

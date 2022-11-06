@@ -9,6 +9,5 @@ target 'Jobs' do
 	pod 'SwiftLint'
 	pod 'SnapKit'
 	pod 'IQKeyboardManagerSwift'
-	pod 'TagListView'
 
 end

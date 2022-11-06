@@ -61,11 +61,15 @@ private extension AuthTextField {
     func setupLeftView() {
         if let leftImage = leftViewImage {
             
-            let leftViewImageView = UIImageView(frame: CGRect(x: 15, y: 0, width: 20, height: 15))
+            let leftViewImageViewSize: CGSize = [20, 15].HResized
+            
+            let leftViewImageView = UIImageView(frame: CGRect(origin: .init(x: 15.HAdapted, y: 0.VAdapted), size: leftViewImageViewSize))
             leftViewImageView.image = leftImage
             leftViewImageView.contentMode = .scaleAspectFill
             
-            let leftView = UIView(frame: CGRect(x: 0, y: 0, width: 35, height: 15))
+            let leftViewSize: CGSize = [35, 15].HResized
+            
+            let leftView = UIView(frame: CGRect(origin: .init(x: 0.HAdapted, y: 0.VAdapted), size: leftViewSize))
             leftView.addSubview(leftViewImageView)
             
             self.leftView = leftView
@@ -76,18 +80,24 @@ private extension AuthTextField {
     func setupRightView() {
         if let rightImage = rightViewImage {
             
-            rightViewImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 23, height: 17))
+            let rightViewImageViewSize: CGSize = [23, 17].HResized
+            
+            rightViewImageView = UIImageView(frame: CGRect(origin: .init(x: 0.HAdapted, y: 0.VAdapted), size: rightViewImageViewSize))
             
             guard let rightViewImageView = rightViewImageView else {
                 return
             }
             rightViewImageView.image = rightImage
             
+            let rightViewButtonSize: CGSize = [23, 17].HResized
+            
             let rightViewButton = UIButton(type: .custom)
-            rightViewButton.frame = CGRect(x: 0, y: 0, width: 23, height: 17)
+            rightViewButton.frame = CGRect(origin: .init(x: 0.HAdapted, y: 0.VAdapted), size: rightViewButtonSize)
             rightViewButton.addTarget(self, action: #selector(rightViewButtonHandler), for: .touchUpInside)
             
-            let rightView = UIView(frame: CGRect(x: 0, y: 0, width: 33, height: 17))
+            let rightViewSize: CGSize = [33, 17].HResized
+            
+            let rightView = UIView(frame: CGRect(origin: .init(x: 0.HAdapted, y: 0.VAdapted), size: rightViewSize))
             rightView.addSubview(rightViewImageView)
             rightView.addSubview(rightViewButton)
             

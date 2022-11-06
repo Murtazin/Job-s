@@ -12,6 +12,10 @@ protocol ISearchCoordinator: ICoordinator {
 }
 
 final class SearchCoordinator: ISearchCoordinator {
+    
+    // MARK: - Private properties
+    
+    private var rootViewController: UIViewController?
 
     // MARK: - Properties
     
@@ -32,21 +36,36 @@ final class SearchCoordinator: ISearchCoordinator {
     // MARK: - Internal
     
     func start(completionHandler: ((UIViewController) -> Void)?) {
-        navigationController.navigationBar.prefersLargeTitles = false
-        let searchVC = presentFilterVC()
+        let searchVC = runSearchVC()
         guard let completionHandler = completionHandler else {
             return
         }
+        rootViewController = searchVC
         completionHandler(searchVC)
     }
     
     func runSearchVC() -> UIViewController {
-        let searchVC = SearchMainViewController()
+        let searchVC = SearchMainViewController { [weak self] event in
+            guard let self = self else { return }
+            switch event {
+            case .filter:
+                self.presentFilterVC()
+            }
+        }
         return searchVC
     }
     
-    func presentFilterVC() -> UIViewController {
-        let filterVC = SearchFilterViewController()
-        return filterVC
+    func presentFilterVC() {
+        let filterVC = SearchFilterViewController { [weak self] event in
+            guard let self = self else { return }
+            switch event {
+            case .close:
+                self.navigationController.dismiss(animated: true)
+            default:
+                break
+            }
+        }
+        filterVC.modalPresentationStyle = .fullScreen
+        navigationController.present(filterVC, animated: true)
     }
 }

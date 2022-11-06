@@ -11,6 +11,8 @@ final class SearchFilterViewController: UIViewController {
     
     // MARK: - Private properties
     
+    private var eventClosure: ((SearchFilterViewController.Event) -> Void)?
+    
     private var sectionHeaderTitles: [String?] = [
         nil,
         nil,
@@ -34,8 +36,14 @@ final class SearchFilterViewController: UIViewController {
         let tableView = UITableView()
         tableView.showsVerticalScrollIndicator = false
         tableView.separatorStyle = .none
-        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 50))
-        tableView.estimatedSectionHeaderHeight = 0
+        let tableFooterViewSize: CGSize = [Int(view.frame.width), 70].HResized
+        tableView.tableFooterView = UIView(frame: CGRect(origin: .init(x: 0.HAdapted, y: 0.VAdapted), size: tableFooterViewSize))
+        let tableHeaderViewSize: CGSize = [Int(view.frame.width), 50].HResized
+        let headerView = SearchFilterTableHeaderView()
+        headerView.delegate = self
+        headerView.frame = CGRect(origin: .init(x: 0, y: 0), size: tableHeaderViewSize)
+        tableView.tableHeaderView = headerView
+        tableView.estimatedSectionHeaderHeight = 0.VAdapted
         tableView.estimatedRowHeight = 70.VAdapted
         tableView.delegate = self
         tableView.dataSource = self
@@ -43,6 +51,18 @@ final class SearchFilterViewController: UIViewController {
     }()
     
     private lazy var applyFiltersButton = BlueRoundedButton(title: "Применить")
+    
+    // MARK: - Initializers
+    
+    init(eventClosure: ((SearchFilterViewController.Event) -> Void)? = nil) {
+        self.eventClosure = eventClosure
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - Life cycle
 
@@ -59,18 +79,7 @@ private extension SearchFilterViewController {
     
     func setupUI() {
         
-        navigationItem.title = "Фильтры"
-        
         view.backgroundColor = .systemBackground
-        
-        let closeButton = UIBarButtonItem(image: SystemImage.closeBarButtonImage, style: .done, target: self, action: #selector(closeButtonHandler))
-        closeButton.tintColor = .label
-        
-        let resetButton = UIBarButtonItem(title: "Сбросить", style: .done, target: self, action: #selector(resetButtonHandler))
-        resetButton.tintColor = .systemBlue
-        
-        navigationItem.leftBarButtonItem = closeButton
-        navigationItem.rightBarButtonItem = resetButton
         
         view.addSubview(filtersTableView)
         view.addSubview(applyFiltersButton)
@@ -89,7 +98,7 @@ private extension SearchFilterViewController {
         
         applyFiltersButton.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.bottom.equalTo(filtersTableView.snp.bottom)
+            $0.bottom.equalTo(filtersTableView.snp.bottom).inset(16)
             $0.size.equalTo([Constant.blueRoundedButtonWidth, Constant.blueRoundedButtonHeight].HResized)
         }
     }
@@ -139,7 +148,8 @@ extension SearchFilterViewController: UITableViewDelegate, UITableViewDataSource
             cell.selectionStyle = .none
             return cell
         case 2:
-            let addSpecializationButton = UIButton(frame: CGRect(x: 16, y: 8, width: 0, height: 20))
+            let buttonSize: CGSize = [0, 20].VResized
+            let addSpecializationButton = UIButton(frame: CGRect(origin: .init(x: 16.HAdapted, y: 8.VAdapted), size: buttonSize))
             addSpecializationButton.setTitle("Добавить специализацию", for: .normal)
             addSpecializationButton.setTitleColor(.systemBlue, for: .normal)
             addSpecializationButton.sizeToFit()
@@ -163,16 +173,17 @@ extension SearchFilterViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0, 1:
-            return 70
+            return 70.VAdapted
         default:
-            return 50
+            return 50.VAdapted
         }
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         switch section {
         case 2...6:
-            let label = UILabel(frame: CGRect(x: 16, y: -10, width: 0, height: 20))
+            let labelSize: CGSize = [0, 20].VResized
+            let label = UILabel(frame: CGRect(origin: .init(x: 16.HAdapted, y: -8.VAdapted), size: labelSize))
             label.text = sectionHeaderTitles[section]
             label.font = .systemFont(ofSize: 20, weight: .semibold)
             label.textColor = .label
@@ -188,9 +199,29 @@ extension SearchFilterViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         switch section {
         case 2...6:
-            return 25
+            return 25.VAdapted
         default:
-            return 0
+            return 0.VAdapted
         }
+    }
+}
+
+// MARK: - ISearchFilterTableHeaderViewDelegate
+
+extension SearchFilterViewController: ISearchFilterTableHeaderViewDelegate {
+    
+    func closeButtonHandler() {
+        guard let eventClosure = eventClosure else { return }
+        eventClosure(.close)
+    }
+}
+
+// MARK: - Event
+
+extension SearchFilterViewController {
+    enum Event {
+        case close
+        case apply
+        case reset
     }
 }

@@ -57,8 +57,7 @@ private extension ContinueWithView {
         
         leftLineView.snp.makeConstraints {
             $0.centerY.leading.equalToSuperview()
-            $0.height.equalTo(1)
-            $0.width.equalTo(95)
+            $0.size.equalTo([95, 1].HResized)
         }
         
         continueWithLabel.snp.makeConstraints {
@@ -67,8 +66,7 @@ private extension ContinueWithView {
         
         rightLineView.snp.makeConstraints {
             $0.centerY.trailing.equalToSuperview()
-            $0.height.equalTo(1)
-            $0.width.equalTo(95)
+            $0.size.equalTo([95, 1].HResized)
         }
     }
 }

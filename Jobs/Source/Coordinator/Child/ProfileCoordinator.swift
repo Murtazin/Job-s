@@ -8,7 +8,8 @@
 import UIKit
 
 protocol IProfileCoordinator: ICoordinator {
-    func runProfileVC() -> UIViewController
+    func runProfileMainVC() -> UIViewController
+    func runProfileEditVC()
 }
 
 final class ProfileCoordinator: IProfileCoordinator {
@@ -32,15 +33,26 @@ final class ProfileCoordinator: IProfileCoordinator {
     // MARK: - Internal
     
     func start(completionHandler: ((UIViewController) -> Void)?) {
-        let profileVC = runProfileVC()
+        let profileVC = runProfileMainVC()
         guard let completionHandler = completionHandler else {
             return
         }
         completionHandler(profileVC)
     }
     
-    func runProfileVC() -> UIViewController {
-        let profileVC = ProfileViewController()
+    func runProfileMainVC() -> UIViewController {
+        let profileVC = ProfileMainViewController { [weak self] event in
+            guard let self = self else { return }
+            switch event {
+            case .editProfile:
+                self.runProfileEditVC()
+            }
+        }
         return profileVC
+    }
+    
+    func runProfileEditVC() {
+        let profileEditVC = ProfileEditViewController()
+        navigationController.pushViewController(profileEditVC, animated: true)
     }
 }

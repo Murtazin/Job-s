@@ -48,9 +48,9 @@ private extension SearchFilterTextFieldTableViewCell {
         contentView.addSubview(textField)
         
         textField.snp.makeConstraints {
-            $0.top.equalTo(contentView).inset(8.VAdapted)
+            $0.top.equalTo(contentView).inset(14.VAdapted)
             $0.leading.trailing.equalTo(contentView).inset(16.HAdapted)
-            $0.bottom.equalTo(contentView).inset(8.VAdapted)
+            $0.bottom.equalTo(contentView).inset(14.VAdapted)
         }
     }
 }

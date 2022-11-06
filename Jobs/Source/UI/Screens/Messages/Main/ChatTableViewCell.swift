@@ -93,22 +93,22 @@ private extension ChatTableViewCell {
         
         positionLabel.snp.makeConstraints {
             $0.top.equalTo(companyLogoImageView.snp.top)
-            $0.leading.equalTo(companyLogoImageView.snp.trailing).offset(16)
+            $0.leading.equalTo(companyLogoImageView.snp.trailing).offset(16.HAdapted)
         }
         
         companyTitleLabel.snp.makeConstraints {
-            $0.top.equalTo(positionLabel.snp.bottom).offset(8)
-            $0.leading.equalTo(companyLogoImageView.snp.trailing).offset(16)
+            $0.top.equalTo(positionLabel.snp.bottom).offset(8.VAdapted)
+            $0.leading.equalTo(companyLogoImageView.snp.trailing).offset(16.HAdapted)
         }
         
         statusLabel.snp.makeConstraints {
-            $0.top.equalTo(companyTitleLabel.snp.bottom).offset(8)
-            $0.leading.equalTo(companyLogoImageView.snp.trailing).offset(16)
+            $0.top.equalTo(companyTitleLabel.snp.bottom).offset(8.VAdapted)
+            $0.leading.equalTo(companyLogoImageView.snp.trailing).offset(16.HAdapted)
         }
         
         lastMessageDateLabel.snp.makeConstraints {
             $0.top.equalTo(companyLogoImageView.snp.top)
-            $0.trailing.equalTo(contentView).inset(16)
+            $0.trailing.equalTo(contentView).inset(16.HAdapted)
         }
     }
 }

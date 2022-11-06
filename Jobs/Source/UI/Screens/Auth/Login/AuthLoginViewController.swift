@@ -17,7 +17,7 @@ final class AuthLoginViewController: UIViewController {
         ExternalAuthButton(image: #imageLiteral(resourceName: "logo-icon"), selectedIndex: 2)
     ]
     
-    private var didSendEventClosure: ((AuthLoginViewController.Event) -> Void)?
+    private var eventClosure: ((AuthLoginViewController.Event) -> Void)?
     
     // MARK: - UI
     
@@ -68,7 +68,7 @@ final class AuthLoginViewController: UIViewController {
         let extAuthButtonsStackView = UIStackView(arrangedSubviews: externalAuthButtons)
         extAuthButtonsStackView.alignment = .center
         extAuthButtonsStackView.axis = .horizontal
-        extAuthButtonsStackView.spacing = 15
+        extAuthButtonsStackView.spacing = 15.HAdapted
         extAuthButtonsStackView.distribution = .equalSpacing
         return extAuthButtonsStackView
     }()
@@ -77,8 +77,8 @@ final class AuthLoginViewController: UIViewController {
     
     // MARK: - Initializers
     
-    init(didSendEventClosure: ((AuthLoginViewController.Event) -> Void)? = nil) {
-        self.didSendEventClosure = didSendEventClosure
+    init(eventClosure: ((AuthLoginViewController.Event) -> Void)? = nil) {
+        self.eventClosure = eventClosure
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -131,7 +131,7 @@ private extension AuthLoginViewController {
         }
 
         passwordTextField.snp.makeConstraints {
-            $0.top.equalTo(emailTextField).inset(55.VAdapted)
+            $0.top.equalTo(emailTextField.snp.bottom).offset(16.VAdapted)
             $0.leading.trailing.equalToSuperview().inset(24.HAdapted)
             $0.height.equalTo(Constant.authTextFieldHeight.VAdapted)
         }
@@ -182,11 +182,11 @@ private extension AuthLoginViewController {
     // MARK: - Objc
     
     @objc func loginButtonHandler(sender: UIButton) {
-        didSendEventClosure?(.login)
+        eventClosure?(.login)
     }
     
     @objc func forgotPasswordButtonHandler(sender: UIButton) {
-        didSendEventClosure?(.forgotPassword)
+        eventClosure?(.forgotPassword)
     }
     
     @objc func externalAuthButtonHandler(sender: UIButton) {
@@ -221,7 +221,7 @@ extension AuthLoginViewController: UITextFieldDelegate {
 
 extension AuthLoginViewController: IAuthBottomCreateAccountButtonDelegate {
     func createAccountButtonHandler() {
-        didSendEventClosure?(.createAccount)
+        eventClosure?(.createAccount)
     }
 }
 
