@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class AuthTextField: UITextField {
+final class GrayBorderedTextField: UITextField {
     
     // MARK: - Private properties
     
@@ -36,21 +36,23 @@ final class AuthTextField: UITextField {
     }
 }
 
-private extension AuthTextField {
+// MARK: - Private
+
+private extension GrayBorderedTextField {
     
     func setupTF() {
-        
         placeholder = tfPlaceholder
         
-        layer.cornerRadius = 10
-        layer.borderWidth = 1.0
+        layer.cornerRadius = Constant.CornerRadius.TextField.grayBordered
+        
+        layer.borderWidth = Constant.BorderWidth.TextField.grayBordered
+        layer.borderColor = UIColor.systemGray6.cgColor
         
         borderStyle = .roundedRect
         
         textColor = .label
-        tintColor = .systemGray3
         
-        layer.borderColor = UIColor.systemGray5.cgColor
+        tintColor = .systemGray4
         
         clipsToBounds = true
         
@@ -64,12 +66,14 @@ private extension AuthTextField {
             let leftViewImageViewSize: CGSize = [20, 15].HResized
             
             let leftViewImageView = UIImageView(frame: CGRect(origin: .init(x: 15.HAdapted, y: 0.VAdapted), size: leftViewImageViewSize))
+            
             leftViewImageView.image = leftImage
             leftViewImageView.contentMode = .scaleAspectFill
             
             let leftViewSize: CGSize = [35, 15].HResized
             
             let leftView = UIView(frame: CGRect(origin: .init(x: 0.HAdapted, y: 0.VAdapted), size: leftViewSize))
+            
             leftView.addSubview(leftViewImageView)
             
             self.leftView = leftView
@@ -87,17 +91,21 @@ private extension AuthTextField {
             guard let rightViewImageView = rightViewImageView else {
                 return
             }
+            
             rightViewImageView.image = rightImage
             
             let rightViewButtonSize: CGSize = [23, 17].HResized
             
             let rightViewButton = UIButton(type: .custom)
+            
             rightViewButton.frame = CGRect(origin: .init(x: 0.HAdapted, y: 0.VAdapted), size: rightViewButtonSize)
+            
             rightViewButton.addTarget(self, action: #selector(rightViewButtonHandler), for: .touchUpInside)
             
             let rightViewSize: CGSize = [33, 17].HResized
             
             let rightView = UIView(frame: CGRect(origin: .init(x: 0.HAdapted, y: 0.VAdapted), size: rightViewSize))
+            
             rightView.addSubview(rightViewImageView)
             rightView.addSubview(rightViewButton)
             
@@ -113,6 +121,6 @@ private extension AuthTextField {
             return
         }
         isSecureTextEntry.toggle()
-        rightViewImageView.image = isSecureTextEntry ? SystemImage.showPasswordImage : SystemImage.hidePasswordImage
+        rightViewImageView.image = isSecureTextEntry ? Constant.Image.System.showPasswordImage : Constant.Image.System.hidePasswordImage
     }
 }

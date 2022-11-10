@@ -40,11 +40,15 @@ private extension ExternalAuthButton {
         
         tag = selectedIndex
         
-        layer.cornerRadius = 10
-        layer.borderWidth = 1.0
-        layer.borderColor = UIColor.systemGray3.cgColor
+        layer.cornerRadius = Constant.CornerRadius.Button.externalAuth
+        layer.borderWidth = Constant.BorderWidth.Button.externalAuth
+        layer.borderColor = UIColor.systemGray6.cgColor
         
-        imageView?.contentMode = .scaleAspectFit
+        guard let imageView = imageView else {
+            return
+        }
+
+        imageView.contentMode = .scaleAspectFit
         
         setImage(image, for: .normal)
     }

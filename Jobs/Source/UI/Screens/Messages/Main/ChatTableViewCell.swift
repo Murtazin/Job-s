@@ -22,28 +22,28 @@ final class ChatTableViewCell: UITableViewCell {
     private lazy var positionLabel: UILabel = {
         let label = UILabel()
         label.textColor = .label
-        label.font = .systemFont(ofSize: 18, weight: .semibold)
+        label.font = .systemFont(ofSize: 18, weight: .medium)
         return label
     }()
     
     private lazy var companyTitleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .label
-        label.font = .systemFont(ofSize: 14, weight: .regular)
+        label.font = .systemFont(ofSize: 14, weight: .light)
         return label
     }()
     
     private lazy var statusLabel: UILabel = {
         let label = UILabel()
         label.textColor = .systemGray
-        label.font = .systemFont(ofSize: 12, weight: .regular)
+        label.font = .systemFont(ofSize: 12, weight: .light)
         return label
     }()
     
     private lazy var lastMessageDateLabel: UILabel = {
         let label = UILabel()
         label.textColor = .systemGray
-        label.font = .systemFont(ofSize: 14, weight: .regular)
+        label.font = .systemFont(ofSize: 14, weight: .light)
         return label
     }()
     
@@ -87,27 +87,27 @@ private extension ChatTableViewCell {
         
         companyLogoImageView.snp.makeConstraints {
             $0.centerY.equalTo(contentView)
-            $0.size.equalTo([60, 60].HResized)
+            $0.size.equalTo([55, 55].HResized)
             $0.leading.equalTo(contentView).inset(16.HAdapted)
         }
         
         positionLabel.snp.makeConstraints {
-            $0.top.equalTo(companyLogoImageView.snp.top)
+            $0.top.equalTo(companyLogoImageView)
             $0.leading.equalTo(companyLogoImageView.snp.trailing).offset(16.HAdapted)
         }
         
         companyTitleLabel.snp.makeConstraints {
-            $0.top.equalTo(positionLabel.snp.bottom).offset(8.VAdapted)
+            $0.top.equalTo(positionLabel.snp.bottom).offset(4.VAdapted)
             $0.leading.equalTo(companyLogoImageView.snp.trailing).offset(16.HAdapted)
         }
-        
+
         statusLabel.snp.makeConstraints {
-            $0.top.equalTo(companyTitleLabel.snp.bottom).offset(8.VAdapted)
+            $0.top.equalTo(companyTitleLabel.snp.bottom).offset(6.VAdapted)
             $0.leading.equalTo(companyLogoImageView.snp.trailing).offset(16.HAdapted)
         }
-        
+
         lastMessageDateLabel.snp.makeConstraints {
-            $0.top.equalTo(companyLogoImageView.snp.top)
+            $0.top.equalTo(companyLogoImageView)
             $0.trailing.equalTo(contentView).inset(16.HAdapted)
         }
     }

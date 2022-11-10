@@ -99,7 +99,7 @@ private extension SearchFilterViewController {
         applyFiltersButton.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.bottom.equalTo(filtersTableView.snp.bottom).inset(16)
-            $0.size.equalTo([Constant.blueRoundedButtonWidth, Constant.blueRoundedButtonHeight].HResized)
+            $0.size.equalTo([Constant.Width.Button.blueRounded, Constant.Height.Button.blueRounded].HResized)
         }
     }
     

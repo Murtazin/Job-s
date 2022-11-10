@@ -22,6 +22,12 @@ final class MessagesMainViewController: UIViewController {
     private let data: [Chat] = [
         Chat(companyLogo: #imageLiteral(resourceName: "logo-icon"), companyTitle: "Job's", position: "iOS dev", status: "Отклик на вакансию", lastMessageDate: "18:44"),
         Chat(companyLogo: #imageLiteral(resourceName: "logo-icon"), companyTitle: "Vk", position: "Android dev", status: "Отказ", lastMessageDate: "пн"),
+        Chat(companyLogo: #imageLiteral(resourceName: "logo-icon"), companyTitle: "Tinkoff", position: "Data analyst", status: "Вы приглашены", lastMessageDate: "27.08"),
+        Chat(companyLogo: #imageLiteral(resourceName: "logo-icon"), companyTitle: "Job's", position: "iOS dev", status: "Отклик на вакансию", lastMessageDate: "18:44"),
+        Chat(companyLogo: #imageLiteral(resourceName: "logo-icon"), companyTitle: "Vk", position: "Android dev", status: "Отказ", lastMessageDate: "пн"),
+        Chat(companyLogo: #imageLiteral(resourceName: "logo-icon"), companyTitle: "Tinkoff", position: "Data analyst", status: "Вы приглашены", lastMessageDate: "27.08"),
+        Chat(companyLogo: #imageLiteral(resourceName: "logo-icon"), companyTitle: "Job's", position: "iOS dev", status: "Отклик на вакансию", lastMessageDate: "18:44"),
+        Chat(companyLogo: #imageLiteral(resourceName: "logo-icon"), companyTitle: "Vk", position: "Android dev", status: "Отказ", lastMessageDate: "пн"),
         Chat(companyLogo: #imageLiteral(resourceName: "logo-icon"), companyTitle: "Tinkoff", position: "Data analyst", status: "Вы приглашены", lastMessageDate: "27.08")
     ]
     
@@ -30,8 +36,8 @@ final class MessagesMainViewController: UIViewController {
     private lazy var chatsTableView: UITableView = {
         let messagesTableView = UITableView()
         messagesTableView.separatorStyle = .none
-        messagesTableView.rowHeight = 100.VAdapted
-        messagesTableView.estimatedRowHeight = 100.VAdapted
+        messagesTableView.rowHeight = 85.VAdapted
+        messagesTableView.estimatedRowHeight = 85.VAdapted
         messagesTableView.delegate = self
         messagesTableView.dataSource = self
         return messagesTableView

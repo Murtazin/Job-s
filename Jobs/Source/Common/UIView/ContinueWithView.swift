@@ -11,24 +11,12 @@ final class ContinueWithView: UIView {
     
     // MARK: - UI
     
-    private lazy var leftLineView: UIView = {
-        let leftLineView = UIView()
-        leftLineView.backgroundColor = .systemGray3
-        return leftLineView
-    }()
-    
-    private lazy var rightLineView: UIView = {
-        let rightLineView = UIView()
-        rightLineView.backgroundColor = .systemGray3
-        return rightLineView
-    }()
-    
     private lazy var continueWithLabel: UILabel = {
-        let continueWithLabel = UILabel()
-        continueWithLabel.text = "или продолжить с"
-        continueWithLabel.textColor = .systemGray
-        continueWithLabel.font = .systemFont(ofSize: 15)
-        return continueWithLabel
+        let label = UILabel()
+        label.text = Constant.LabelText.continueWith
+        label.textColor = .systemGray
+        label.font = .systemFont(ofSize: 15)
+        return label
     }()
     
     // MARK: - Initializers
@@ -51,22 +39,10 @@ private extension ContinueWithView {
     func setupView() {
         backgroundColor = .systemBackground
         
-        addSubview(leftLineView)
         addSubview(continueWithLabel)
-        addSubview(rightLineView)
-        
-        leftLineView.snp.makeConstraints {
-            $0.centerY.leading.equalToSuperview()
-            $0.size.equalTo([95, 1].HResized)
-        }
         
         continueWithLabel.snp.makeConstraints {
             $0.centerY.centerX.equalToSuperview()
-        }
-        
-        rightLineView.snp.makeConstraints {
-            $0.centerY.trailing.equalToSuperview()
-            $0.size.equalTo([95, 1].HResized)
         }
     }
 }

@@ -166,7 +166,7 @@ private extension VacancyTableViewCell {
         
         companyLogoImageView.snp.makeConstraints {
             $0.top.leading.equalTo(containerView).inset(16.VAdapted)
-            $0.size.equalTo([Constant.vacancyCompanyLogoImageHeightWidth, Constant.vacancyCompanyLogoImageHeightWidth].HResized)
+            $0.size.equalTo([Constant.Width.Image.vacancyCompanyLogo, Constant.Height.Image.vacancyCompanyLogo].HResized)
         }
         
         positionTitleLabel.snp.makeConstraints {
@@ -184,7 +184,7 @@ private extension VacancyTableViewCell {
         addToFavouritesButton.snp.makeConstraints {
             $0.centerY.equalTo(companyLogoImageView)
             $0.trailing.equalTo(containerView).inset(16.HAdapted)
-            $0.size.equalTo([Constant.addToFavButtonWidth, Constant.addToFavButtonHeight].HResized)
+            $0.size.equalTo([Constant.Width.Button.addToFavourites, Constant.Height.Button.addToFavourites].HResized)
         }
         
         lineView.snp.makeConstraints {
@@ -196,7 +196,7 @@ private extension VacancyTableViewCell {
         if !navigationWordsViews.isEmpty {
             navigationWordsViews.forEach { view in
                 view.snp.makeConstraints {
-                    $0.size.equalTo([Constant.vacancyNavigationWordViewWidth, Constant.vacancyNavigationWordViewHeight].HResized)
+                    $0.size.equalTo([Constant.Width.View.vacancyNavigationWord, Constant.Height.View.vacancyNavigationWord].HResized)
                 }
             }
             
@@ -216,7 +216,7 @@ private extension VacancyTableViewCell {
         respondButton.snp.makeConstraints {
             $0.leading.trailing.equalTo(containerView).inset(16.HAdapted)
             $0.bottom.equalTo(containerView).inset(12.VAdapted)
-            $0.height.equalTo(Constant.vacancyRespondButtonHeight.VAdapted)
+            $0.height.equalTo(Constant.Height.Button.vacancyRespond.VAdapted)
         }
     }
     

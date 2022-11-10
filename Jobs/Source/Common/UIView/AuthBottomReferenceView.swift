@@ -32,15 +32,15 @@ final class AuthBottomReferenceView: UIView {
         let label = UILabel()
         label.text = labelText
         label.textColor = .systemGray
-        label.font = .systemFont(ofSize: 14)
+        label.font = .systemFont(ofSize: 14, weight: .light)
         return label
     }()
     
     private lazy var button: UIButton = {
         let button = UIButton()
         button.setTitle(buttonTitle, for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         button.setTitleColor(.systemBlue, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .light)
         button.sizeToFit()
         return button
     }()
@@ -72,15 +72,14 @@ private extension AuthBottomReferenceView {
         addSubview(button)
         
         label.snp.makeConstraints {
-            $0.centerY.leading.equalToSuperview()
+            $0.leading.centerY.equalToSuperview()
         }
         
         button.addTarget(self, action: #selector(buttonHandler), for: .touchUpInside)
         
         button.snp.makeConstraints {
+            $0.leading.equalTo(label.snp.trailing).offset(6.HAdapted)
             $0.centerY.equalToSuperview()
-            $0.leading.equalTo(label.snp.trailing).offset(5.HAdapted)
-            $0.height.equalTo(15.VAdapted)
         }
     }
     
@@ -88,9 +87,9 @@ private extension AuthBottomReferenceView {
     
     @objc func buttonHandler(sender: UIButton) {
         switch buttonTitle {
-        case "Войти":
+        case Constant.ButtonTitle.login:
             loginDelegate?.loginButtonHandler()
-        case "Создать":
+        case Constant.ButtonTitle.create:
             caDelegate?.createAccountButtonHandler()
         default:
             break

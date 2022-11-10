@@ -64,15 +64,15 @@ enum TabBarPage {
     func pageIcon() -> UIImage? {
         switch self {
         case .search:
-            return SystemImage.searchTabBarItemImage
+            return Constant.Image.System.searchTabBarItemImage
         case .favourites:
-            return SystemImage.favouritesTabBarItemImage
+            return Constant.Image.System.favouritesTabBarItemImage
         case .responses:
-            return SystemImage.responsesTabBarItemImage
+            return Constant.Image.System.responsesTabBarItemImage
         case .messages:
-            return SystemImage.messagesTabBarItemImage
+            return Constant.Image.System.messagesTabBarItemImage
         case .profile:
-            return SystemImage.profileTabBarItemImage
+            return Constant.Image.System.profileTabBarItemImage
         }
     }
 }

@@ -19,7 +19,7 @@ final class SearchFilterTableHeaderView: UIView {
     
     private lazy var closeButton: UIButton = {
         let button = UIButton()
-        let image = SystemImage.closeBarButtonImage
+        let image = Constant.Image.System.closeBarButtonImage
         button.setImage(image, for: .normal)
         return button
     }()

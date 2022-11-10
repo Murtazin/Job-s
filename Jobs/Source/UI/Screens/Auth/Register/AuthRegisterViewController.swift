@@ -12,9 +12,9 @@ final class AuthRegisterViewController: UIViewController {
     // MARK: - Private properties
     
     private let externalAuthButtons: [ExternalAuthButton] = [
-        ExternalAuthButton(image: #imageLiteral(resourceName: "logo-icon"), selectedIndex: 0),
-        ExternalAuthButton(image: #imageLiteral(resourceName: "logo-icon"), selectedIndex: 1),
-        ExternalAuthButton(image: #imageLiteral(resourceName: "logo-icon"), selectedIndex: 2)
+        ExternalAuthButton(image: Constant.Image.Internal.logo, selectedIndex: 0),
+        ExternalAuthButton(image: Constant.Image.Internal.logo, selectedIndex: 1),
+        ExternalAuthButton(image: Constant.Image.Internal.logo, selectedIndex: 2)
     ]
     
     private var eventClosure: ((AuthRegisterViewController.Event) -> Void)?
@@ -22,51 +22,51 @@ final class AuthRegisterViewController: UIViewController {
     // MARK: - UI
     
     private lazy var logoImageView: UIImageView = {
-        let logoImageView = UIImageView()
-        logoImageView.contentMode = .scaleAspectFill
-        logoImageView.image = #imageLiteral(resourceName: "logo-icon")
-        return logoImageView
+        let imageView = UIImageView()
+        imageView.image = Constant.Image.Internal.logo
+        imageView.contentMode = .scaleAspectFill
+        return imageView
     }()
     
     private lazy var createAccountLabel: UILabel = {
-        let createAccountLabel = UILabel()
-        createAccountLabel.text = "Создать аккаунт"
-        createAccountLabel.textColor = .label
-        createAccountLabel.font = UIFont.systemFont(ofSize: 32, weight: .semibold)
-        return createAccountLabel
+        let label = UILabel()
+        label.text = Constant.LabelText.createAccount
+        label.textColor = .label
+        label.font = UIFont.systemFont(ofSize: 32, weight: .semibold)
+        return label
     }()
     
-    private lazy var emailTextField: AuthTextField = {
-        let leftViewImage = SystemImage.emailTFLeftViewImage
-        let emailTextField = AuthTextField(leftViewImage: leftViewImage, tfPlaceholder: "Почта")
-        emailTextField.tag = 0
-        emailTextField.delegate = self
-        return emailTextField
+    private lazy var emailTextField: GrayBorderedTextField = {
+        let leftViewImage = Constant.Image.System.mailLeftViewImage
+        let textField = GrayBorderedTextField(leftViewImage: leftViewImage,
+                                              tfPlaceholder: Constant.TextFieldPlaceholder.mail)
+        return textField
     }()
     
-    private lazy var passwordTextField: AuthTextField = {
-        let leftViewImage = SystemImage.passwordTFLeftViewImage
-        let rightViewImage = SystemImage.hidePasswordImage
-        let passwordTextField = AuthTextField(leftViewImage: leftViewImage, rightViewImage: rightViewImage, tfPlaceholder: "Пароль")
-        passwordTextField.tag = 1
-        passwordTextField.delegate = self
-        return passwordTextField
+    private lazy var passwordTextField: GrayBorderedTextField = {
+        let leftViewImage = Constant.Image.System.passwordLeftViewImage
+        let rightViewImage = Constant.Image.System.hidePasswordImage
+        let textField = GrayBorderedTextField(leftViewImage: leftViewImage,
+                                              rightViewImage: rightViewImage,
+                                              tfPlaceholder: Constant.TextFieldPlaceholder.password)
+        return textField
     }()
     
-    private lazy var registerButton = BlueRoundedButton(title: "Регистрация")
+    private lazy var registerButton = BlueRoundedButton(title: Constant.ButtonTitle.register)
     
     private lazy var continueWithView = ContinueWithView()
     
     private lazy var externalAuthButtonsStackView: UIStackView = {
-        let extAuthButtonsStackView = UIStackView(arrangedSubviews: externalAuthButtons)
-        extAuthButtonsStackView.alignment = .center
-        extAuthButtonsStackView.axis = .horizontal
-        extAuthButtonsStackView.spacing = 15.HAdapted
-        extAuthButtonsStackView.distribution = .equalSpacing
-        return extAuthButtonsStackView
+        let stackView = UIStackView(arrangedSubviews: externalAuthButtons)
+        stackView.axis = .horizontal
+        stackView.alignment = .center
+        stackView.distribution = .equalSpacing
+        stackView.spacing = Constant.StackViewSpacing.externalAuthButtons.HAdapted
+        return stackView
     }()
     
-    private lazy var accountExistView = AuthBottomReferenceView(labelText: "Уже есть аккаунт?", buttonTitle: "Войти")
+    private lazy var accountExistView = AuthBottomReferenceView(labelText: Constant.LabelText.accountExist,
+                                                                buttonTitle: Constant.ButtonTitle.login)
     
     // MARK: - Initializers
     
@@ -106,60 +106,71 @@ private extension AuthRegisterViewController {
         view.addSubview(accountExistView)
         
         logoImageView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide).inset(10.VAdapted)
+            $0.top.equalTo(view.safeAreaLayoutGuide).inset(16.VAdapted)
             $0.centerX.equalToSuperview()
-            $0.size.equalTo([Constant.logoImageViewWidthHeight, Constant.logoImageViewWidthHeight].HResized)
+            $0.size.equalTo([Constant.Width.ImageView.logo, Constant.Height.ImageView.logo].HResized)
         }
         
         createAccountLabel.snp.makeConstraints {
-            $0.top.equalTo(logoImageView).inset(150.VAdapted)
+            $0.top.equalTo(logoImageView.snp.bottom).offset(24.VAdapted)
             $0.centerX.equalToSuperview()
         }
         
+        emailTextField.delegate = self
+        
+        let textFieldsWidth: CGFloat = view.frame.width - 64
+        
         emailTextField.snp.makeConstraints {
-            $0.top.equalTo(createAccountLabel).inset(70.VAdapted)
-            $0.leading.trailing.equalToSuperview().inset(24.HAdapted)
-            $0.height.equalTo(Constant.authTextFieldHeight.VAdapted)
+            $0.top.equalTo(createAccountLabel.snp.bottom).offset(24.VAdapted)
+            $0.centerX.equalToSuperview()
+            $0.size.equalTo([Int(textFieldsWidth), Constant.Height.TextField.grayBordered].HResized)
         }
-
+        
+        passwordTextField.delegate = self
+        
         passwordTextField.snp.makeConstraints {
             $0.top.equalTo(emailTextField.snp.bottom).offset(16.VAdapted)
-            $0.leading.trailing.equalToSuperview().inset(24.HAdapted)
-            $0.height.equalTo(Constant.authTextFieldHeight.VAdapted)
+            $0.centerX.equalToSuperview()
+            $0.size.equalTo([Int(textFieldsWidth), Constant.Height.TextField.grayBordered].HResized)
         }
-
+        
         registerButton.snp.makeConstraints {
             $0.top.equalTo(passwordTextField.snp.bottom).offset(24.VAdapted)
             $0.centerX.equalToSuperview()
-            $0.size.equalTo([Constant.blueRoundedButtonWidth, Constant.blueRoundedButtonHeight].HResized)
+            $0.size.equalTo([Constant.Width.Button.blueRounded, Constant.Height.Button.blueRounded].HResized)
         }
         
         registerButton.addTarget(self, action: #selector(registerButtonHandler), for: .touchUpInside)
         
+        let continueWithViewWidth: CGFloat = view.frame.width - 32
+        
         continueWithView.snp.makeConstraints {
-            $0.top.equalTo(registerButton.snp.bottom).offset(30.VAdapted)
-            $0.leading.trailing.equalToSuperview().inset(16.HAdapted)
-            $0.height.equalTo(Constant.continueWithViewHeight.VAdapted)
+            $0.top.equalTo(registerButton.snp.bottom).offset(24.VAdapted)
+            $0.centerX.equalToSuperview()
+            $0.size.equalTo([Int(continueWithViewWidth), Constant.Height.View.continueWith].HResized)
         }
         
         externalAuthButtons.forEach { button in
-            button.snp.makeConstraints {
-                $0.size.equalTo([Constant.externalAuthButtonWidth, Constant.externalAuthButtonHeight].HResized)
-            }
             button.addTarget(self, action: #selector(externalAuthButtonHandler), for: .touchUpInside)
+            button.snp.makeConstraints {
+                $0.size.equalTo([Constant.Width.Button.externalAuth, Constant.Height.Button.externalAuth].HResized)
+            }
         }
         
+        let externalABStackViewWidth: CGFloat = view.frame.width - 100
+        
         externalAuthButtonsStackView.snp.makeConstraints {
-            $0.top.equalTo(continueWithView.snp.bottom).offset(30.VAdapted)
-            $0.leading.trailing.equalToSuperview().inset(50.HAdapted)
+            $0.top.equalTo(continueWithView.snp.bottom).offset(24.VAdapted)
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo([Int(externalABStackViewWidth), 0].HResized.width)
         }
         
         accountExistView.loginDelegate = self
         
         accountExistView.snp.makeConstraints {
-            $0.top.equalTo(externalAuthButtonsStackView.snp.bottom).offset(30.VAdapted)
+            $0.top.equalTo(externalAuthButtonsStackView.snp.bottom).offset(24.VAdapted)
             $0.centerX.equalToSuperview()
-            $0.size.equalTo([Constant.authSmallBlueButtonWidth, Constant.authSmallBlueButtonHeight].HResized)
+            $0.size.equalTo([Constant.Width.Button.authSmallBlue, Constant.Height.Button.authSmallBlue].HResized)
         }
     }
     
@@ -186,24 +197,14 @@ private extension AuthRegisterViewController {
 // MARK: - UITextFieldDelegate
 
 extension AuthRegisterViewController: UITextFieldDelegate {
-
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-
-        if let nextTextField = view.viewWithTag(textField.tag + 1) {
-            nextTextField.becomeFirstResponder()
-        }
-        return true
-    }
-    
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.layer.borderColor = UIColor.systemBlue.cgColor
         textField.tintColor = .systemBlue
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        textField.layer.borderColor = UIColor.systemGray5.cgColor
-        textField.tintColor = .systemGray3
+        textField.layer.borderColor = UIColor.systemGray6.cgColor
+        textField.tintColor = .systemGray4
     }
 }
 

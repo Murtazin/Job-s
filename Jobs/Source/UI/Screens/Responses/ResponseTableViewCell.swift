@@ -117,7 +117,7 @@ private extension ResponseTableViewCell {
         
         companyLogoImageView.snp.makeConstraints {
             $0.top.leading.equalTo(containerView).inset(16.VAdapted)
-            $0.size.equalTo([Constant.vacancyCompanyLogoImageHeightWidth, Constant.vacancyCompanyLogoImageHeightWidth].HResized)
+            $0.size.equalTo([Constant.Width.Image.vacancyCompanyLogo, Constant.Height.Image.vacancyCompanyLogo].HResized)
         }
         
         positionTitleLabel.snp.makeConstraints {
@@ -133,7 +133,7 @@ private extension ResponseTableViewCell {
         statusView.snp.makeConstraints {
             $0.centerY.equalTo(companyLogoImageView)
             $0.trailing.equalTo(containerView).inset(16)
-            $0.size.equalTo([Constant.vacancyNavigationWordViewWidth, Constant.vacancyNavigationWordViewHeight].HResized)
+            $0.size.equalTo([Constant.Width.View.vacancyNavigationWord, Constant.Height.View.vacancyNavigationWord].HResized)
         }
         
         lineView.snp.makeConstraints {
@@ -147,7 +147,7 @@ private extension ResponseTableViewCell {
         respondButton.snp.makeConstraints {
             $0.top.equalTo(lineView.snp.bottom).offset(8.VAdapted)
             $0.leading.trailing.equalTo(containerView).inset(16.HAdapted)
-            $0.height.equalTo(Constant.vacancyRespondButtonHeight.VAdapted)
+            $0.height.equalTo(Constant.Height.Button.vacancyRespond.VAdapted)
         }
     }
     

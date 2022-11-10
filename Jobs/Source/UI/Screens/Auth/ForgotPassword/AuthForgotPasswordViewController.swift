@@ -16,38 +16,37 @@ final class AuthForgotPasswordViewController: UIViewController {
     // MARK: - UI
     
     private lazy var logoImageView: UIImageView = {
-        let logoImageView = UIImageView()
-        logoImageView.contentMode = .scaleAspectFill
-        logoImageView.image = #imageLiteral(resourceName: "logo-icon")
-        return logoImageView
+        let imageView = UIImageView()
+        imageView.image = Constant.Image.Internal.logo
+        imageView.contentMode = .scaleAspectFill
+        return imageView
     }()
     
     private lazy var accessRecoveryLabel: UILabel = {
-        let accessRecoveryLabel = UILabel()
-        accessRecoveryLabel.text = "Восстановление доступа"
-        accessRecoveryLabel.textColor = .label
-        accessRecoveryLabel.font = UIFont.systemFont(ofSize: 26, weight: .semibold)
-        return accessRecoveryLabel
+        let label = UILabel()
+        label.text = Constant.LabelText.accessRecovery
+        label.textColor = .label
+        label.font = UIFont.systemFont(ofSize: 26, weight: .semibold)
+        return label
     }()
     
     private lazy var enterEmailAddressLabel: UILabel = {
-        let enterEmailAddressLabel = UILabel()
-        enterEmailAddressLabel.text = "Введите адрес электронной почты, привязанный к аккаунту"
-        enterEmailAddressLabel.numberOfLines = 2
-        enterEmailAddressLabel.textColor = .label
-        enterEmailAddressLabel.font = UIFont.systemFont(ofSize: 14)
-        enterEmailAddressLabel.textAlignment = .center
-        return enterEmailAddressLabel
+        let label = UILabel()
+        label.text = Constant.LabelText.enterEmailAddress
+        label.textColor = .label
+        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 14, weight: .light)
+        label.numberOfLines = 2
+        return label
     }()
     
-    private lazy var emailTextField: AuthTextField = {
-        let leftViewImage = SystemImage.emailTFLeftViewImage
-        let emailTF = AuthTextField(leftViewImage: leftViewImage, tfPlaceholder: "Почта")
-        emailTF.delegate = self
-        return emailTF
+    private lazy var emailTextField: GrayBorderedTextField = {
+        let leftViewImage = Constant.Image.System.mailLeftViewImage
+        let textField = GrayBorderedTextField(leftViewImage: leftViewImage, tfPlaceholder: Constant.TextFieldPlaceholder.mail)
+        return textField
     }()
     
-    private lazy var continueButton = BlueRoundedButton(title: "Продолжить")
+    private lazy var continueButton = BlueRoundedButton(title: Constant.ButtonTitle.proceed)
     
     // MARK: - Initializers
     
@@ -84,33 +83,37 @@ private extension AuthForgotPasswordViewController {
         view.addSubview(continueButton)
         
         logoImageView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide).inset(45.VAdapted)
+            $0.top.equalTo(view.safeAreaLayoutGuide).inset(64.VAdapted)
             $0.centerX.equalToSuperview()
-            $0.size.equalTo([Constant.logoImageViewWidthHeight, Constant.logoImageViewWidthHeight].HResized)
+            $0.size.equalTo([Constant.Width.ImageView.logo, Constant.Height.ImageView.logo].HResized)
         }
         
         accessRecoveryLabel.snp.makeConstraints {
-            $0.top.equalTo(logoImageView).inset(150.VAdapted)
+            $0.top.equalTo(logoImageView.snp.bottom).offset(32.VAdapted)
             $0.centerX.equalToSuperview()
         }
         
         enterEmailAddressLabel.snp.makeConstraints {
-            $0.top.equalTo(accessRecoveryLabel).inset(75.VAdapted)
-            $0.leading.trailing.equalToSuperview().inset(16.HAdapted)
+            $0.top.equalTo(accessRecoveryLabel.snp.bottom).offset(32.VAdapted)
+            $0.centerX.equalToSuperview()
         }
         
+        let emailTextFieldWidth: CGFloat = view.frame.width - 64
+        
+        emailTextField.delegate = self
+        
         emailTextField.snp.makeConstraints {
-            $0.top.equalTo(enterEmailAddressLabel).inset(75.VAdapted)
-            $0.leading.trailing.equalToSuperview().inset(24.HAdapted)
-            $0.height.equalTo(Constant.authTextFieldHeight.VAdapted)
+            $0.top.equalTo(enterEmailAddressLabel.snp.bottom).offset(32.VAdapted)
+            $0.centerX.equalToSuperview()
+            $0.size.equalTo([Int(emailTextFieldWidth), Constant.Height.TextField.grayBordered].HResized)
         }
         
         continueButton.addTarget(self, action: #selector(continueButtonHandler), for: .touchUpInside)
         
         continueButton.snp.makeConstraints {
-            $0.top.equalTo(emailTextField).inset(75.VAdapted)
+            $0.top.equalTo(emailTextField.snp.bottom).offset(32.VAdapted)
             $0.centerX.equalToSuperview()
-            $0.size.equalTo([Constant.blueRoundedButtonWidth, Constant.blueRoundedButtonHeight].HResized)
+            $0.size.equalTo([Constant.Width.Button.blueRounded, Constant.Height.Button.blueRounded].HResized)
         }
     }
     
@@ -130,8 +133,8 @@ extension AuthForgotPasswordViewController: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        textField.layer.borderColor = UIColor.systemGray5.cgColor
-        textField.tintColor = .systemGray3
+        textField.layer.borderColor = UIColor.systemGray6.cgColor
+        textField.tintColor = .systemGray4
     }
 }
 

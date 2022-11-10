@@ -13,7 +13,7 @@ final class SearchFilterTextFieldTableViewCell: UITableViewCell {
     
     // MARK: - UI
     
-    private var textField: AuthTextField?
+    private var textField: GrayBorderedTextField?
     
     // MARK: - Initializers
     
@@ -28,7 +28,7 @@ final class SearchFilterTextFieldTableViewCell: UITableViewCell {
     // MARK: - Internal
     
     func configure(placeholder: String) {
-        textField = AuthTextField(tfPlaceholder: placeholder)
+        textField = GrayBorderedTextField(tfPlaceholder: placeholder)
         
         setupUI()
     }

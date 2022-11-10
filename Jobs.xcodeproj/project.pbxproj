@@ -13,16 +13,17 @@
 		A249B56828FEF42B00B0F0DF /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A249B56728FEF42B00B0F0DF /* SearchCoordinator.swift */; };
 		A249B56A28FEF43900B0F0DF /* FavouritesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A249B56928FEF43900B0F0DF /* FavouritesCoordinator.swift */; };
 		A249B56C28FF2F4C00B0F0DF /* ICoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A249B56B28FF2F4C00B0F0DF /* ICoordinator.swift */; };
-		A249B56F28FF314800B0F0DF /* SystemImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A249B56E28FF314800B0F0DF /* SystemImage.swift */; };
 		A249B57E28FFE5B100B0F0DF /* AuthRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A249B57D28FFE5B100B0F0DF /* AuthRegisterViewController.swift */; };
 		A24DEC2B28FEB27E007B1BA1 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24DEC2A28FEB27E007B1BA1 /* AppCoordinator.swift */; };
 		A24DEC2D28FEC698007B1BA1 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24DEC2C28FEC698007B1BA1 /* AuthCoordinator.swift */; };
 		A24DEC2F28FEC6B5007B1BA1 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24DEC2E28FEC6B4007B1BA1 /* MainCoordinator.swift */; };
 		A24DEC3128FEED09007B1BA1 /* SearchMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24DEC3028FEED09007B1BA1 /* SearchMainViewController.swift */; };
 		A24DEC3328FEED14007B1BA1 /* FavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24DEC3228FEED14007B1BA1 /* FavouritesViewController.swift */; };
+		A2692C95291A7DE30099D07D /* ProfileMainInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2692C94291A7DE30099D07D /* ProfileMainInfoTableViewCell.swift */; };
+		A2692C98291A828F0099D07D /* ProfileEditWorkExperienceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2692C97291A828F0099D07D /* ProfileEditWorkExperienceViewController.swift */; };
 		A26C200A29182A700097B124 /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26C200929182A700097B124 /* ProfileEditViewController.swift */; };
 		A27367D02902D05D00F62F29 /* AuthForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27367CF2902D05D00F62F29 /* AuthForgotPasswordViewController.swift */; };
-		A27367D42902D3E200F62F29 /* AuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27367D32902D3E200F62F29 /* AuthTextField.swift */; };
+		A27367D42902D3E200F62F29 /* GrayBorderedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27367D32902D3E200F62F29 /* GrayBorderedTextField.swift */; };
 		A27367D62902FAA800F62F29 /* BlueRoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27367D52902FAA800F62F29 /* BlueRoundedButton.swift */; };
 		A27367D82903005800F62F29 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27367D72903005800F62F29 /* Constant.swift */; };
 		A279E104290D3ABA00236776 /* SearchFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A279E103290D3ABA00236776 /* SearchFilterViewController.swift */; };
@@ -41,13 +42,14 @@
 		A2AAD53329154E950008D729 /* SearchFilterTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AAD53229154E950008D729 /* SearchFilterTableHeaderView.swift */; };
 		A2AAD535291557D10008D729 /* ResponseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AAD534291557D10008D729 /* ResponseTableViewCell.swift */; };
 		A2C06A0229118AF800DC8E5D /* ProfileMainHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C06A0129118AF800DC8E5D /* ProfileMainHeaderView.swift */; };
+		A2C20FE3291A79A70045FB54 /* WorkExperienceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C20FE2291A79A70045FB54 /* WorkExperienceView.swift */; };
+		A2D74E7529191C0400EBBFF2 /* ProfileMainTableSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D74E7429191C0400EBBFF2 /* ProfileMainTableSectionHeaderView.swift */; };
 		A2E6BBE82903DC6F002D0586 /* VacancyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E6BBE72903DC6F002D0586 /* VacancyTableViewCell.swift */; };
 		A2E6BBEA29040AE2002D0586 /* NavigationWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E6BBE929040AE2002D0586 /* NavigationWordView.swift */; };
 		A2E6DE582902720300269339 /* AuthLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E6DE572902720300269339 /* AuthLoginViewController.swift */; };
 		A2E8ECEF290D6FAA00B3EEAC /* SearchFilterTagListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E8ECEE290D6FAA00B3EEAC /* SearchFilterTagListTableViewCell.swift */; };
 		A2E8ECF3290D708000B3EEAC /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E8ECF2290D708000B3EEAC /* TagView.swift */; };
 		A2E8ECF5290DB05900B3EEAC /* SearchFilterTagViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E8ECF4290DB05900B3EEAC /* SearchFilterTagViewCollectionViewCell.swift */; };
-		A2EF63C02912738200649794 /* ProfileMainInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EF63BF2912738200649794 /* ProfileMainInfoTableViewCell.swift */; };
 		A2F94B5228FD710B0010FF47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F94B5128FD710B0010FF47 /* AppDelegate.swift */; };
 		A2F94B5428FD710B0010FF47 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F94B5328FD710B0010FF47 /* SceneDelegate.swift */; };
 		A2F94B5B28FD710D0010FF47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2F94B5A28FD710D0010FF47 /* Assets.xcassets */; };
@@ -64,16 +66,17 @@
 		A249B56728FEF42B00B0F0DF /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
 		A249B56928FEF43900B0F0DF /* FavouritesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesCoordinator.swift; sourceTree = "<group>"; };
 		A249B56B28FF2F4C00B0F0DF /* ICoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICoordinator.swift; sourceTree = "<group>"; };
-		A249B56E28FF314800B0F0DF /* SystemImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemImage.swift; sourceTree = "<group>"; };
 		A249B57D28FFE5B100B0F0DF /* AuthRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRegisterViewController.swift; sourceTree = "<group>"; };
 		A24DEC2A28FEB27E007B1BA1 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		A24DEC2C28FEC698007B1BA1 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		A24DEC2E28FEC6B4007B1BA1 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		A24DEC3028FEED09007B1BA1 /* SearchMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMainViewController.swift; sourceTree = "<group>"; };
 		A24DEC3228FEED14007B1BA1 /* FavouritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewController.swift; sourceTree = "<group>"; };
+		A2692C94291A7DE30099D07D /* ProfileMainInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainInfoTableViewCell.swift; sourceTree = "<group>"; };
+		A2692C97291A828F0099D07D /* ProfileEditWorkExperienceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditWorkExperienceViewController.swift; sourceTree = "<group>"; };
 		A26C200929182A700097B124 /* ProfileEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditViewController.swift; sourceTree = "<group>"; };
 		A27367CF2902D05D00F62F29 /* AuthForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthForgotPasswordViewController.swift; sourceTree = "<group>"; };
-		A27367D32902D3E200F62F29 /* AuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTextField.swift; sourceTree = "<group>"; };
+		A27367D32902D3E200F62F29 /* GrayBorderedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrayBorderedTextField.swift; sourceTree = "<group>"; };
 		A27367D52902FAA800F62F29 /* BlueRoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueRoundedButton.swift; sourceTree = "<group>"; };
 		A27367D72903005800F62F29 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		A279E103290D3ABA00236776 /* SearchFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterViewController.swift; sourceTree = "<group>"; };
@@ -92,13 +95,14 @@
 		A2AAD53229154E950008D729 /* SearchFilterTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterTableHeaderView.swift; sourceTree = "<group>"; };
 		A2AAD534291557D10008D729 /* ResponseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseTableViewCell.swift; sourceTree = "<group>"; };
 		A2C06A0129118AF800DC8E5D /* ProfileMainHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainHeaderView.swift; sourceTree = "<group>"; };
+		A2C20FE2291A79A70045FB54 /* WorkExperienceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkExperienceView.swift; sourceTree = "<group>"; };
+		A2D74E7429191C0400EBBFF2 /* ProfileMainTableSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainTableSectionHeaderView.swift; sourceTree = "<group>"; };
 		A2E6BBE72903DC6F002D0586 /* VacancyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyTableViewCell.swift; sourceTree = "<group>"; };
 		A2E6BBE929040AE2002D0586 /* NavigationWordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationWordView.swift; sourceTree = "<group>"; };
 		A2E6DE572902720300269339 /* AuthLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthLoginViewController.swift; sourceTree = "<group>"; };
 		A2E8ECEE290D6FAA00B3EEAC /* SearchFilterTagListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterTagListTableViewCell.swift; sourceTree = "<group>"; };
 		A2E8ECF2290D708000B3EEAC /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 		A2E8ECF4290DB05900B3EEAC /* SearchFilterTagViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterTagViewCollectionViewCell.swift; sourceTree = "<group>"; };
-		A2EF63BF2912738200649794 /* ProfileMainInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainInfoTableViewCell.swift; sourceTree = "<group>"; };
 		A2F94B4E28FD710B0010FF47 /* Jobs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jobs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2F94B5128FD710B0010FF47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A2F94B5328FD710B0010FF47 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -284,6 +288,14 @@
 			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
+		A2692C96291A826F0099D07D /* EditWE */ = {
+			isa = PBXGroup;
+			children = (
+				A2692C97291A828F0099D07D /* ProfileEditWorkExperienceViewController.swift */,
+			);
+			path = EditWE;
+			sourceTree = "<group>";
+		};
 		A26C200829182A5C0097B124 /* Edit */ = {
 			isa = PBXGroup;
 			children = (
@@ -311,7 +323,7 @@
 		A27367D12902D39600F62F29 /* UIView */ = {
 			isa = PBXGroup;
 			children = (
-				A27367D32902D3E200F62F29 /* AuthTextField.swift */,
+				A27367D32902D3E200F62F29 /* GrayBorderedTextField.swift */,
 				A27367D52902FAA800F62F29 /* BlueRoundedButton.swift */,
 				A2E6BBE929040AE2002D0586 /* NavigationWordView.swift */,
 				A28E643029055A00007E429F /* ContinueWithView.swift */,
@@ -319,6 +331,7 @@
 				A2FDCF6129056AD000D9E911 /* AuthBottomReferenceView.swift */,
 				A2E8ECF2290D708000B3EEAC /* TagView.swift */,
 				A2AAD53229154E950008D729 /* SearchFilterTableHeaderView.swift */,
+				A2C20FE2291A79A70045FB54 /* WorkExperienceView.swift */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -326,7 +339,6 @@
 		A27367D22902D3A200F62F29 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A249B56E28FF314800B0F0DF /* SystemImage.swift */,
 				A27367D72903005800F62F29 /* Constant.swift */,
 			);
 			path = Resources;
@@ -374,7 +386,8 @@
 			children = (
 				A28E6428290438ED007E429F /* ProfileMainViewController.swift */,
 				A2C06A0129118AF800DC8E5D /* ProfileMainHeaderView.swift */,
-				A2EF63BF2912738200649794 /* ProfileMainInfoTableViewCell.swift */,
+				A2D74E7429191C0400EBBFF2 /* ProfileMainTableSectionHeaderView.swift */,
+				A2692C94291A7DE30099D07D /* ProfileMainInfoTableViewCell.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -416,6 +429,7 @@
 		A2E6BBEE290433C7002D0586 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				A2692C96291A826F0099D07D /* EditWE */,
 				A26C200829182A5C0097B124 /* Edit */,
 				A2C06A002911778300DC8E5D /* Main */,
 			);
@@ -591,32 +605,34 @@
 				A2FDCF60290560DA00D9E911 /* ExternalAuthButton.swift in Sources */,
 				A24DEC2D28FEC698007B1BA1 /* AuthCoordinator.swift in Sources */,
 				A28E642F290552EE007E429F /* ProfileCoordinator.swift in Sources */,
-				A27367D42902D3E200F62F29 /* AuthTextField.swift in Sources */,
+				A27367D42902D3E200F62F29 /* GrayBorderedTextField.swift in Sources */,
+				A2D74E7529191C0400EBBFF2 /* ProfileMainTableSectionHeaderView.swift in Sources */,
 				A2C06A0229118AF800DC8E5D /* ProfileMainHeaderView.swift in Sources */,
 				A249B56A28FEF43900B0F0DF /* FavouritesCoordinator.swift in Sources */,
 				A24DEC3128FEED09007B1BA1 /* SearchMainViewController.swift in Sources */,
+				A2692C98291A828F0099D07D /* ProfileEditWorkExperienceViewController.swift in Sources */,
 				A28E6429290438ED007E429F /* ProfileMainViewController.swift in Sources */,
 				A24DEC2F28FEC6B5007B1BA1 /* MainCoordinator.swift in Sources */,
 				A28E642D290552DD007E429F /* MessagesCoordinator.swift in Sources */,
 				A28E642B290552D1007E429F /* ResponsesCoordinator.swift in Sources */,
 				A2E6BBEA29040AE2002D0586 /* NavigationWordView.swift in Sources */,
+				A2692C95291A7DE30099D07D /* ProfileMainInfoTableViewCell.swift in Sources */,
 				A249B56828FEF42B00B0F0DF /* SearchCoordinator.swift in Sources */,
 				A27367D62902FAA800F62F29 /* BlueRoundedButton.swift in Sources */,
 				A29A98B42905A4BD0069C682 /* IntExtension.swift in Sources */,
 				A29A98B92905A5110069C682 /* Dimension.swift in Sources */,
 				A2AAD53329154E950008D729 /* SearchFilterTableHeaderView.swift in Sources */,
-				A2EF63C02912738200649794 /* ProfileMainInfoTableViewCell.swift in Sources */,
 				A249B57E28FFE5B100B0F0DF /* AuthRegisterViewController.swift in Sources */,
 				A2E8ECF3290D708000B3EEAC /* TagView.swift in Sources */,
 				A20427B9290D4FEE0050AB56 /* SearchFilterTextFieldTableViewCell.swift in Sources */,
 				A24DEC2B28FEB27E007B1BA1 /* AppCoordinator.swift in Sources */,
+				A2C20FE3291A79A70045FB54 /* WorkExperienceView.swift in Sources */,
 				A27367D02902D05D00F62F29 /* AuthForgotPasswordViewController.swift in Sources */,
 				A2467E212910605600AE9F98 /* ChatTableViewCell.swift in Sources */,
 				A28E643129055A00007E429F /* ContinueWithView.swift in Sources */,
 				A28E6425290438DE007E429F /* ResponsesMainViewController.swift in Sources */,
 				A2E8ECEF290D6FAA00B3EEAC /* SearchFilterTagListTableViewCell.swift in Sources */,
 				A26C200A29182A700097B124 /* ProfileEditViewController.swift in Sources */,
-				A249B56F28FF314800B0F0DF /* SystemImage.swift in Sources */,
 				A279E104290D3ABA00236776 /* SearchFilterViewController.swift in Sources */,
 				A29A98B22905A45A0069C682 /* AdaptiveLayoutHelper.swift in Sources */,
 				A28E6427290438E6007E429F /* MessagesMainViewController.swift in Sources */,

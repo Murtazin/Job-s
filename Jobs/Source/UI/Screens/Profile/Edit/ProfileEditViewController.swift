@@ -33,7 +33,7 @@ final class ProfileEditViewController: UIViewController {
         return label
     }()
     
-    private lazy var firstNameTextField = AuthTextField(tfPlaceholder: "Имя")
+    private lazy var firstNameTextField = GrayBorderedTextField(tfPlaceholder: "Имя")
     
     private lazy var lastNameLabel: UILabel = {
         let label = UILabel()
@@ -42,7 +42,7 @@ final class ProfileEditViewController: UIViewController {
         return label
     }()
     
-    private lazy var lastNameTextField = AuthTextField(tfPlaceholder: "Фамилия")
+    private lazy var lastNameTextField = GrayBorderedTextField(tfPlaceholder: "Фамилия")
     
     private lazy var positionLabel: UILabel = {
         let label = UILabel()
@@ -51,7 +51,7 @@ final class ProfileEditViewController: UIViewController {
         return label
     }()
     
-    private lazy var positionTextField = AuthTextField(tfPlaceholder: "Должность")
+    private lazy var positionTextField = GrayBorderedTextField(tfPlaceholder: "Должность")
     
     // MARK: - Life cycle
 
@@ -99,7 +99,7 @@ private extension ProfileEditViewController {
         firstNameTextField.snp.makeConstraints {
             $0.top.equalTo(firstNameLabel.snp.bottom).offset(8.VAdapted)
             $0.leading.trailing.equalToSuperview().inset(16.HAdapted)
-            $0.height.equalTo(Constant.authTextFieldHeight.VAdapted)
+            $0.height.equalTo(Constant.Height.TextField.grayBordered.VAdapted)
         }
         
         lastNameLabel.snp.makeConstraints {
@@ -110,7 +110,7 @@ private extension ProfileEditViewController {
         lastNameTextField.snp.makeConstraints {
             $0.top.equalTo(lastNameLabel.snp.bottom).offset(8.VAdapted)
             $0.leading.trailing.equalToSuperview().inset(16.HAdapted)
-            $0.height.equalTo(Constant.authTextFieldHeight.VAdapted)
+            $0.height.equalTo(Constant.Height.TextField.grayBordered.VAdapted)
         }
         
         positionLabel.snp.makeConstraints {
@@ -121,7 +121,7 @@ private extension ProfileEditViewController {
         positionTextField.snp.makeConstraints {
             $0.top.equalTo(positionLabel.snp.bottom).offset(8.VAdapted)
             $0.leading.trailing.equalToSuperview().inset(16.HAdapted)
-            $0.height.equalTo(Constant.authTextFieldHeight.VAdapted)
+            $0.height.equalTo(Constant.Height.TextField.grayBordered.VAdapted)
         }
     }
 }
