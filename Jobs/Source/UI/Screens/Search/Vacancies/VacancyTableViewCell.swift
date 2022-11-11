@@ -29,19 +29,15 @@ final class VacancyTableViewCell: UITableViewCell {
     
     private lazy var positionTitleLabel: UILabel = {
         let label = UILabel()
-        #warning("TODO: take out in configure func")
-        label.text = "iOS разработчик"
         label.textColor = .label
-        label.font = .systemFont(ofSize: 14, weight: .medium)
+        label.font = .systemFont(ofSize: 16, weight: .semibold)
         return label
     }()
     
     private lazy var companyTitleLabel: UILabel = {
         let label = UILabel()
-        #warning("TODO: take out in configure func")
-        label.text = "Job's"
         label.textColor = .label
-        label.font = .systemFont(ofSize: 12, weight: .light)
+        label.font = .systemFont(ofSize: 14, weight: .regular)
         return label
     }()
     
@@ -75,20 +71,16 @@ final class VacancyTableViewCell: UITableViewCell {
     
     private lazy var cityTitleLabel: UILabel = {
         let label = UILabel()
-        #warning("TODO: take out in configure func")
-        label.text = "Казань, республика Татарстан"
         label.textColor = .label
-        label.font = .systemFont(ofSize: 14, weight: .medium)
+        label.font = .systemFont(ofSize: 18, weight: .semibold)
         label.sizeToFit()
         return label
     }()
     
     private lazy var salaryLabel: UILabel = {
         let label = UILabel()
-        #warning("TODO: take out in configure func")
-        label.text = "120.000 - 200.000 ₽/месяц"
         label.textColor = .systemBlue
-        label.font = .systemFont(ofSize: 14, weight: .light)
+        label.font = .systemFont(ofSize: 16, weight: .regular)
         label.sizeToFit()
         return label
     }()
@@ -113,8 +105,12 @@ final class VacancyTableViewCell: UITableViewCell {
     
     // MARK: - Internal
     
-    func configure() {
-        //
+    func configure(model: VacancyModel) {
+        companyLogoImageView.image = model.companyLogoImage
+        positionTitleLabel.text = model.positionTitle
+        companyTitleLabel.text = model.companyTitle
+        cityTitleLabel.text = model.cityTitle
+        salaryLabel.text = model.salary
     }
 }
 

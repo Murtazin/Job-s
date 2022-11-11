@@ -11,7 +11,23 @@ final class SearchVacanciesViewController: UIViewController {
     
     // MARK: - Private properties
     
-    private let vacancies = [String]()
+    private var vacancies: [VacancyModel] = [
+        VacancyModel(companyLogoImage: Constant.Image.Internal.logo,
+                     positionTitle: "iOS dev",
+                     companyTitle: "Tinkoff",
+                     cityTitle: "Kazan, Tatarstan",
+                     salary: "120.000₽ - 340.000₽"),
+        VacancyModel(companyLogoImage: Constant.Image.Internal.logo,
+                     positionTitle: "Android dev",
+                     companyTitle: "Sber",
+                     cityTitle: "Moscow, Russia",
+                     salary: "100.000₽ - 300.000₽"),
+        VacancyModel(companyLogoImage: Constant.Image.Internal.logo,
+                     positionTitle: "DevOps engineer",
+                     companyTitle: "4 spaces",
+                     cityTitle: "Saint-P, Russia",
+                     salary: "240.000₽ - 520.000₽")
+    ]
     
     private var eventClosure: ((SearchVacanciesViewController.Event) -> Void)?
     
@@ -92,7 +108,7 @@ private extension SearchVacanciesViewController {
 extension SearchVacanciesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return vacancies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -100,6 +116,8 @@ extension SearchVacanciesViewController: UITableViewDelegate, UITableViewDataSou
                                                        for: indexPath) as? VacancyTableViewCell else {
             return UITableViewCell()
         }
+        let model = vacancies[indexPath.row]
+        cell.configure(model: model)
         cell.selectionStyle = .none
         return cell
     }

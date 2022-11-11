@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		993114BDE4795BCE46B9BDA6 /* Pods_Jobs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 783B0B705607F35E4BA28AE4 /* Pods_Jobs.framework */; };
+		A200F973291E9B5000A44826 /* VacancyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200F972291E9B5000A44826 /* VacancyModel.swift */; };
 		A20427B9290D4FEE0050AB56 /* SearchFilterTextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20427B8290D4FEE0050AB56 /* SearchFilterTextFieldTableViewCell.swift */; };
 		A2467E212910605600AE9F98 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2467E202910605600AE9F98 /* ChatTableViewCell.swift */; };
 		A249B56828FEF42B00B0F0DF /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A249B56728FEF42B00B0F0DF /* SearchCoordinator.swift */; };
@@ -60,6 +61,7 @@
 /* Begin PBXFileReference section */
 		67489DC3B888F0229EE9FC10 /* Pods-Jobs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jobs.release.xcconfig"; path = "Target Support Files/Pods-Jobs/Pods-Jobs.release.xcconfig"; sourceTree = "<group>"; };
 		783B0B705607F35E4BA28AE4 /* Pods_Jobs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jobs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A200F972291E9B5000A44826 /* VacancyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyModel.swift; sourceTree = "<group>"; };
 		A20427B8290D4FEE0050AB56 /* SearchFilterTextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterTextFieldTableViewCell.swift; sourceTree = "<group>"; };
 		A2467E202910605600AE9F98 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
 		A249B56728FEF42B00B0F0DF /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
@@ -139,6 +141,14 @@
 				783B0B705607F35E4BA28AE4 /* Pods_Jobs.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A200F96F291E9B3000A44826 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A200F972291E9B5000A44826 /* VacancyModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		A2467E1F29105F0500AE9F98 /* Main */ = {
@@ -240,6 +250,7 @@
 		A24DEC2528FDDA11007B1BA1 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				A200F96F291E9B3000A44826 /* Models */,
 				A29A98B72905A5050069C682 /* Enums */,
 				A249B56D28FF311000B0F0DF /* Common */,
 				A24DEC2828FEAB8F007B1BA1 /* Coordinator */,
@@ -635,6 +646,7 @@
 				A2E6BBE82903DC6F002D0586 /* VacancyTableViewCell.swift in Sources */,
 				A2F94B5228FD710B0010FF47 /* AppDelegate.swift in Sources */,
 				A2F94B5428FD710B0010FF47 /* SceneDelegate.swift in Sources */,
+				A200F973291E9B5000A44826 /* VacancyModel.swift in Sources */,
 				A29A98B62905A4D90069C682 /* ArrayExtension.swift in Sources */,
 				A2FDCF6229056AD000D9E911 /* AuthBottomReferenceView.swift in Sources */,
 				A249B56C28FF2F4C00B0F0DF /* ICoordinator.swift in Sources */,
