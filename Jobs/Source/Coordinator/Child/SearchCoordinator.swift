@@ -45,7 +45,7 @@ final class SearchCoordinator: ISearchCoordinator {
     }
     
     func runSearchVC() -> UIViewController {
-        let searchVC = SearchMainViewController { [weak self] event in
+        let searchVC = SearchVacanciesViewController { [weak self] event in
             guard let self = self else { return }
             switch event {
             case .filter:

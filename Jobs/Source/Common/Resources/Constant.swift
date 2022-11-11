@@ -9,6 +9,38 @@ import UIKit
 
 struct Constant {
     
+    struct TableViewRowHeight {
+        
+        static let searchVacancies: Int = 248
+        
+    }
+    
+    struct NavigationItemTitle {
+        
+        static let vacanciesForYou = "Вакансии для вас"
+        
+    }
+    
+    struct SystemImageName {
+        
+        static let filterBookmark = "slider.horizontal.3"
+        static let addToFavourites = "heart"
+        
+    }
+    
+    struct SymbolConfiguration {
+        
+        static let pointSize22 = UIImage.SymbolConfiguration(pointSize: 22)
+        static let pointSize25 = UIImage.SymbolConfiguration(pointSize: 25)
+        
+    }
+    
+    struct SearchBarPlaceholder {
+        
+        static let position = "Должность, ключевые слова"
+        
+    }
+    
     struct StackViewSpacing {
         
         static let externalAuthButtons: Int = 15
@@ -22,6 +54,7 @@ struct Constant {
         static let login = "Войти"
         static let create = "Создать"
         static let register = "Регистрация"
+        static let respond = "Откликнуться"
         
     }
     
@@ -55,6 +88,20 @@ struct Constant {
         struct Button {
             
             static let externalAuth: CGFloat = 10
+            static let blueRounded: CGFloat = 23
+            static let respond: CGFloat = 18
+            
+        }
+        
+        struct View {
+            
+            static let vacancyContainer: CGFloat = 16
+            
+        }
+        
+        struct ImageView {
+            
+            static let companyLogo: CGFloat = 12
             
         }
         
@@ -71,6 +118,18 @@ struct Constant {
         struct Button {
             
             static let externalAuth: CGFloat = 1.0
+            
+        }
+        
+        struct View {
+            
+            static let vacancyContainer: CGFloat = 1.0
+            
+        }
+        
+        struct ImageView {
+            
+            static let companyLogo: CGFloat = 1.0
             
         }
         
@@ -113,6 +172,7 @@ struct Constant {
             static let externalAuth: Int = 70
             static let authSmallBlue: Int = 170
             static let forgotPassword: Int = 170
+            static let respond: Int = 320
             
         }
         
@@ -131,7 +191,7 @@ struct Constant {
         
         struct ImageView {
             
-            static let logo: Int = 130
+            static let logo: Int = 100
             
         }
         
@@ -147,6 +207,7 @@ struct Constant {
             static let externalAuth: Int = 40
             static let authSmallBlue: Int = 17
             static let forgotPassword: Int = 15
+            static let respond: Int = 35
             
         }
         
@@ -166,7 +227,7 @@ struct Constant {
         
         struct ImageView {
             
-            static let logo: Int = 130
+            static let logo: Int = 100
             
         }
         

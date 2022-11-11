@@ -41,7 +41,7 @@ private extension BlueRoundedButton {
         
         titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .medium)
         
-        layer.cornerRadius = 23
+        layer.cornerRadius = Constant.CornerRadius.Button.blueRounded
         
         sizeToFit()
     }

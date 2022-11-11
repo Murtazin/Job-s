@@ -49,7 +49,7 @@ final class ResponseTableViewCell: UITableViewCell {
         return companyTitleLabel
     }()
     
-    private lazy var statusView = NavigationWordView(navigationWord: "Вам отказали")
+//    private lazy var statusView = NavigationWordView(navigationWord: "Вам отказали")
     
     private lazy var lineView: UIView = {
         let lineView = UIView()
@@ -111,7 +111,7 @@ private extension ResponseTableViewCell {
         containerView.addSubview(companyLogoImageView)
         containerView.addSubview(positionTitleLabel)
         containerView.addSubview(companyTitleLabel)
-        containerView.addSubview(statusView)
+//        containerView.addSubview(statusView)
         containerView.addSubview(lineView)
         containerView.addSubview(respondButton)
         
@@ -130,11 +130,11 @@ private extension ResponseTableViewCell {
             $0.leading.equalTo(companyLogoImageView.snp.trailing).offset(16.HAdapted)
         }
         
-        statusView.snp.makeConstraints {
-            $0.centerY.equalTo(companyLogoImageView)
-            $0.trailing.equalTo(containerView).inset(16)
-            $0.size.equalTo([Constant.Width.View.vacancyNavigationWord, Constant.Height.View.vacancyNavigationWord].HResized)
-        }
+//        statusView.snp.makeConstraints {
+//            $0.centerY.equalTo(companyLogoImageView)
+//            $0.trailing.equalTo(containerView).inset(16)
+//            $0.size.equalTo([Constant.Width.View.vacancyNavigationWord, Constant.Height.View.vacancyNavigationWord].HResized)
+//        }
         
         lineView.snp.makeConstraints {
             $0.top.equalTo(companyLogoImageView.snp.bottom).offset(16.VAdapted)

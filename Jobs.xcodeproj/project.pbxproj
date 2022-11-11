@@ -17,7 +17,7 @@
 		A24DEC2B28FEB27E007B1BA1 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24DEC2A28FEB27E007B1BA1 /* AppCoordinator.swift */; };
 		A24DEC2D28FEC698007B1BA1 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24DEC2C28FEC698007B1BA1 /* AuthCoordinator.swift */; };
 		A24DEC2F28FEC6B5007B1BA1 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24DEC2E28FEC6B4007B1BA1 /* MainCoordinator.swift */; };
-		A24DEC3128FEED09007B1BA1 /* SearchMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24DEC3028FEED09007B1BA1 /* SearchMainViewController.swift */; };
+		A24DEC3128FEED09007B1BA1 /* SearchVacanciesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24DEC3028FEED09007B1BA1 /* SearchVacanciesViewController.swift */; };
 		A24DEC3328FEED14007B1BA1 /* FavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24DEC3228FEED14007B1BA1 /* FavouritesViewController.swift */; };
 		A2692C95291A7DE30099D07D /* ProfileMainInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2692C94291A7DE30099D07D /* ProfileMainInfoTableViewCell.swift */; };
 		A2692C98291A828F0099D07D /* ProfileEditWorkExperienceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2692C97291A828F0099D07D /* ProfileEditWorkExperienceViewController.swift */; };
@@ -45,7 +45,6 @@
 		A2C20FE3291A79A70045FB54 /* WorkExperienceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C20FE2291A79A70045FB54 /* WorkExperienceView.swift */; };
 		A2D74E7529191C0400EBBFF2 /* ProfileMainTableSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D74E7429191C0400EBBFF2 /* ProfileMainTableSectionHeaderView.swift */; };
 		A2E6BBE82903DC6F002D0586 /* VacancyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E6BBE72903DC6F002D0586 /* VacancyTableViewCell.swift */; };
-		A2E6BBEA29040AE2002D0586 /* NavigationWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E6BBE929040AE2002D0586 /* NavigationWordView.swift */; };
 		A2E6DE582902720300269339 /* AuthLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E6DE572902720300269339 /* AuthLoginViewController.swift */; };
 		A2E8ECEF290D6FAA00B3EEAC /* SearchFilterTagListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E8ECEE290D6FAA00B3EEAC /* SearchFilterTagListTableViewCell.swift */; };
 		A2E8ECF3290D708000B3EEAC /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E8ECF2290D708000B3EEAC /* TagView.swift */; };
@@ -70,7 +69,7 @@
 		A24DEC2A28FEB27E007B1BA1 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		A24DEC2C28FEC698007B1BA1 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		A24DEC2E28FEC6B4007B1BA1 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
-		A24DEC3028FEED09007B1BA1 /* SearchMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMainViewController.swift; sourceTree = "<group>"; };
+		A24DEC3028FEED09007B1BA1 /* SearchVacanciesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVacanciesViewController.swift; sourceTree = "<group>"; };
 		A24DEC3228FEED14007B1BA1 /* FavouritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewController.swift; sourceTree = "<group>"; };
 		A2692C94291A7DE30099D07D /* ProfileMainInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainInfoTableViewCell.swift; sourceTree = "<group>"; };
 		A2692C97291A828F0099D07D /* ProfileEditWorkExperienceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditWorkExperienceViewController.swift; sourceTree = "<group>"; };
@@ -98,7 +97,6 @@
 		A2C20FE2291A79A70045FB54 /* WorkExperienceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkExperienceView.swift; sourceTree = "<group>"; };
 		A2D74E7429191C0400EBBFF2 /* ProfileMainTableSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainTableSectionHeaderView.swift; sourceTree = "<group>"; };
 		A2E6BBE72903DC6F002D0586 /* VacancyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyTableViewCell.swift; sourceTree = "<group>"; };
-		A2E6BBE929040AE2002D0586 /* NavigationWordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationWordView.swift; sourceTree = "<group>"; };
 		A2E6DE572902720300269339 /* AuthLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthLoginViewController.swift; sourceTree = "<group>"; };
 		A2E8ECEE290D6FAA00B3EEAC /* SearchFilterTagListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterTagListTableViewCell.swift; sourceTree = "<group>"; };
 		A2E8ECF2290D708000B3EEAC /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
@@ -325,7 +323,6 @@
 			children = (
 				A27367D32902D3E200F62F29 /* GrayBorderedTextField.swift */,
 				A27367D52902FAA800F62F29 /* BlueRoundedButton.swift */,
-				A2E6BBE929040AE2002D0586 /* NavigationWordView.swift */,
 				A28E643029055A00007E429F /* ContinueWithView.swift */,
 				A2FDCF5F290560DA00D9E911 /* ExternalAuthButton.swift */,
 				A2FDCF6129056AD000D9E911 /* AuthBottomReferenceView.swift */,
@@ -348,7 +345,7 @@
 			isa = PBXGroup;
 			children = (
 				A279E102290D3A6A00236776 /* Filter */,
-				A2E6BBE629031EE5002D0586 /* Main */,
+				A2E6BBE629031EE5002D0586 /* Vacancies */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -392,13 +389,13 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
-		A2E6BBE629031EE5002D0586 /* Main */ = {
+		A2E6BBE629031EE5002D0586 /* Vacancies */ = {
 			isa = PBXGroup;
 			children = (
-				A24DEC3028FEED09007B1BA1 /* SearchMainViewController.swift */,
+				A24DEC3028FEED09007B1BA1 /* SearchVacanciesViewController.swift */,
 				A2E6BBE72903DC6F002D0586 /* VacancyTableViewCell.swift */,
 			);
-			path = Main;
+			path = Vacancies;
 			sourceTree = "<group>";
 		};
 		A2E6BBEB290433A3002D0586 /* Favourites */ = {
@@ -609,13 +606,12 @@
 				A2D74E7529191C0400EBBFF2 /* ProfileMainTableSectionHeaderView.swift in Sources */,
 				A2C06A0229118AF800DC8E5D /* ProfileMainHeaderView.swift in Sources */,
 				A249B56A28FEF43900B0F0DF /* FavouritesCoordinator.swift in Sources */,
-				A24DEC3128FEED09007B1BA1 /* SearchMainViewController.swift in Sources */,
+				A24DEC3128FEED09007B1BA1 /* SearchVacanciesViewController.swift in Sources */,
 				A2692C98291A828F0099D07D /* ProfileEditWorkExperienceViewController.swift in Sources */,
 				A28E6429290438ED007E429F /* ProfileMainViewController.swift in Sources */,
 				A24DEC2F28FEC6B5007B1BA1 /* MainCoordinator.swift in Sources */,
 				A28E642D290552DD007E429F /* MessagesCoordinator.swift in Sources */,
 				A28E642B290552D1007E429F /* ResponsesCoordinator.swift in Sources */,
-				A2E6BBEA29040AE2002D0586 /* NavigationWordView.swift in Sources */,
 				A2692C95291A7DE30099D07D /* ProfileMainInfoTableViewCell.swift in Sources */,
 				A249B56828FEF42B00B0F0DF /* SearchCoordinator.swift in Sources */,
 				A27367D62902FAA800F62F29 /* BlueRoundedButton.swift in Sources */,

@@ -7,42 +7,41 @@
 
 import UIKit
 
-final class SearchMainViewController: UIViewController {
+final class SearchVacanciesViewController: UIViewController {
     
     // MARK: - Private properties
     
-    private var eventClosure: ((SearchMainViewController.Event) -> Void)?
-    
     private let vacancies = [String]()
+    
+    private var eventClosure: ((SearchVacanciesViewController.Event) -> Void)?
     
     // MARK: - UI
     
     private lazy var searchController: UISearchController = {
         let searchController = UISearchController()
-        searchController.searchBar.placeholder = "Должность, ключевые слова"
+        searchController.searchBar.placeholder = Constant.SearchBarPlaceholder.position
         searchController.searchBar.showsBookmarkButton = true
-        let configuration = UIImage.SymbolConfiguration(pointSize: 22)
-        let image = UIImage(systemName: "slider.horizontal.3", withConfiguration: configuration)
+        
+        let configuration = Constant.SymbolConfiguration.pointSize22
+        let name = Constant.SystemImageName.filterBookmark
+        let image = UIImage(systemName: name, withConfiguration: configuration)
+        
         searchController.searchBar.setImage(image, for: .bookmark, state: .normal)
-        searchController.searchBar.delegate = self
-        searchController.searchResultsUpdater = self
         return searchController
     }()
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
-        tableView.showsVerticalScrollIndicator = false
+        tableView.rowHeight = [0, Constant.TableViewRowHeight.searchVacancies].VResized.height
+        tableView.estimatedRowHeight = [0, Constant.TableViewRowHeight.searchVacancies].VResized.height
         tableView.separatorStyle = .none
-        tableView.rowHeight = 240.VAdapted
-        tableView.estimatedRowHeight = 240.VAdapted
-        tableView.delegate = self
-        tableView.dataSource = self
+        tableView.showsVerticalScrollIndicator = false
         return tableView
     }()
     
     // MARK: - Initializers
     
-    init(eventClosure: ((SearchMainViewController.Event) -> Void)? = nil) {
+    init(eventClosure: ((SearchVacanciesViewController.Event) -> Void)? = nil) {
         self.eventClosure = eventClosure
         
         super.init(nibName: nil, bundle: nil)
@@ -63,29 +62,34 @@ final class SearchMainViewController: UIViewController {
 
 // MARK: - Private
 
-private extension SearchMainViewController {
+private extension SearchVacanciesViewController {
     
     func setupUI() {
-        
         view.backgroundColor = .systemBackground
         
         view.addSubview(tableView)
         
+        searchController.searchBar.delegate = self
+        searchController.searchResultsUpdater = self
+        
         navigationItem.searchController = searchController
         
-        navigationItem.title = "Вакансии для вас"
+        navigationItem.title = Constant.NavigationItemTitle.vacanciesForYou
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        tableView.register(VacancyTableViewCell.self, forCellReuseIdentifier: VacancyTableViewCell.reuseIdentifier)
         
         tableView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
-        
-        tableView.register(VacancyTableViewCell.self, forCellReuseIdentifier: VacancyTableViewCell.reuseIdentifier)
     }
 }
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
 
-extension SearchMainViewController: UITableViewDelegate, UITableViewDataSource {
+extension SearchVacanciesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
@@ -103,10 +107,9 @@ extension SearchMainViewController: UITableViewDelegate, UITableViewDataSource {
 
 // MARK: - UISearchBarDelegate, UISearchResultsUpdating
 
-extension SearchMainViewController: UISearchBarDelegate, UISearchResultsUpdating {
+extension SearchVacanciesViewController: UISearchBarDelegate, UISearchResultsUpdating {
     func searchBarBookmarkButtonClicked(_ searchBar: UISearchBar) {
-        guard let eventClosure = eventClosure else { return }
-        eventClosure(.filter)
+        eventClosure?(.filter)
     }
     
     func updateSearchResults(for searchController: UISearchController) {
@@ -116,7 +119,7 @@ extension SearchMainViewController: UISearchBarDelegate, UISearchResultsUpdating
 
 // MARK: - Event
 
-extension SearchMainViewController {
+extension SearchVacanciesViewController {
     enum Event {
         case filter
     }
