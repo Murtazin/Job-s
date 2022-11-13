@@ -9,9 +9,40 @@ import UIKit
 
 struct Constant {
     
+    struct CollectionViewItemSize {
+        
+        static let searchFilters: CGSize = [150, 30].HResized
+        
+    }
+    
+    struct ReuseIdentifier {
+        
+        static let tableViewCell = "TableViewCell"
+        
+    }
+    
+    struct TableSectionFooterHeight {
+        
+        static let searchFilters: Int = 30
+        
+    }
+    
+    struct TableHeaderViewHeight {
+        
+        static let searchFilters: Int = 50
+        
+    }
+    
+    struct TableFooterViewHeight {
+        
+        static let searchFilters: Int = 70
+        
+    }
+    
     struct TableViewRowHeight {
         
-        static let searchVacancies: Int = 248
+        static let searchVacancies: Int = 232
+        static let searchFilters: Int = 50
         
     }
     
@@ -55,6 +86,8 @@ struct Constant {
         static let create = "Создать"
         static let register = "Регистрация"
         static let respond = "Откликнуться"
+        static let addSpecialization = "Добавить специализацию"
+        static let reset = "Сбросить"
         
     }
     
@@ -67,6 +100,7 @@ struct Constant {
         static let dontHaveAnAccount = "Еще нет аккаунта?"
         static let createAccount = "Создать аккаунт"
         static let accountExist = "Уже есть аккаунт?"
+        static let filters = "Фильтры"
         
     }
     
@@ -208,6 +242,7 @@ struct Constant {
             static let authSmallBlue: Int = 17
             static let forgotPassword: Int = 15
             static let respond: Int = 35
+            static let addSpecialization: Int = 34
             
         }
         
@@ -234,6 +269,12 @@ struct Constant {
         struct TextField {
             
             static let grayBordered: Int = 40
+            
+        }
+        
+        struct Label {
+            
+            static let searchFiltersSectionHeader: Int = 20
             
         }
         

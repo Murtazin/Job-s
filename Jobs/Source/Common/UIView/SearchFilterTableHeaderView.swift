@@ -21,12 +21,13 @@ final class SearchFilterTableHeaderView: UIView {
         let button = UIButton()
         let image = Constant.Image.System.closeBarButtonImage
         button.setImage(image, for: .normal)
+        button.tintColor = .label
         return button
     }()
     
     private lazy var filtersLabel: UILabel = {
         let label = UILabel()
-        label.text = "Фильтры"
+        label.text = Constant.LabelText.filters
         label.textColor = .label
         label.font = .systemFont(ofSize: 16, weight: .medium)
         return label
@@ -34,7 +35,7 @@ final class SearchFilterTableHeaderView: UIView {
     
     private lazy var resetButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Сбросить", for: .normal)
+        button.setTitle(Constant.ButtonTitle.reset, for: .normal)
         button.setTitleColor(.systemBlue, for: .normal)
         return button
     }()

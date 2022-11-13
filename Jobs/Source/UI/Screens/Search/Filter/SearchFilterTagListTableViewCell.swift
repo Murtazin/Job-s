@@ -13,20 +13,19 @@ final class SearchFilterTagListTableViewCell: UITableViewCell {
     
     // MARK: - Private properties
     
-    private var modelArray: [String]?
+    private var options: [String]?
     
     // MARK: - UI
     
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        let itemSize: CGSize = [150, 30].HResized
+        let itemSize: CGSize = Constant.CollectionViewItemSize.searchFilters
         layout.itemSize = itemSize
         layout.estimatedItemSize = itemSize
-        layout.sectionInset = .init(top: 0.VAdapted, left: 16.HAdapted, bottom: 0.VAdapted, right: 16.HAdapted)
-        layout.minimumInteritemSpacing = 10.HAdapted
+        layout.sectionInset = .init(top: 0, left: 16.HAdapted, bottom: 0, right: 16.HAdapted)
+        layout.minimumInteritemSpacing = 16.HAdapted
         layout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.dataSource = self
         collectionView.showsHorizontalScrollIndicator = false
         return collectionView
     }()
@@ -45,8 +44,8 @@ final class SearchFilterTagListTableViewCell: UITableViewCell {
     
     // MARK: - Internal
     
-    func configure(model: [String]) {
-        modelArray = model
+    func configure(options: [String]) {
+        self.options = options
     }
 }
 
@@ -56,6 +55,8 @@ private extension SearchFilterTagListTableViewCell {
     
     func setupUI() {
         contentView.addSubview(collectionView)
+        
+        collectionView.dataSource = self
         
         collectionView.register(SearchFilterTagViewCollectionViewCell.self,
                                 forCellWithReuseIdentifier: SearchFilterTagViewCollectionViewCell.reuseIdentifier)
@@ -71,20 +72,20 @@ private extension SearchFilterTagListTableViewCell {
 extension SearchFilterTagListTableViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let modelArray = modelArray else {
+        guard let options = options else {
             return 0
         }
-        return modelArray.count
+        return options.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchFilterTagViewCollectionViewCell.reuseIdentifier,
                                                             for: indexPath) as? SearchFilterTagViewCollectionViewCell,
-              let modelArray = modelArray else {
+              let options = options else {
             return UICollectionViewCell()
         }
-        let model = modelArray[indexPath.row]
-        cell.configure(title: model)
+        let option = options[indexPath.row]
+        cell.configure(title: option)
         return cell
     }
 }

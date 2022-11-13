@@ -15,16 +15,6 @@ final class SearchFilterTextFieldTableViewCell: UITableViewCell {
     
     private var textField: GrayBorderedTextField?
     
-    // MARK: - Initializers
-    
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     // MARK: - Internal
     
     func configure(placeholder: String) {
@@ -47,10 +37,11 @@ private extension SearchFilterTextFieldTableViewCell {
         
         contentView.addSubview(textField)
         
+        let textFieldWidth: CGFloat = contentView.frame.width - 64
+        
         textField.snp.makeConstraints {
-            $0.top.equalTo(contentView).inset(14.VAdapted)
-            $0.leading.trailing.equalTo(contentView).inset(16.HAdapted)
-            $0.bottom.equalTo(contentView).inset(14.VAdapted)
+            $0.centerY.centerX.equalTo(contentView)
+            $0.size.equalTo([Int(textFieldWidth), Constant.Height.TextField.grayBordered].HResized)
         }
     }
 }

@@ -115,7 +115,7 @@ private extension AuthLoginViewController {
         view.addSubview(dontHaveAnAccountView)
         
         logoImageView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide).inset(16.VAdapted)
+            $0.top.equalTo(view.safeAreaLayoutGuide).inset(32.VAdapted)
             $0.centerX.equalToSuperview()
             $0.size.equalTo([Constant.Width.ImageView.logo, Constant.Height.ImageView.logo].HResized)
         }

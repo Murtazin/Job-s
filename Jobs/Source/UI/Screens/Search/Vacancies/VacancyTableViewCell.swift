@@ -57,16 +57,11 @@ final class VacancyTableViewCell: UITableViewCell {
         view.backgroundColor = .systemGray5
         return view
     }()
-    
-    private lazy var bottomStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.alignment = .center
-        stackView.distribution = .equalSpacing
-        stackView.layoutMargins = .init(top: 16.VAdapted, left: 0, bottom: 16.VAdapted, right: 0)
-        stackView.isLayoutMarginsRelativeArrangement = true
-        stackView.sizeToFit()
-        return stackView
+
+    private lazy var bottomView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .systemBackground
+        return view
     }()
     
     private lazy var cityTitleLabel: UILabel = {
@@ -128,7 +123,7 @@ private extension VacancyTableViewCell {
         containerView.layer.borderColor = UIColor.systemGray5.cgColor
         
         containerView.snp.makeConstraints {
-            $0.top.bottom.equalTo(contentView).inset(16.VAdapted)
+            $0.top.bottom.equalTo(contentView).inset(8.VAdapted)
             $0.leading.trailing.equalTo(contentView).inset(16.HAdapted)
         }
         
@@ -137,11 +132,11 @@ private extension VacancyTableViewCell {
         containerView.addSubview(companyTitleLabel)
         containerView.addSubview(addToFavouritesButton)
         containerView.addSubview(lineView)
-        containerView.addSubview(bottomStackView)
+        containerView.addSubview(bottomView)
         
-        bottomStackView.addArrangedSubview(cityTitleLabel)
-        bottomStackView.addArrangedSubview(salaryLabel)
-        bottomStackView.addArrangedSubview(respondButton)
+        bottomView.addSubview(cityTitleLabel)
+        bottomView.addSubview(salaryLabel)
+        bottomView.addSubview(respondButton)
         
         companyLogoImageView.layer.cornerRadius = Constant.CornerRadius.ImageView.companyLogo
         companyLogoImageView.layer.borderWidth = Constant.BorderWidth.ImageView.companyLogo
@@ -178,9 +173,21 @@ private extension VacancyTableViewCell {
             $0.size.equalTo([Int(lineViewWidth), Constant.Height.View.line].HResized)
         }
         
-        bottomStackView.snp.makeConstraints {
+        bottomView.snp.makeConstraints {
             $0.top.equalTo(lineView.snp.bottom)
             $0.leading.bottom.trailing.equalTo(containerView)
+        }
+        
+        cityTitleLabel.setContentHuggingPriority(.defaultHigh, for: .vertical)
+        
+        cityTitleLabel.snp.makeConstraints {
+            $0.top.equalTo(bottomView).inset(16.VAdapted)
+            $0.centerX.equalTo(bottomView)
+        }
+        
+        salaryLabel.snp.makeConstraints {
+            $0.top.equalTo(cityTitleLabel.snp.bottom).offset(16)
+            $0.centerX.equalTo(bottomView)
         }
 
         respondButton.layer.cornerRadius = Constant.CornerRadius.Button.respond
@@ -188,6 +195,9 @@ private extension VacancyTableViewCell {
         respondButton.addTarget(self, action: #selector(respondButtonHandler), for: .touchUpInside)
 
         respondButton.snp.makeConstraints {
+            $0.top.equalTo(salaryLabel.snp.bottom).offset(16)
+            $0.bottom.equalTo(bottomView).inset(16.VAdapted)
+            $0.centerX.equalTo(bottomView)
             $0.size.equalTo([Constant.Width.Button.respond, Constant.Height.Button.respond].HResized)
         }
     }
