@@ -43,12 +43,14 @@ struct Constant {
         
         static let searchVacancies: Int = 232
         static let searchFilters: Int = 50
+        static let responsesMain: Int = 160
         
     }
     
     struct NavigationItemTitle {
         
         static let vacanciesForYou = "Вакансии для вас"
+        static let responsesMain = "Отклики"
         
     }
     
@@ -130,6 +132,7 @@ struct Constant {
         struct View {
             
             static let vacancyContainer: CGFloat = 16
+            static let responseStatus: CGFloat = 8
             
         }
         
@@ -158,6 +161,7 @@ struct Constant {
         struct View {
             
             static let vacancyContainer: CGFloat = 1.0
+            static let responseStatus: CGFloat = 1.0
             
         }
         
@@ -214,6 +218,7 @@ struct Constant {
             
             static let vacancyNavigationWord: Int = 100
             static let line: Int = 95
+            static let responseStatus: Int = 100
             
         }
         
@@ -251,6 +256,7 @@ struct Constant {
             static let vacancyNavigationWord: Int = 20
             static let continueWith: Int = 20
             static let line: Int = 1
+            static let responseStatus: Int = 25
             
         }
         

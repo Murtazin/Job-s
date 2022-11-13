@@ -10,6 +10,8 @@
 		993114BDE4795BCE46B9BDA6 /* Pods_Jobs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 783B0B705607F35E4BA28AE4 /* Pods_Jobs.framework */; };
 		A200F973291E9B5000A44826 /* VacancyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200F972291E9B5000A44826 /* VacancyModel.swift */; };
 		A20427B9290D4FEE0050AB56 /* SearchFilterTextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20427B8290D4FEE0050AB56 /* SearchFilterTextFieldTableViewCell.swift */; };
+		A231D3012921914A00555F1A /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A231D3002921914A00555F1A /* ResponseModel.swift */; };
+		A231D3032921947F00555F1A /* ResponseStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A231D3022921947F00555F1A /* ResponseStatusView.swift */; };
 		A2467E212910605600AE9F98 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2467E202910605600AE9F98 /* ChatTableViewCell.swift */; };
 		A249B56828FEF42B00B0F0DF /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A249B56728FEF42B00B0F0DF /* SearchCoordinator.swift */; };
 		A249B56A28FEF43900B0F0DF /* FavouritesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A249B56928FEF43900B0F0DF /* FavouritesCoordinator.swift */; };
@@ -64,6 +66,8 @@
 		783B0B705607F35E4BA28AE4 /* Pods_Jobs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jobs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A200F972291E9B5000A44826 /* VacancyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyModel.swift; sourceTree = "<group>"; };
 		A20427B8290D4FEE0050AB56 /* SearchFilterTextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterTextFieldTableViewCell.swift; sourceTree = "<group>"; };
+		A231D3002921914A00555F1A /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
+		A231D3022921947F00555F1A /* ResponseStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseStatusView.swift; sourceTree = "<group>"; };
 		A2467E202910605600AE9F98 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
 		A249B56728FEF42B00B0F0DF /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
 		A249B56928FEF43900B0F0DF /* FavouritesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesCoordinator.swift; sourceTree = "<group>"; };
@@ -150,6 +154,7 @@
 			children = (
 				A200F972291E9B5000A44826 /* VacancyModel.swift */,
 				A29895662920E2DF00C6A7DC /* FilterModel.swift */,
+				A231D3002921914A00555F1A /* ResponseModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -425,6 +430,7 @@
 			children = (
 				A28E6424290438DE007E429F /* ResponsesMainViewController.swift */,
 				A2AAD534291557D10008D729 /* ResponseTableViewCell.swift */,
+				A231D3022921947F00555F1A /* ResponseStatusView.swift */,
 			);
 			path = Responses;
 			sourceTree = "<group>";
@@ -619,6 +625,7 @@
 				A28E642F290552EE007E429F /* ProfileCoordinator.swift in Sources */,
 				A27367D42902D3E200F62F29 /* GrayBorderedTextField.swift in Sources */,
 				A2D74E7529191C0400EBBFF2 /* ProfileMainTableSectionHeaderView.swift in Sources */,
+				A231D3032921947F00555F1A /* ResponseStatusView.swift in Sources */,
 				A2C06A0229118AF800DC8E5D /* ProfileMainHeaderView.swift in Sources */,
 				A249B56A28FEF43900B0F0DF /* FavouritesCoordinator.swift in Sources */,
 				A24DEC3128FEED09007B1BA1 /* SearchVacanciesViewController.swift in Sources */,
@@ -654,6 +661,7 @@
 				A29A98B62905A4D90069C682 /* ArrayExtension.swift in Sources */,
 				A2FDCF6229056AD000D9E911 /* AuthBottomReferenceView.swift in Sources */,
 				A249B56C28FF2F4C00B0F0DF /* ICoordinator.swift in Sources */,
+				A231D3012921914A00555F1A /* ResponseModel.swift in Sources */,
 				A2E6DE582902720300269339 /* AuthLoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

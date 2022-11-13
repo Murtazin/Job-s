@@ -81,7 +81,7 @@ final class VacancyTableViewCell: UITableViewCell {
     }()
     
     private lazy var respondButton: BlueRoundedButton = {
-        let button = BlueRoundedButton(title: "Откликнуться")
+        let button = BlueRoundedButton(title: Constant.ButtonTitle.respond)
         button.titleLabel?.font = .systemFont(ofSize: 14, weight: .medium)
         return button
     }()

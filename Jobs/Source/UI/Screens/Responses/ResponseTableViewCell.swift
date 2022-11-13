@@ -14,58 +14,51 @@ final class ResponseTableViewCell: UITableViewCell {
     // MARK: - UI
     
     private lazy var containerView: UIView = {
-        let containerView = UIView()
-        containerView.backgroundColor = .systemBackground
-        containerView.layer.cornerRadius = 10
-        containerView.layer.borderColor = UIColor.systemGray3.cgColor
-        containerView.layer.borderWidth = 1.0
-        return containerView
+        let view = UIView()
+        view.backgroundColor = .systemBackground
+        return view
     }()
     
     private lazy var companyLogoImageView: UIImageView = {
-        let companyLogoImageView = UIImageView()
-        companyLogoImageView.backgroundColor = .systemBackground
-        companyLogoImageView.layer.cornerRadius = 10
-        companyLogoImageView.layer.borderColor = UIColor.systemGray3.cgColor
-        companyLogoImageView.layer.borderWidth = 1.0
-        companyLogoImageView.image = #imageLiteral(resourceName: "logo-icon")
-        companyLogoImageView.contentMode = .scaleAspectFill
-        return companyLogoImageView
+        let imageView = UIImageView()
+        imageView.image = Constant.Image.Internal.logo
+        imageView.contentMode = .scaleAspectFill
+        imageView.backgroundColor = .systemBackground
+        return imageView
     }()
     
     private lazy var positionTitleLabel: UILabel = {
-        let positionTitleLabel = UILabel()
-        positionTitleLabel.text = "iOS разработчик"
-        positionTitleLabel.textColor = .label
-        positionTitleLabel.font = .systemFont(ofSize: 14.HAdapted, weight: .semibold)
-        return positionTitleLabel
+        let label = UILabel()
+        label.textColor = .label
+        label.font = .systemFont(ofSize: 14, weight: .semibold)
+        return label
     }()
     
     private lazy var companyTitleLabel: UILabel = {
-        let companyTitleLabel = UILabel()
-        companyTitleLabel.text = "Job's"
-        companyTitleLabel.textColor = .label
-        companyTitleLabel.font = .systemFont(ofSize: 12.HAdapted)
-        return companyTitleLabel
+        let label = UILabel()
+        label.textColor = .label
+        label.font = .systemFont(ofSize: 14, weight: .regular)
+        return label
     }()
     
-//    private lazy var statusView = NavigationWordView(navigationWord: "Вам отказали")
+    private lazy var statusView = ResponseStatusView()
     
     private lazy var lineView: UIView = {
-        let lineView = UIView()
-        lineView.backgroundColor = .systemGray3
-        return lineView
+        let view = UIView()
+        view.backgroundColor = .systemGray5
+        return view
+    }()
+
+    private lazy var bottomView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .systemBackground
+        return view
     }()
     
-    private lazy var respondButton: UIButton = {
-        let respondButton = UIButton()
-        respondButton.setTitle("Откликнуться", for: .normal)
-        respondButton.setTitleColor(.systemBackground, for: .normal)
-        respondButton.backgroundColor = .systemBlue
-        respondButton.titleLabel?.font = UIFont.systemFont(ofSize: 12.HAdapted, weight: .medium)
-        respondButton.layer.cornerRadius = 15.VAdapted
-        respondButton.sizeToFit()
-        return respondButton
+    private lazy var respondButton: BlueRoundedButton = {
+        let button = BlueRoundedButton(title: Constant.ButtonTitle.respond)
+        button.titleLabel?.font = .systemFont(ofSize: 14, weight: .medium)
+        return button
     }()
     
     // MARK: - Initializers
@@ -80,18 +73,13 @@ final class ResponseTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Life cycle
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        contentView.frame = contentView.frame.inset(by: .init(top: 16.VAdapted, left: 16.HAdapted, bottom: 16.VAdapted, right: 16.HAdapted))
-    }
-    
     // MARK: - Internal
     
-    func configure() {
-        
+    func configure(response: ResponseModel) {
+        companyLogoImageView.image = response.companyLogoImage
+        positionTitleLabel.text = response.positionTitle
+        companyTitleLabel.text = response.companyTitle
+        statusView.configure(status: response.status)
     }
 }
 
@@ -104,16 +92,27 @@ private extension ResponseTableViewCell {
         
         contentView.addSubview(containerView)
         
+        containerView.layer.cornerRadius = Constant.CornerRadius.View.vacancyContainer
+        containerView.layer.borderWidth = Constant.BorderWidth.View.vacancyContainer
+        containerView.layer.borderColor = UIColor.systemGray5.cgColor
+        
         containerView.snp.makeConstraints {
-            $0.edges.equalTo(contentView)
+            $0.top.bottom.equalTo(contentView).inset(8.VAdapted)
+            $0.leading.trailing.equalTo(contentView).inset(16.HAdapted)
         }
         
         containerView.addSubview(companyLogoImageView)
         containerView.addSubview(positionTitleLabel)
         containerView.addSubview(companyTitleLabel)
-//        containerView.addSubview(statusView)
+        containerView.addSubview(statusView)
         containerView.addSubview(lineView)
-        containerView.addSubview(respondButton)
+        containerView.addSubview(bottomView)
+        
+        bottomView.addSubview(respondButton)
+        
+        companyLogoImageView.layer.cornerRadius = Constant.CornerRadius.ImageView.companyLogo
+        companyLogoImageView.layer.borderWidth = Constant.BorderWidth.ImageView.companyLogo
+        companyLogoImageView.layer.borderColor = UIColor.systemGray5.cgColor
         
         companyLogoImageView.snp.makeConstraints {
             $0.top.leading.equalTo(containerView).inset(16.VAdapted)
@@ -121,33 +120,41 @@ private extension ResponseTableViewCell {
         }
         
         positionTitleLabel.snp.makeConstraints {
-            $0.top.equalTo(containerView).inset(20.VAdapted)
-            $0.leading.equalTo(companyLogoImageView.snp.trailing).offset(16.HAdapted)
+            $0.top.equalTo(companyLogoImageView).offset(4.VAdapted)
+            $0.leading.equalTo(companyLogoImageView.snp.trailing).offset(8.HAdapted)
         }
         
         companyTitleLabel.snp.makeConstraints {
             $0.top.equalTo(positionTitleLabel.snp.bottom).offset(8.VAdapted)
-            $0.leading.equalTo(companyLogoImageView.snp.trailing).offset(16.HAdapted)
+            $0.leading.equalTo(companyLogoImageView.snp.trailing).offset(8.HAdapted)
         }
         
-//        statusView.snp.makeConstraints {
-//            $0.centerY.equalTo(companyLogoImageView)
-//            $0.trailing.equalTo(containerView).inset(16)
-//            $0.size.equalTo([Constant.Width.View.vacancyNavigationWord, Constant.Height.View.vacancyNavigationWord].HResized)
-//        }
+        statusView.snp.makeConstraints {
+            $0.trailing.equalTo(containerView).inset(16.HAdapted)
+            $0.centerY.equalTo(companyLogoImageView)
+            $0.size.equalTo([Constant.Width.View.responseStatus, Constant.Height.View.responseStatus].HResized)
+        }
+        
+        let lineViewWidth: CGFloat = contentView.frame.width
         
         lineView.snp.makeConstraints {
             $0.top.equalTo(companyLogoImageView.snp.bottom).offset(16.VAdapted)
-            $0.leading.trailing.equalTo(containerView)
-            $0.height.equalTo(1.VAdapted)
+            $0.centerX.equalTo(containerView)
+            $0.size.equalTo([Int(lineViewWidth), Constant.Height.View.line].HResized)
         }
+        
+        bottomView.snp.makeConstraints {
+            $0.top.equalTo(lineView.snp.bottom)
+            $0.leading.bottom.trailing.equalTo(containerView)
+        }
+
+        respondButton.layer.cornerRadius = Constant.CornerRadius.Button.respond
         
         respondButton.addTarget(self, action: #selector(respondButtonHandler), for: .touchUpInside)
 
         respondButton.snp.makeConstraints {
-            $0.top.equalTo(lineView.snp.bottom).offset(8.VAdapted)
-            $0.leading.trailing.equalTo(containerView).inset(16.HAdapted)
-            $0.height.equalTo(Constant.Height.Button.vacancyRespond.VAdapted)
+            $0.centerY.centerX.equalTo(bottomView)
+            $0.size.equalTo([Constant.Width.Button.respond, Constant.Height.Button.respond].HResized)
         }
     }
     

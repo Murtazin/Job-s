@@ -156,6 +156,7 @@ final class MainCoordinator: IMainCoordinator {
             responsesCoordinator.finishDelegate = self
             responsesCoordinator.start { viewController in
                 navigationController.pushViewController(viewController, animated: true)
+                navigationController.navigationBar.prefersLargeTitles = true
             }
             childCoordinators.append(responsesCoordinator)
         case .messages:
