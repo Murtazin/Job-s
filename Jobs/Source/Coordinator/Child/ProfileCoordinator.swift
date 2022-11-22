@@ -71,8 +71,8 @@ final class ProfileCoordinator: IProfileCoordinator {
             }
             switch event {
             case .save(let data):
-                let workExperienceView = WorkExperienceView(model: data)
-                rootViewController.updateInfoViews(view: workExperienceView)
+//                let workExperienceView = WorkExperienceView(model: data)
+//                rootViewController.updateInfoViews(view: workExperienceView)
                 self.navigationController.popToViewController(rootViewController, animated: true)
             case .fillAllFields:
                 self.presentFillAllFieldsAlert()

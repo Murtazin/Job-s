@@ -9,6 +9,26 @@ import UIKit
 
 struct Constant {
     
+    struct TagListViewPadding {
+        
+        static let paddingX: Int = 30
+        static let paddingY = 8
+        
+    }
+    
+    struct TagListViewMargin {
+        
+        static let marginX: Int = 12
+        static let marginY = 12
+        
+    }
+    
+    struct NumberOfRowsInSection {
+        
+        static let keySkillsInfo: Int = 1
+        
+    }
+    
     struct CollectionViewItemSize {
         
         static let searchFilters: CGSize = [150, 30].HResized
@@ -21,6 +41,12 @@ struct Constant {
         
     }
     
+    struct TableSectionHeaderHeight {
+        
+        static let profileMain: Int = 70
+        
+    }
+    
     struct TableSectionFooterHeight {
         
         static let searchFilters: Int = 30
@@ -30,6 +56,7 @@ struct Constant {
     struct TableHeaderViewHeight {
         
         static let searchFilters: Int = 50
+        static let profileMain: Int = 100
         
     }
     
@@ -44,6 +71,12 @@ struct Constant {
         static let searchVacancies: Int = 232
         static let searchFilters: Int = 50
         static let responsesMain: Int = 160
+        static let messagesMain: Int = 85
+        static let workExperienceInfo: Int = 126
+        static let educationInfo: Int = 126
+        static let expectedSalaryInfo: Int = 71
+        static let contactInfo: Int = 136
+        static let languageProficiencyInfo: Int = 96
         
     }
     
@@ -51,6 +84,8 @@ struct Constant {
         
         static let vacanciesForYou = "Вакансии для вас"
         static let responsesMain = "Отклики"
+        static let messages = "Сообщения"
+        static let profile = "Профиль"
         
     }
     
@@ -58,6 +93,7 @@ struct Constant {
         
         static let filterBookmark = "slider.horizontal.3"
         static let addToFavourites = "heart"
+        static let editInfo = "pencil"
         
     }
     
@@ -133,6 +169,10 @@ struct Constant {
             
             static let vacancyContainer: CGFloat = 16
             static let responseStatus: CGFloat = 8
+            static let infoView: CGFloat = 15
+            static let infoSectionHeaderView: CGFloat = 15
+            static let tag: CGFloat = 12
+            static let tagList: CGFloat = 16
             
         }
         
@@ -162,6 +202,10 @@ struct Constant {
             
             static let vacancyContainer: CGFloat = 1.0
             static let responseStatus: CGFloat = 1.0
+            static let infoView: CGFloat = 1.0
+            static let infoSectionHeaderView: CGFloat = 1.0
+            static let tag: CGFloat = 1.0
+            static let tagList: CGFloat = 2.0
             
         }
         
@@ -196,6 +240,10 @@ struct Constant {
             static let profileTabBarItemImage = UIImage(systemName: "person.crop.circle")
             static let closeBarButtonImage = UIImage(systemName: "xmark")
             static let editProfileImage = UIImage(systemName: "pencil")
+            static let profileMainSettings = UIImage(systemName: "gearshape")
+            static let locationIcon = UIImage(systemName: "mappin.and.ellipse")
+            static let phoneNumberIcon = UIImage(systemName: "phone")
+            static let mailAddressIcon = UIImage(systemName: "envelope")
             
         }
         
@@ -231,6 +279,17 @@ struct Constant {
         struct ImageView {
             
             static let logo: Int = 100
+            static let institutionLogo: Int = 50
+            static let companyLogo: Int = 50
+            static let profile: Int = 70
+            static let contactInfoIcon: Int = 20
+            static let countryFlag: Int = 50
+            
+        }
+
+        struct Shared {
+            
+            static let screen = UIScreen.main.bounds.width
             
         }
         
@@ -269,6 +328,11 @@ struct Constant {
         struct ImageView {
             
             static let logo: Int = 100
+            static let institutionLogo: Int = 50
+            static let companyLogo: Int = 50
+            static let profile: Int = 70
+            static let contactInfoIcon: Int = 20
+            static let countryFlag: Int = 50
             
         }
         

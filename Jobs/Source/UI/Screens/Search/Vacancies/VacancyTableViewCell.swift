@@ -9,8 +9,6 @@ import UIKit
 
 final class VacancyTableViewCell: UITableViewCell {
     
-    static let reuseIdentifier = "VacancyTableViewCell"
-    
     // MARK: - UI
     
     private lazy var containerView: UIView = {
@@ -30,14 +28,14 @@ final class VacancyTableViewCell: UITableViewCell {
     private lazy var positionTitleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .label
-        label.font = .systemFont(ofSize: 16, weight: .semibold)
+        label.font = .systemFont(ofSize: 16, weight: .bold)
         return label
     }()
     
     private lazy var companyTitleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .label
-        label.font = .systemFont(ofSize: 14, weight: .regular)
+        label.font = .systemFont(ofSize: 14, weight: .thin)
         return label
     }()
     
@@ -67,7 +65,7 @@ final class VacancyTableViewCell: UITableViewCell {
     private lazy var cityTitleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .label
-        label.font = .systemFont(ofSize: 18, weight: .semibold)
+        label.font = .systemFont(ofSize: 18, weight: .light)
         label.sizeToFit()
         return label
     }()
@@ -75,14 +73,14 @@ final class VacancyTableViewCell: UITableViewCell {
     private lazy var salaryLabel: UILabel = {
         let label = UILabel()
         label.textColor = .systemBlue
-        label.font = .systemFont(ofSize: 16, weight: .regular)
+        label.font = .systemFont(ofSize: 16, weight: .light)
         label.sizeToFit()
         return label
     }()
     
     private lazy var respondButton: BlueRoundedButton = {
         let button = BlueRoundedButton(title: Constant.ButtonTitle.respond)
-        button.titleLabel?.font = .systemFont(ofSize: 14, weight: .medium)
+        button.titleLabel?.font = .systemFont(ofSize: 14, weight: .heavy)
         return button
     }()
     

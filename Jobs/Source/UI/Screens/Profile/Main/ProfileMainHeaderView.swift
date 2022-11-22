@@ -19,7 +19,7 @@ final class ProfileMainHeaderView: UIView {
     
     private lazy var profileImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = #imageLiteral(resourceName: "logo-icon")
+        imageView.image = Constant.Image.Internal.logo
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
@@ -28,24 +28,31 @@ final class ProfileMainHeaderView: UIView {
         let label = UILabel()
         label.text = "Муртазин Ренат"
         label.textColor = .label
-        label.font = .systemFont(ofSize: 18, weight: .medium)
+        label.font = .systemFont(ofSize: 18, weight: .bold)
         return label
     }()
     
     private lazy var positionLabel: UILabel = {
         let label = UILabel()
-        label.text = "iOS dev"
-        label.textColor = .label
-        label.font = .systemFont(ofSize: 16, weight: .regular)
+        label.text = "iOS developer"
+        label.textColor = .systemGray
+        label.font = .systemFont(ofSize: 16, weight: .light)
         return label
     }()
     
     private lazy var editProfileButton: UIButton = {
         let button = UIButton()
-        let configuration = UIImage.SymbolConfiguration(pointSize: 22)
-        let image = UIImage(systemName: "pencil", withConfiguration: configuration)
+        let configuration = Constant.SymbolConfiguration.pointSize22
+        let imageName = Constant.SystemImageName.editInfo
+        let image = UIImage(systemName: imageName, withConfiguration: configuration)
         button.setImage(image, for: .normal)
         return button
+    }()
+    
+    private lazy var lineView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .systemGray5
+        return view
     }()
     
     // MARK: - Initializers
@@ -72,11 +79,12 @@ private extension ProfileMainHeaderView {
         addSubview(fullNameLabel)
         addSubview(positionLabel)
         addSubview(editProfileButton)
+        addSubview(lineView)
         
         profileImageView.snp.makeConstraints {
-            $0.centerY.equalToSuperview()
-            $0.size.equalTo([70, 70].HResized)
             $0.leading.equalToSuperview().inset(16.HAdapted)
+            $0.centerY.equalToSuperview()
+            $0.size.equalTo([Constant.Width.ImageView.profile, Constant.Height.ImageView.profile].HResized)
         }
         
         fullNameLabel.snp.makeConstraints {
@@ -94,6 +102,14 @@ private extension ProfileMainHeaderView {
         editProfileButton.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.trailing.equalToSuperview().inset(16.HAdapted)
+        }
+        
+        let lineViewWidth: CGFloat = Constant.Width.Shared.screen
+
+        lineView.snp.makeConstraints {
+            $0.bottom.equalToSuperview()
+            $0.centerX.equalToSuperview()
+            $0.size.equalTo([Int(lineViewWidth), Constant.Height.View.line].HResized)
         }
     }
     

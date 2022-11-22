@@ -39,7 +39,7 @@ private extension BlueRoundedButton {
         
         backgroundColor = .systemBlue
         
-        titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .heavy)
         
         layer.cornerRadius = Constant.CornerRadius.Button.blueRounded
         

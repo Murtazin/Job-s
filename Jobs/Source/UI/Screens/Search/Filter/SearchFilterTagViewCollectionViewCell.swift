@@ -9,8 +9,6 @@ import UIKit
 
 final class SearchFilterTagViewCollectionViewCell: UICollectionViewCell {
     
-    static let reuseIdentifier = "SearchFilterTagViewCollectionViewCell"
-    
     // MARK: - UI
     
     private var tagView: TagView?

@@ -26,7 +26,7 @@ final class AuthForgotPasswordViewController: UIViewController {
         let label = UILabel()
         label.text = Constant.LabelText.accessRecovery
         label.textColor = .label
-        label.font = UIFont.systemFont(ofSize: 26, weight: .semibold)
+        label.font = UIFont.systemFont(ofSize: 26, weight: .light)
         return label
     }()
     
@@ -35,7 +35,7 @@ final class AuthForgotPasswordViewController: UIViewController {
         label.text = Constant.LabelText.enterEmailAddress
         label.textColor = .label
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 14, weight: .light)
+        label.font = UIFont.systemFont(ofSize: 14, weight: .thin)
         label.numberOfLines = 2
         return label
     }()

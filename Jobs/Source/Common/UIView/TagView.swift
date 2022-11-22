@@ -37,10 +37,12 @@ private extension TagView {
         setTitle(title, for: .normal)
         setTitleColor(.label, for: .normal)
         
+        titleLabel?.font = .systemFont(ofSize: 14, weight: .light)
+        
         backgroundColor = .systemBackground
         
-        layer.cornerRadius = 15
-        layer.borderWidth = 1.0
+        layer.cornerRadius = Constant.CornerRadius.View.tag
+        layer.borderWidth = Constant.BorderWidth.View.tag
         layer.borderColor = UIColor.systemGray5.cgColor
         
         contentEdgeInsets = .init(top: 4.VAdapted, left: 16.HAdapted, bottom: 4.VAdapted, right: 16.HAdapted)

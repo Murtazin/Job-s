@@ -9,8 +9,6 @@ import UIKit
 
 final class ChatTableViewCell: UITableViewCell {
     
-    static let reuseIdentifier = "ChatTableViewCell"
-    
     // MARK: - UI
     
     private lazy var companyLogoImageView: UIImageView = {
@@ -19,17 +17,17 @@ final class ChatTableViewCell: UITableViewCell {
         return imageView
     }()
     
-    private lazy var positionLabel: UILabel = {
+    private lazy var positionTitleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .label
-        label.font = .systemFont(ofSize: 18, weight: .medium)
+        label.font = .systemFont(ofSize: 18, weight: .bold)
         return label
     }()
     
     private lazy var companyTitleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .label
-        label.font = .systemFont(ofSize: 14, weight: .light)
+        label.font = .systemFont(ofSize: 14, weight: .thin)
         return label
     }()
     
@@ -61,12 +59,12 @@ final class ChatTableViewCell: UITableViewCell {
     
     // MARK: - Internal
     
-    func configure(model: Chat) {
-        companyLogoImageView.image = model.companyLogo
-        companyTitleLabel.text = model.companyTitle
-        positionLabel.text = model.position
-        statusLabel.text = model.status
-        lastMessageDateLabel.text = model.lastMessageDate
+    func configure(chat: ChatModel) {
+        companyLogoImageView.image = chat.companyLogo
+        companyTitleLabel.text = chat.companyTitle
+        positionTitleLabel.text = chat.positionTitle
+        statusLabel.text = chat.status
+        lastMessageDateLabel.text = chat.lastMessageDate
     }
 }
 
@@ -78,26 +76,28 @@ private extension ChatTableViewCell {
         backgroundColor = .systemBackground
         
         contentView.addSubview(companyLogoImageView)
-        contentView.addSubview(positionLabel)
+        contentView.addSubview(positionTitleLabel)
         contentView.addSubview(companyTitleLabel)
         contentView.addSubview(statusLabel)
         contentView.addSubview(lastMessageDateLabel)
         
         companyLogoImageView.layer.cornerRadius = frame.width / 2
         
+        let companyLogoImageViewWidthHeight: Int = 55
+        
         companyLogoImageView.snp.makeConstraints {
-            $0.centerY.equalTo(contentView)
-            $0.size.equalTo([55, 55].HResized)
             $0.leading.equalTo(contentView).inset(16.HAdapted)
+            $0.centerY.equalTo(contentView)
+            $0.size.equalTo([companyLogoImageViewWidthHeight, companyLogoImageViewWidthHeight].HResized)
         }
         
-        positionLabel.snp.makeConstraints {
+        positionTitleLabel.snp.makeConstraints {
             $0.top.equalTo(companyLogoImageView)
             $0.leading.equalTo(companyLogoImageView.snp.trailing).offset(16.HAdapted)
         }
         
         companyTitleLabel.snp.makeConstraints {
-            $0.top.equalTo(positionLabel.snp.bottom).offset(4.VAdapted)
+            $0.top.equalTo(positionTitleLabel.snp.bottom).offset(4.VAdapted)
             $0.leading.equalTo(companyLogoImageView.snp.trailing).offset(16.HAdapted)
         }
 

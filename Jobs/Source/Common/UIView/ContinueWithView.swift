@@ -15,7 +15,7 @@ final class ContinueWithView: UIView {
         let label = UILabel()
         label.text = Constant.LabelText.continueWith
         label.textColor = .systemGray
-        label.font = .systemFont(ofSize: 15)
+        label.font = .systemFont(ofSize: 16, weight: .light)
         return label
     }()
     

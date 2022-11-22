@@ -9,8 +9,6 @@ import UIKit
 
 final class ResponseTableViewCell: UITableViewCell {
     
-    static let reuseIdentifier = "ResponseTableViewCell"
-    
     // MARK: - UI
     
     private lazy var containerView: UIView = {
@@ -30,14 +28,14 @@ final class ResponseTableViewCell: UITableViewCell {
     private lazy var positionTitleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .label
-        label.font = .systemFont(ofSize: 14, weight: .semibold)
+        label.font = .systemFont(ofSize: 14, weight: .bold)
         return label
     }()
     
     private lazy var companyTitleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .label
-        label.font = .systemFont(ofSize: 14, weight: .regular)
+        label.font = .systemFont(ofSize: 14, weight: .thin)
         return label
     }()
     
@@ -57,7 +55,7 @@ final class ResponseTableViewCell: UITableViewCell {
     
     private lazy var respondButton: BlueRoundedButton = {
         let button = BlueRoundedButton(title: Constant.ButtonTitle.respond)
-        button.titleLabel?.font = .systemFont(ofSize: 14, weight: .medium)
+        button.titleLabel?.font = .systemFont(ofSize: 14, weight: .heavy)
         return button
     }()
     

@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		993114BDE4795BCE46B9BDA6 /* Pods_Jobs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 783B0B705607F35E4BA28AE4 /* Pods_Jobs.framework */; };
 		A200F973291E9B5000A44826 /* VacancyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A200F972291E9B5000A44826 /* VacancyModel.swift */; };
+		A2022BEB292222D200DC40F2 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2022BEA292222D200DC40F2 /* ChatModel.swift */; };
 		A20427B9290D4FEE0050AB56 /* SearchFilterTextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20427B8290D4FEE0050AB56 /* SearchFilterTextFieldTableViewCell.swift */; };
+		A21CBD9829243F420086A2EF /* ProfileMainInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21CBD9729243F420086A2EF /* ProfileMainInfoModel.swift */; };
 		A231D3012921914A00555F1A /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A231D3002921914A00555F1A /* ResponseModel.swift */; };
 		A231D3032921947F00555F1A /* ResponseStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A231D3022921947F00555F1A /* ResponseStatusView.swift */; };
 		A2467E212910605600AE9F98 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2467E202910605600AE9F98 /* ChatTableViewCell.swift */; };
@@ -30,6 +32,7 @@
 		A27367D62902FAA800F62F29 /* BlueRoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27367D52902FAA800F62F29 /* BlueRoundedButton.swift */; };
 		A27367D82903005800F62F29 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27367D72903005800F62F29 /* Constant.swift */; };
 		A279E104290D3ABA00236776 /* SearchFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A279E103290D3ABA00236776 /* SearchFilterViewController.swift */; };
+		A27EFBDD292D312600CE6935 /* ProfileLanguageProficiencyInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27EFBDC292D312600CE6935 /* ProfileLanguageProficiencyInfoTableViewCell.swift */; };
 		A28E6425290438DE007E429F /* ResponsesMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28E6424290438DE007E429F /* ResponsesMainViewController.swift */; };
 		A28E6427290438E6007E429F /* MessagesMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28E6426290438E6007E429F /* MessagesMainViewController.swift */; };
 		A28E6429290438ED007E429F /* ProfileMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28E6428290438ED007E429F /* ProfileMainViewController.swift */; };
@@ -39,15 +42,22 @@
 		A28E643129055A00007E429F /* ContinueWithView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28E643029055A00007E429F /* ContinueWithView.swift */; };
 		A29895672920E2DF00C6A7DC /* FilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29895662920E2DF00C6A7DC /* FilterModel.swift */; };
 		A29A98B22905A45A0069C682 /* AdaptiveLayoutHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29A98B12905A45A0069C682 /* AdaptiveLayoutHelper.swift */; };
-		A29A98B42905A4BD0069C682 /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29A98B32905A4BD0069C682 /* IntExtension.swift */; };
-		A29A98B62905A4D90069C682 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29A98B52905A4D90069C682 /* ArrayExtension.swift */; };
+		A29A98B42905A4BD0069C682 /* Int+VAdapted+HAdapted.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29A98B32905A4BD0069C682 /* Int+VAdapted+HAdapted.swift */; };
+		A29A98B62905A4D90069C682 /* Array+VResized+HResized.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29A98B52905A4D90069C682 /* Array+VResized+HResized.swift */; };
 		A29A98B92905A5110069C682 /* Dimension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29A98B82905A5110069C682 /* Dimension.swift */; };
 		A29A98BB2905A5600069C682 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29A98BA2905A5600069C682 /* Device.swift */; };
+		A2A56E76292A4B1E005010C0 /* ProfileContactInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A56E75292A4B1E005010C0 /* ProfileContactInfoTableViewCell.swift */; };
+		A2A56E78292A5709005010C0 /* ProfileExpectedSalaryInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A56E77292A5709005010C0 /* ProfileExpectedSalaryInfoTableViewCell.swift */; };
+		A2A56E7A292A984C005010C0 /* UIView+ReuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A56E79292A984C005010C0 /* UIView+ReuseIdentifier.swift */; };
+		A2A56E7C292A98E2005010C0 /* UITableView+DequeueReusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A56E7B292A98E2005010C0 /* UITableView+DequeueReusable.swift */; };
 		A2AAD53329154E950008D729 /* SearchFilterTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AAD53229154E950008D729 /* SearchFilterTableHeaderView.swift */; };
 		A2AAD535291557D10008D729 /* ResponseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AAD534291557D10008D729 /* ResponseTableViewCell.swift */; };
+		A2B59074292B6CE700E58088 /* ProfileWorkExperienceInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B59073292B6CE700E58088 /* ProfileWorkExperienceInfoTableViewCell.swift */; };
+		A2B59077292B6E5E00E58088 /* ProfileEducationInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B59076292B6E5E00E58088 /* ProfileEducationInfoTableViewCell.swift */; };
+		A2B59079292B994800E58088 /* ProfileKeySkillsInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B59078292B994800E58088 /* ProfileKeySkillsInfoTableViewCell.swift */; };
 		A2C06A0229118AF800DC8E5D /* ProfileMainHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C06A0129118AF800DC8E5D /* ProfileMainHeaderView.swift */; };
-		A2C20FE3291A79A70045FB54 /* WorkExperienceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C20FE2291A79A70045FB54 /* WorkExperienceView.swift */; };
 		A2D74E7529191C0400EBBFF2 /* ProfileMainTableSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D74E7429191C0400EBBFF2 /* ProfileMainTableSectionHeaderView.swift */; };
+		A2E531752927BB23009D46B2 /* LanguageProficiencyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E531742927BB23009D46B2 /* LanguageProficiencyInfoView.swift */; };
 		A2E6BBE82903DC6F002D0586 /* VacancyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E6BBE72903DC6F002D0586 /* VacancyTableViewCell.swift */; };
 		A2E6DE582902720300269339 /* AuthLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E6DE572902720300269339 /* AuthLoginViewController.swift */; };
 		A2E8ECEF290D6FAA00B3EEAC /* SearchFilterTagListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E8ECEE290D6FAA00B3EEAC /* SearchFilterTagListTableViewCell.swift */; };
@@ -65,7 +75,9 @@
 		67489DC3B888F0229EE9FC10 /* Pods-Jobs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jobs.release.xcconfig"; path = "Target Support Files/Pods-Jobs/Pods-Jobs.release.xcconfig"; sourceTree = "<group>"; };
 		783B0B705607F35E4BA28AE4 /* Pods_Jobs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jobs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A200F972291E9B5000A44826 /* VacancyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyModel.swift; sourceTree = "<group>"; };
+		A2022BEA292222D200DC40F2 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		A20427B8290D4FEE0050AB56 /* SearchFilterTextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterTextFieldTableViewCell.swift; sourceTree = "<group>"; };
+		A21CBD9729243F420086A2EF /* ProfileMainInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainInfoModel.swift; sourceTree = "<group>"; };
 		A231D3002921914A00555F1A /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
 		A231D3022921947F00555F1A /* ResponseStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseStatusView.swift; sourceTree = "<group>"; };
 		A2467E202910605600AE9F98 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
@@ -86,6 +98,7 @@
 		A27367D52902FAA800F62F29 /* BlueRoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueRoundedButton.swift; sourceTree = "<group>"; };
 		A27367D72903005800F62F29 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		A279E103290D3ABA00236776 /* SearchFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterViewController.swift; sourceTree = "<group>"; };
+		A27EFBDC292D312600CE6935 /* ProfileLanguageProficiencyInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileLanguageProficiencyInfoTableViewCell.swift; sourceTree = "<group>"; };
 		A28E6424290438DE007E429F /* ResponsesMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponsesMainViewController.swift; sourceTree = "<group>"; };
 		A28E6426290438E6007E429F /* MessagesMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesMainViewController.swift; sourceTree = "<group>"; };
 		A28E6428290438ED007E429F /* ProfileMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainViewController.swift; sourceTree = "<group>"; };
@@ -95,15 +108,22 @@
 		A28E643029055A00007E429F /* ContinueWithView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueWithView.swift; sourceTree = "<group>"; };
 		A29895662920E2DF00C6A7DC /* FilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterModel.swift; sourceTree = "<group>"; };
 		A29A98B12905A45A0069C682 /* AdaptiveLayoutHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveLayoutHelper.swift; sourceTree = "<group>"; };
-		A29A98B32905A4BD0069C682 /* IntExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
-		A29A98B52905A4D90069C682 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
+		A29A98B32905A4BD0069C682 /* Int+VAdapted+HAdapted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+VAdapted+HAdapted.swift"; sourceTree = "<group>"; };
+		A29A98B52905A4D90069C682 /* Array+VResized+HResized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+VResized+HResized.swift"; sourceTree = "<group>"; };
 		A29A98B82905A5110069C682 /* Dimension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimension.swift; sourceTree = "<group>"; };
 		A29A98BA2905A5600069C682 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		A2A56E75292A4B1E005010C0 /* ProfileContactInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileContactInfoTableViewCell.swift; sourceTree = "<group>"; };
+		A2A56E77292A5709005010C0 /* ProfileExpectedSalaryInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileExpectedSalaryInfoTableViewCell.swift; sourceTree = "<group>"; };
+		A2A56E79292A984C005010C0 /* UIView+ReuseIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ReuseIdentifier.swift"; sourceTree = "<group>"; };
+		A2A56E7B292A98E2005010C0 /* UITableView+DequeueReusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+DequeueReusable.swift"; sourceTree = "<group>"; };
 		A2AAD53229154E950008D729 /* SearchFilterTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterTableHeaderView.swift; sourceTree = "<group>"; };
 		A2AAD534291557D10008D729 /* ResponseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseTableViewCell.swift; sourceTree = "<group>"; };
+		A2B59073292B6CE700E58088 /* ProfileWorkExperienceInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileWorkExperienceInfoTableViewCell.swift; sourceTree = "<group>"; };
+		A2B59076292B6E5E00E58088 /* ProfileEducationInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEducationInfoTableViewCell.swift; sourceTree = "<group>"; };
+		A2B59078292B994800E58088 /* ProfileKeySkillsInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileKeySkillsInfoTableViewCell.swift; sourceTree = "<group>"; };
 		A2C06A0129118AF800DC8E5D /* ProfileMainHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainHeaderView.swift; sourceTree = "<group>"; };
-		A2C20FE2291A79A70045FB54 /* WorkExperienceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkExperienceView.swift; sourceTree = "<group>"; };
 		A2D74E7429191C0400EBBFF2 /* ProfileMainTableSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainTableSectionHeaderView.swift; sourceTree = "<group>"; };
+		A2E531742927BB23009D46B2 /* LanguageProficiencyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageProficiencyInfoView.swift; sourceTree = "<group>"; };
 		A2E6BBE72903DC6F002D0586 /* VacancyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VacancyTableViewCell.swift; sourceTree = "<group>"; };
 		A2E6DE572902720300269339 /* AuthLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthLoginViewController.swift; sourceTree = "<group>"; };
 		A2E8ECEE290D6FAA00B3EEAC /* SearchFilterTagListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterTagListTableViewCell.swift; sourceTree = "<group>"; };
@@ -155,8 +175,20 @@
 				A200F972291E9B5000A44826 /* VacancyModel.swift */,
 				A29895662920E2DF00C6A7DC /* FilterModel.swift */,
 				A231D3002921914A00555F1A /* ResponseModel.swift */,
+				A2022BEA292222D200DC40F2 /* ChatModel.swift */,
+				A21CBD9729243F420086A2EF /* ProfileMainInfoModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		A2022BE92922228F00DC40F2 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				A28E6424290438DE007E429F /* ResponsesMainViewController.swift */,
+				A2AAD534291557D10008D729 /* ResponseTableViewCell.swift */,
+				A231D3022921947F00555F1A /* ResponseStatusView.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		A2467E1F29105F0500AE9F98 /* Main */ = {
@@ -218,8 +250,10 @@
 		A249B57428FF358F00B0F0DF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				A29A98B32905A4BD0069C682 /* IntExtension.swift */,
-				A29A98B52905A4D90069C682 /* ArrayExtension.swift */,
+				A29A98B32905A4BD0069C682 /* Int+VAdapted+HAdapted.swift */,
+				A29A98B52905A4D90069C682 /* Array+VResized+HResized.swift */,
+				A2A56E79292A984C005010C0 /* UIView+ReuseIdentifier.swift */,
+				A2A56E7B292A98E2005010C0 /* UITableView+DequeueReusable.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -347,7 +381,7 @@
 				A2FDCF6129056AD000D9E911 /* AuthBottomReferenceView.swift */,
 				A2E8ECF2290D708000B3EEAC /* TagView.swift */,
 				A2AAD53229154E950008D729 /* SearchFilterTableHeaderView.swift */,
-				A2C20FE2291A79A70045FB54 /* WorkExperienceView.swift */,
+				A2E531742927BB23009D46B2 /* LanguageProficiencyInfoView.swift */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -397,13 +431,27 @@
 			path = Enums;
 			sourceTree = "<group>";
 		};
+		A2B59075292B6E3800E58088 /* UITableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				A2692C94291A7DE30099D07D /* ProfileMainInfoTableViewCell.swift */,
+				A2A56E75292A4B1E005010C0 /* ProfileContactInfoTableViewCell.swift */,
+				A2A56E77292A5709005010C0 /* ProfileExpectedSalaryInfoTableViewCell.swift */,
+				A2B59073292B6CE700E58088 /* ProfileWorkExperienceInfoTableViewCell.swift */,
+				A2B59076292B6E5E00E58088 /* ProfileEducationInfoTableViewCell.swift */,
+				A2B59078292B994800E58088 /* ProfileKeySkillsInfoTableViewCell.swift */,
+				A27EFBDC292D312600CE6935 /* ProfileLanguageProficiencyInfoTableViewCell.swift */,
+			);
+			path = UITableViewCell;
+			sourceTree = "<group>";
+		};
 		A2C06A002911778300DC8E5D /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				A2B59075292B6E3800E58088 /* UITableViewCell */,
 				A28E6428290438ED007E429F /* ProfileMainViewController.swift */,
 				A2C06A0129118AF800DC8E5D /* ProfileMainHeaderView.swift */,
 				A2D74E7429191C0400EBBFF2 /* ProfileMainTableSectionHeaderView.swift */,
-				A2692C94291A7DE30099D07D /* ProfileMainInfoTableViewCell.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -428,9 +476,7 @@
 		A2E6BBEC290433AB002D0586 /* Responses */ = {
 			isa = PBXGroup;
 			children = (
-				A28E6424290438DE007E429F /* ResponsesMainViewController.swift */,
-				A2AAD534291557D10008D729 /* ResponseTableViewCell.swift */,
-				A231D3022921947F00555F1A /* ResponseStatusView.swift */,
+				A2022BE92922228F00DC40F2 /* Main */,
 			);
 			path = Responses;
 			sourceTree = "<group>";
@@ -617,34 +663,40 @@
 				A29A98BB2905A5600069C682 /* Device.swift in Sources */,
 				A2AAD535291557D10008D729 /* ResponseTableViewCell.swift in Sources */,
 				A24DEC3328FEED14007B1BA1 /* FavouritesViewController.swift in Sources */,
+				A27EFBDD292D312600CE6935 /* ProfileLanguageProficiencyInfoTableViewCell.swift in Sources */,
 				A2E8ECF5290DB05900B3EEAC /* SearchFilterTagViewCollectionViewCell.swift in Sources */,
 				A27367D82903005800F62F29 /* Constant.swift in Sources */,
 				A2FDCF60290560DA00D9E911 /* ExternalAuthButton.swift in Sources */,
+				A2B59074292B6CE700E58088 /* ProfileWorkExperienceInfoTableViewCell.swift in Sources */,
 				A24DEC2D28FEC698007B1BA1 /* AuthCoordinator.swift in Sources */,
 				A29895672920E2DF00C6A7DC /* FilterModel.swift in Sources */,
+				A2B59079292B994800E58088 /* ProfileKeySkillsInfoTableViewCell.swift in Sources */,
 				A28E642F290552EE007E429F /* ProfileCoordinator.swift in Sources */,
 				A27367D42902D3E200F62F29 /* GrayBorderedTextField.swift in Sources */,
 				A2D74E7529191C0400EBBFF2 /* ProfileMainTableSectionHeaderView.swift in Sources */,
+				A21CBD9829243F420086A2EF /* ProfileMainInfoModel.swift in Sources */,
 				A231D3032921947F00555F1A /* ResponseStatusView.swift in Sources */,
 				A2C06A0229118AF800DC8E5D /* ProfileMainHeaderView.swift in Sources */,
 				A249B56A28FEF43900B0F0DF /* FavouritesCoordinator.swift in Sources */,
 				A24DEC3128FEED09007B1BA1 /* SearchVacanciesViewController.swift in Sources */,
+				A2022BEB292222D200DC40F2 /* ChatModel.swift in Sources */,
 				A2692C98291A828F0099D07D /* ProfileEditWorkExperienceViewController.swift in Sources */,
 				A28E6429290438ED007E429F /* ProfileMainViewController.swift in Sources */,
 				A24DEC2F28FEC6B5007B1BA1 /* MainCoordinator.swift in Sources */,
+				A2A56E78292A5709005010C0 /* ProfileExpectedSalaryInfoTableViewCell.swift in Sources */,
 				A28E642D290552DD007E429F /* MessagesCoordinator.swift in Sources */,
 				A28E642B290552D1007E429F /* ResponsesCoordinator.swift in Sources */,
 				A2692C95291A7DE30099D07D /* ProfileMainInfoTableViewCell.swift in Sources */,
 				A249B56828FEF42B00B0F0DF /* SearchCoordinator.swift in Sources */,
 				A27367D62902FAA800F62F29 /* BlueRoundedButton.swift in Sources */,
-				A29A98B42905A4BD0069C682 /* IntExtension.swift in Sources */,
+				A29A98B42905A4BD0069C682 /* Int+VAdapted+HAdapted.swift in Sources */,
 				A29A98B92905A5110069C682 /* Dimension.swift in Sources */,
 				A2AAD53329154E950008D729 /* SearchFilterTableHeaderView.swift in Sources */,
 				A249B57E28FFE5B100B0F0DF /* AuthRegisterViewController.swift in Sources */,
 				A2E8ECF3290D708000B3EEAC /* TagView.swift in Sources */,
 				A20427B9290D4FEE0050AB56 /* SearchFilterTextFieldTableViewCell.swift in Sources */,
+				A2B59077292B6E5E00E58088 /* ProfileEducationInfoTableViewCell.swift in Sources */,
 				A24DEC2B28FEB27E007B1BA1 /* AppCoordinator.swift in Sources */,
-				A2C20FE3291A79A70045FB54 /* WorkExperienceView.swift in Sources */,
 				A27367D02902D05D00F62F29 /* AuthForgotPasswordViewController.swift in Sources */,
 				A2467E212910605600AE9F98 /* ChatTableViewCell.swift in Sources */,
 				A28E643129055A00007E429F /* ContinueWithView.swift in Sources */,
@@ -652,17 +704,21 @@
 				A2E8ECEF290D6FAA00B3EEAC /* SearchFilterTagListTableViewCell.swift in Sources */,
 				A26C200A29182A700097B124 /* ProfileEditViewController.swift in Sources */,
 				A279E104290D3ABA00236776 /* SearchFilterViewController.swift in Sources */,
+				A2A56E7C292A98E2005010C0 /* UITableView+DequeueReusable.swift in Sources */,
 				A29A98B22905A45A0069C682 /* AdaptiveLayoutHelper.swift in Sources */,
 				A28E6427290438E6007E429F /* MessagesMainViewController.swift in Sources */,
 				A2E6BBE82903DC6F002D0586 /* VacancyTableViewCell.swift in Sources */,
 				A2F94B5228FD710B0010FF47 /* AppDelegate.swift in Sources */,
 				A2F94B5428FD710B0010FF47 /* SceneDelegate.swift in Sources */,
 				A200F973291E9B5000A44826 /* VacancyModel.swift in Sources */,
-				A29A98B62905A4D90069C682 /* ArrayExtension.swift in Sources */,
+				A29A98B62905A4D90069C682 /* Array+VResized+HResized.swift in Sources */,
 				A2FDCF6229056AD000D9E911 /* AuthBottomReferenceView.swift in Sources */,
+				A2A56E7A292A984C005010C0 /* UIView+ReuseIdentifier.swift in Sources */,
 				A249B56C28FF2F4C00B0F0DF /* ICoordinator.swift in Sources */,
+				A2A56E76292A4B1E005010C0 /* ProfileContactInfoTableViewCell.swift in Sources */,
 				A231D3012921914A00555F1A /* ResponseModel.swift in Sources */,
 				A2E6DE582902720300269339 /* AuthLoginViewController.swift in Sources */,
+				A2E531752927BB23009D46B2 /* LanguageProficiencyInfoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

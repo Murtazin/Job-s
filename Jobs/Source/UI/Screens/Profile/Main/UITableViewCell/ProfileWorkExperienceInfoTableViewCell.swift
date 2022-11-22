@@ -1,13 +1,13 @@
 //
-//  WorkExperienceView.swift
+//  ProfileWorkExperienceInfoTableViewCell.swift
 //  Jobs
 //
-//  Created by Renat Murtazin on 08.11.2022.
+//  Created by Renat Murtazin on 21.11.2022.
 //
 
 import UIKit
 
-final class WorkExperienceView: UIView {
+final class ProfileWorkExperienceInfoTableViewCell: UITableViewCell {
     
     // MARK: - UI
     
@@ -26,40 +26,36 @@ final class WorkExperienceView: UIView {
     private lazy var positionTitleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .label
-        label.font = .systemFont(ofSize: 18, weight: .medium)
+        label.font = .systemFont(ofSize: 16, weight: .bold)
         return label
     }()
     
     private lazy var companyTitleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .label
+        label.font = .systemFont(ofSize: 14, weight: .thin)
         return label
     }()
     
     private lazy var experienceDurationLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .label
-        label.font = .systemFont(ofSize: 12)
+        label.textColor = .systemGray
+        label.font = .systemFont(ofSize: 14, weight: .light)
         return label
     }()
     
     private lazy var editInfoButton: UIButton = {
         let button = UIButton()
-        let configuration = UIImage.SymbolConfiguration(pointSize: 22)
-        let image = UIImage(systemName: "pencil.line", withConfiguration: configuration)
+        let configuration = Constant.SymbolConfiguration.pointSize22
+        let image = UIImage(systemName: Constant.SystemImageName.editInfo, withConfiguration: configuration)
         button.setImage(image, for: .normal)
         return button
     }()
     
     // MARK: - Initializers
-
-    init(model: WorkExperienceModel) {
-        super.init(frame: .zero)
-        
-        companyLogoImageView.image = model.companyLogoImage
-        positionTitleLabel.text = model.positionTitle
-        companyTitleLabel.text = model.companyTitle
-        experienceDurationLabel.text = model.experienceDuration
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         setupUI()
     }
@@ -70,19 +66,26 @@ final class WorkExperienceView: UIView {
     
     // MARK: - Internal
     
-    func configure() {
-        
+    func configure(workExperienceInfo: ProfileMainWorkExperienceInfoModel) {
+        companyLogoImageView.image = workExperienceInfo.companyLogo
+        positionTitleLabel.text = workExperienceInfo.position
+        companyTitleLabel.text = workExperienceInfo.companyTitle
+        experienceDurationLabel.text = workExperienceInfo.duration
     }
 }
 
 // MARK: - Private
 
-private extension WorkExperienceView {
+private extension ProfileWorkExperienceInfoTableViewCell {
     
     func setupUI() {
         backgroundColor = .systemBackground
         
-        addSubview(containerView)
+        contentView.addSubview(containerView)
+        
+        containerView.layer.cornerRadius = Constant.CornerRadius.View.infoView
+        containerView.layer.borderWidth = Constant.BorderWidth.View.infoView
+        containerView.layer.borderColor = UIColor.systemGray5.cgColor
         
         containerView.addSubview(companyLogoImageView)
         containerView.addSubview(positionTitleLabel)
@@ -90,24 +93,22 @@ private extension WorkExperienceView {
         containerView.addSubview(experienceDurationLabel)
         containerView.addSubview(editInfoButton)
         
-        containerView.layer.cornerRadius = 15
-        containerView.layer.borderColor = UIColor.systemGray6.cgColor
-        containerView.layer.borderWidth = 1.0
-        
         containerView.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(16.VAdapted)
-            $0.leading.trailing.equalToSuperview().inset(16.HAdapted)
-            $0.bottom.equalToSuperview()
+            $0.edges.equalTo(contentView).inset(16.HAdapted)
         }
         
+        companyLogoImageView.layer.cornerRadius = Constant.CornerRadius.View.infoView
+        companyLogoImageView.layer.borderWidth = Constant.BorderWidth.View.infoView
+        companyLogoImageView.layer.borderColor = UIColor.systemGray5.cgColor
+        
         companyLogoImageView.snp.makeConstraints {
-            $0.centerY.equalTo(containerView)
             $0.leading.equalTo(containerView).inset(16.HAdapted)
-            $0.size.equalTo([60, 60].HResized)
+            $0.centerY.equalTo(containerView)
+            $0.size.equalTo([Constant.Width.ImageView.companyLogo, Constant.Height.ImageView.companyLogo].HResized)
         }
         
         positionTitleLabel.snp.makeConstraints {
-            $0.top.equalTo(containerView).inset(16)
+            $0.top.equalTo(containerView).inset(16.VAdapted)
             $0.leading.equalTo(companyLogoImageView.snp.trailing).offset(16.HAdapted)
         }
         
@@ -117,13 +118,13 @@ private extension WorkExperienceView {
         }
         
         experienceDurationLabel.snp.makeConstraints {
-            $0.leading.equalTo(companyLogoImageView.snp.trailing).offset(16.HAdapted)
             $0.bottom.equalTo(containerView).inset(16.VAdapted)
+            $0.leading.equalTo(companyLogoImageView.snp.trailing).offset(16.HAdapted)
         }
         
         editInfoButton.snp.makeConstraints {
-            $0.centerY.equalTo(containerView)
             $0.trailing.equalTo(containerView).inset(16.HAdapted)
+            $0.centerY.equalTo(companyLogoImageView)
         }
     }
 }

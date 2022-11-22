@@ -138,6 +138,7 @@ extension SearchFilterViewController: UITableViewDelegate, UITableViewDataSource
             
             button.setTitle(title, for: .normal)
             button.setTitleColor(.systemBlue, for: .normal)
+            button.titleLabel?.font = .systemFont(ofSize: 18, weight: .light)
             button.sizeToFit()
             
             let cell = tableView.dequeueReusableCell(withIdentifier: Constant.ReuseIdentifier.tableViewCell, for: indexPath)
@@ -186,7 +187,7 @@ extension SearchFilterViewController: UITableViewDelegate, UITableViewDataSource
             let label = UILabel()
             label.text = filters[section].sectionFooterTitle
             label.textColor = .label
-            label.font = .systemFont(ofSize: 20, weight: .semibold)
+            label.font = .systemFont(ofSize: 18, weight: .bold)
             label.sizeToFit()
 
             let footerView = UIView()

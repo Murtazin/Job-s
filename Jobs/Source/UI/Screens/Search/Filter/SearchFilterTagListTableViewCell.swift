@@ -9,8 +9,6 @@ import UIKit
 
 final class SearchFilterTagListTableViewCell: UITableViewCell {
     
-    static let reuseIdentifier = "SearchFilterTagListTableViewCell"
-    
     // MARK: - Private properties
     
     private var options: [String]?

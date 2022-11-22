@@ -8,10 +8,10 @@
 import UIKit
 
 enum ResponseStatus: String {
-    case denied = "Вам отказано"
+    case denied = "Отказ"
     case viewed = "Просмотрено"
     case notViewed = "Не просмотрено"
-    case invited = "Вас пригласили"
+    case invited = "Приглашение"
 }
 
 struct ResponseModel {

@@ -32,7 +32,7 @@ final class AuthRegisterViewController: UIViewController {
         let label = UILabel()
         label.text = Constant.LabelText.createAccount
         label.textColor = .label
-        label.font = UIFont.systemFont(ofSize: 32, weight: .semibold)
+        label.font = UIFont.systemFont(ofSize: 32, weight: .light)
         return label
     }()
     

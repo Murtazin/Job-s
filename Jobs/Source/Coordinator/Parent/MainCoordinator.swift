@@ -172,7 +172,7 @@ final class MainCoordinator: IMainCoordinator {
             profileCoordinator.finishDelegate = self
             profileCoordinator.start { viewController in
                 navigationController.pushViewController(viewController, animated: true)
-//                navigationController.isNavigationBarHidden = true
+                navigationController.navigationBar.prefersLargeTitles = false
             }
             childCoordinators.append(profileCoordinator)
         }

@@ -14,7 +14,7 @@ final class ResponseStatusView: UIView {
     private lazy var statusLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.font = .systemFont(ofSize: 12, weight: .light)
+        label.font = .systemFont(ofSize: 10, weight: .bold)
         return label
     }()
     

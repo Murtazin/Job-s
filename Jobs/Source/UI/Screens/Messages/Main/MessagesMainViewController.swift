@@ -7,40 +7,31 @@
 
 import UIKit
 
-struct Chat {
-    let companyLogo: UIImage
-    let companyTitle: String
-    let position: String
-    let status: String
-    let lastMessageDate: String
-}
-
 final class MessagesMainViewController: UIViewController {
     
     // MARK: - Private properties
     
-    private let data: [Chat] = [
-        Chat(companyLogo: #imageLiteral(resourceName: "logo-icon"), companyTitle: "Job's", position: "iOS dev", status: "Отклик на вакансию", lastMessageDate: "18:44"),
-        Chat(companyLogo: #imageLiteral(resourceName: "logo-icon"), companyTitle: "Vk", position: "Android dev", status: "Отказ", lastMessageDate: "пн"),
-        Chat(companyLogo: #imageLiteral(resourceName: "logo-icon"), companyTitle: "Tinkoff", position: "Data analyst", status: "Вы приглашены", lastMessageDate: "27.08"),
-        Chat(companyLogo: #imageLiteral(resourceName: "logo-icon"), companyTitle: "Job's", position: "iOS dev", status: "Отклик на вакансию", lastMessageDate: "18:44"),
-        Chat(companyLogo: #imageLiteral(resourceName: "logo-icon"), companyTitle: "Vk", position: "Android dev", status: "Отказ", lastMessageDate: "пн"),
-        Chat(companyLogo: #imageLiteral(resourceName: "logo-icon"), companyTitle: "Tinkoff", position: "Data analyst", status: "Вы приглашены", lastMessageDate: "27.08"),
-        Chat(companyLogo: #imageLiteral(resourceName: "logo-icon"), companyTitle: "Job's", position: "iOS dev", status: "Отклик на вакансию", lastMessageDate: "18:44"),
-        Chat(companyLogo: #imageLiteral(resourceName: "logo-icon"), companyTitle: "Vk", position: "Android dev", status: "Отказ", lastMessageDate: "пн"),
-        Chat(companyLogo: #imageLiteral(resourceName: "logo-icon"), companyTitle: "Tinkoff", position: "Data analyst", status: "Вы приглашены", lastMessageDate: "27.08")
+    private let chats: [ChatModel] = [
+        ChatModel(companyLogo: #imageLiteral(resourceName: "logo-icon"), companyTitle: "Job's", positionTitle: "iOS dev", status: "Отклик на вакансию", lastMessageDate: "18:44"),
+        ChatModel(companyLogo: #imageLiteral(resourceName: "logo-icon"), companyTitle: "Vk", positionTitle: "Android dev", status: "Отказ", lastMessageDate: "пн"),
+        ChatModel(companyLogo: #imageLiteral(resourceName: "logo-icon"), companyTitle: "Tinkoff", positionTitle: "Data analyst", status: "Вы приглашены", lastMessageDate: "27.08"),
+        ChatModel(companyLogo: #imageLiteral(resourceName: "logo-icon"), companyTitle: "Job's", positionTitle: "iOS dev", status: "Отклик на вакансию", lastMessageDate: "18:44"),
+        ChatModel(companyLogo: #imageLiteral(resourceName: "logo-icon"), companyTitle: "Vk", positionTitle: "Android dev", status: "Отказ", lastMessageDate: "пн"),
+        ChatModel(companyLogo: #imageLiteral(resourceName: "logo-icon"), companyTitle: "Tinkoff", positionTitle: "Data analyst", status: "Вы приглашены", lastMessageDate: "27.08"),
+        ChatModel(companyLogo: #imageLiteral(resourceName: "logo-icon"), companyTitle: "Job's", positionTitle: "iOS dev", status: "Отклик на вакансию", lastMessageDate: "18:44"),
+        ChatModel(companyLogo: #imageLiteral(resourceName: "logo-icon"), companyTitle: "Vk", positionTitle: "Android dev", status: "Отказ", lastMessageDate: "пн"),
+        ChatModel(companyLogo: #imageLiteral(resourceName: "logo-icon"), companyTitle: "Tinkoff", positionTitle: "Data analyst", status: "Вы приглашены", lastMessageDate: "27.08")
     ]
     
     // MARK: - UI
     
     private lazy var chatsTableView: UITableView = {
-        let messagesTableView = UITableView()
-        messagesTableView.separatorStyle = .none
-        messagesTableView.rowHeight = 85.VAdapted
-        messagesTableView.estimatedRowHeight = 85.VAdapted
-        messagesTableView.delegate = self
-        messagesTableView.dataSource = self
-        return messagesTableView
+        let tableView = UITableView()
+        tableView.separatorStyle = .none
+        tableView.rowHeight = [0, Constant.TableViewRowHeight.messagesMain].VResized.height
+        tableView.estimatedRowHeight = [0, Constant.TableViewRowHeight.messagesMain].VResized.height
+        tableView.showsVerticalScrollIndicator = false
+        return tableView
     }()
     
     // MARK: - Life cycle
@@ -59,9 +50,12 @@ private extension MessagesMainViewController {
     func setupUI() {
         view.backgroundColor = .systemBackground
         
-        navigationItem.title = "Сообщения"
+        navigationItem.title = Constant.NavigationItemTitle.messages
         
         view.addSubview(chatsTableView)
+        
+        chatsTableView.delegate = self
+        chatsTableView.dataSource = self
         
         chatsTableView.register(ChatTableViewCell.self, forCellReuseIdentifier: ChatTableViewCell.reuseIdentifier)
         
@@ -76,15 +70,17 @@ private extension MessagesMainViewController {
 extension MessagesMainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        return chats.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: ChatTableViewCell.reuseIdentifier, for: indexPath) as? ChatTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ChatTableViewCell.reuseIdentifier,
+                                                       for: indexPath) as? ChatTableViewCell else {
             return UITableViewCell()
         }
-        let model = data[indexPath.row]
-        cell.configure(model: model)
+        let chat = chats[indexPath.row]
+        cell.configure(chat: chat)
+        cell.selectionStyle = .none
         return cell
     }
 }

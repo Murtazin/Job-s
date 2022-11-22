@@ -9,8 +9,6 @@ import UIKit
 
 final class SearchFilterTextFieldTableViewCell: UITableViewCell {
     
-    static let reuseIdentifier = "SearchFilterTextFieldTableViewCell"
-    
     // MARK: - UI
     
     private var textField: GrayBorderedTextField?
