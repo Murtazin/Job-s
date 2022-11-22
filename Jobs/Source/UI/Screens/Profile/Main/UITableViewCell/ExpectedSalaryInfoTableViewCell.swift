@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ProfileExpectedSalaryInfoTableViewCell: UITableViewCell {
+final class ExpectedSalaryInfoTableViewCell: UITableViewCell {
     
     // MARK: - UI
     
@@ -45,7 +45,7 @@ final class ProfileExpectedSalaryInfoTableViewCell: UITableViewCell {
 
 // MARK: - Private
 
-private extension ProfileExpectedSalaryInfoTableViewCell {
+private extension ExpectedSalaryInfoTableViewCell {
     
     func setupUI() {
         backgroundColor = .systemBackground

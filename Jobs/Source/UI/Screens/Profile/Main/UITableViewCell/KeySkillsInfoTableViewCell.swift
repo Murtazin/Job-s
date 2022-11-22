@@ -8,7 +8,7 @@
 import UIKit
 import TagListView
 
-final class ProfileKeySkillsInfoTableViewCell: UITableViewCell {
+final class KeySkillsInfoTableViewCell: UITableViewCell {
     
     // MARK: - UI
     
@@ -63,7 +63,7 @@ final class ProfileKeySkillsInfoTableViewCell: UITableViewCell {
 
 // MARK: - Private
 
-private extension ProfileKeySkillsInfoTableViewCell {
+private extension KeySkillsInfoTableViewCell {
     
     func setupUI() {
         backgroundColor = .systemBackground

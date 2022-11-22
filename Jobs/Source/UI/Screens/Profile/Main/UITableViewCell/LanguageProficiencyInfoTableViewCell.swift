@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ProfileLanguageProficiencyInfoTableViewCell: UITableViewCell {
+final class LanguageProficiencyInfoTableViewCell: UITableViewCell {
     
     // MARK: - UI
     
@@ -68,7 +68,7 @@ final class ProfileLanguageProficiencyInfoTableViewCell: UITableViewCell {
 
 // MARK: - Private
 
-private extension ProfileLanguageProficiencyInfoTableViewCell {
+private extension LanguageProficiencyInfoTableViewCell {
     
     func setupUI() {
         backgroundColor = .systemBackground

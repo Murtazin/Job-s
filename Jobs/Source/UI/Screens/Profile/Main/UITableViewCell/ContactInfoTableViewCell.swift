@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ProfileContactInfoTableViewCell: UITableViewCell {
+final class ContactInfoTableViewCell: UITableViewCell {
     
     // MARK: - UI
     
@@ -82,7 +82,7 @@ final class ProfileContactInfoTableViewCell: UITableViewCell {
 
 // MARK: - Private
 
-private extension ProfileContactInfoTableViewCell {
+private extension ContactInfoTableViewCell {
     
     func setupUI() {
         backgroundColor = .systemBackground
